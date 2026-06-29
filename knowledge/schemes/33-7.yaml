@@ -1,0 +1,56 @@
+schema_version: dcpr-knowledge-model/v1
+package_metadata:
+  package_id: dcpr:package:33-7
+  status: DRAFT
+  instrument_id: dcpr:instrument:2034
+entities:
+- id: dcpr:scheme:33-7
+  type: SCHEME
+  citation: 33(7)
+  normalized_citation: regulation:33:subregulation:7
+  title: Redevelopment of Cess Buildings under 33(7)
+  semantic_links:
+    reference_ids:
+    - ref:33-7-dep-52
+facts:
+- id: dcpr:33-7:min-area
+  concept_type_id: concept:gross-cluster-area
+  value: '1000'
+formulae:
+- id: dcpr:33-7:applicable-fsi
+  formula_type: RATIO
+  expression:
+    op: MAX
+    args:
+    - kind: LITERAL
+      value: '3.0'
+  output_id: applicable_fsi
+tables: []
+conditions:
+- id: dcpr:33-7:area-check
+  phase: APPLICABILITY
+  expression:
+    op: GTE
+    args:
+    - kind: INPUT
+      id: gross_cluster_area
+    - kind: FACT
+      id: dcpr:33-7:min-area
+inputs:
+- id: input:gross_cluster_area
+  name: gross_cluster_area
+  concept_type_id: concept:gross-cluster-area
+  value_type: QUANTITY
+outputs:
+- id: output:applicable_fsi
+  name: applicable_fsi
+  concept_type_id: concept:applicable-fsi
+  value_type: DECIMAL
+references:
+- id: ref:33-7-dep-52
+  from_entity_id: dcpr:scheme:33-7
+  mention_text: depends on Regulation 52
+  normalized_target_citation: regulation:52
+  target_entity_id: dcpr:regulation:52
+  reference_type: DEPENDS_ON
+  resolution_status: RESOLVED

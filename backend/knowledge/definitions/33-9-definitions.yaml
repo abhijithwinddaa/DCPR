@@ -1,0 +1,1083 @@
+schema_version: dcpr-knowledge-model/v1
+definitions:
+- id: def:33-9:public-street-and
+  owner_entity_id: dcpr:scheme:33-9
+  term: Public Street and
+  normalized_term: public street and
+  definition_text: "of Access (1) Every site to have Access Encroachment (2) High\
+    \ Rise and Special Buildings free of DCPR-2034 41 41 42 43 43 44 44 44 45 46 48\
+    \ 52 53 84 85 95 96 96 lopment Control and Pr%noion Regulation-2034 Draft Development\
+    \ Aan 2034 Municipal Corporation of Greater Mumbai INDEX 20 21 22 23 24 25 26\
+    \ 27 28 29 (3) Other Buildings (4) Plots / Buildings abutting or Means of Access\
+    \ Alignment & Intersection of Roads Highway and Wider Roads Access to land-locked\
+    \ plot Internal means of access fronting a (I) Minimum road width vis-\xE4-vis\
+    \ the area served (2) Access for residential, commercial and industrial zones\
+    \ (3) Larger width of Means of Access (4) Access in Partially Built Up Plots Minimum\
+    \ Width of Pathways Means of Access to be Constructed & Maintained (1) General\
+    \ (2) Private Street (3) How to measure the length of Access-ways Layout/ Amalgamation/\
+    \ Subdivision of Plots (1) Circumstances warranting preparation of a layout /\
+    \ su b-division / amalgamation (2) Contents (3) Minimum plot areas Layout/ Plot\
+    \ Recreational Ground/ Open Spaces (LOS) in Layout/ Plot (1) LOS in residential\
+    \ and commercial layout (2) LOS in industrial plots/ layout of industrial plots\
+    \ Substation (A) Electrical Consumer Substation (CSS)/ Distribution Substation\
+    \ (DSS) (B)Requirements of plot area for Distribution Substation/ Receiving Substation/\
+    \ Extra High Voltage Receiving Station (DSS/RSS/EHVRS)"
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:of-any-required
+  owner_entity_id: dcpr:scheme:33-9
+  term: of any required
+  normalized_term: of any required
+  definition_text: of ingress or egress, or change to fixtures or equipment, as provided
+    in these Regulations
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:with-adequate
+  owner_entity_id: dcpr:scheme:33-9
+  term: with adequate
+  normalized_term: with adequate
+  definition_text: of egress, (iv) constitutes a fire hazard, (v) is dangerous to
+    human life, (vi) in relation to its existing use, constitutes a hazard to safety
+    or health or public welfare by reasons of inadequate maintenance, dilapidation
+    or abandonment
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:a-construction-by
+  owner_entity_id: dcpr:scheme:33-9
+  term: a construction by
+  normalized_term: a construction by
+  definition_text: of which a flue is formed for the purpose of carrying products
+    of combustion to the open air and includes a chimney stack and the flue pipe
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:commissioner
+  owner_entity_id: dcpr:scheme:33-9
+  term: Commissioner
+  normalized_term: commissioner
+  definition_text: Municipal Commissioner of Greater Mumbai or any other officer designated
+    by him
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:with-internal
+  owner_entity_id: dcpr:scheme:33-9
+  term: with internal
+  normalized_term: with internal
+  definition_text: of access
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:hardship
+  owner_entity_id: dcpr:scheme:33-9
+  term: hardship
+  normalized_term: hardship
+  definition_text: plot under (37) (38) (39) (40) (41) development/ redevelopment
+    affected due to Nalla, Nallah/river buffer, road widening, height restriction
+    due to statutory restriction as per these Regulations such as railway buffer,
+    height restrictions in the vicinity of Airport, height restriction in the vicinity
+    of defence establishments, and/or any other restrictions as per the provisions
+    of these Regulations affecting the project, odd shape plot, rehabilitation of
+    existing tenants/ occupants on small size plot/ s etc
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:a-passage-channel-or
+  owner_entity_id: dcpr:scheme:33-9
+  term: a passage channel or
+  normalized_term: a passage channel or
+  definition_text: 'of egress from any building, storey or floor area to a street
+    or other open space of safety; horizontal, outside and vertical exits having meanings
+    at (i), (ii) and (iii) respectively as under: "Horizontal exit" means an exit
+    which is a protected opening through or around a fire wall or a bridge connecting
+    two or more buildings'
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:building-and-also
+  owner_entity_id: dcpr:scheme:33-9
+  term: building and also
+  normalized_term: building and also
+  definition_text: a wall abutting on an interior open space of any building
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:a-plot-abutting-the
+  owner_entity_id: dcpr:scheme:33-9
+  term: a plot abutting the
+  normalized_term: a plot abutting the
+  definition_text: of access/ road/ street and the building line
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:facing-two-or-more
+  owner_entity_id: dcpr:scheme:33-9
+  term: facing two or more
+  normalized_term: facing two or more
+  definition_text: of accesses/ roads/ streets shall be deemed to front on all such
+    means of accesses/ roads/ streets
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:with-a-pitched-roof
+  owner_entity_id: dcpr:scheme:33-9
+  term: with a pitched roof
+  normalized_term: with a pitched roof
+  definition_text: the average height between the finished floor surface and the bottom
+    of the eaves and the bottom of the ridge
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:establishment
+  owner_entity_id: dcpr:scheme:33-9
+  term: Establishment
+  normalized_term: establishment
+  definition_text: an establishment which is in the business of developing either
+    software or hardware or providing IT Enabled services
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:direction-by
+  owner_entity_id: dcpr:scheme:33-9
+  term: direction by
+  normalized_term: direction by
+  definition_text: of guided car or platform etc
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:by-mechanical
+  owner_entity_id: dcpr:scheme:33-9
+  term: by mechanical
+  normalized_term: by mechanical
+  definition_text: sufficient in size to park vehicles
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:the
+  owner_entity_id: dcpr:scheme:33-9
+  term: The
+  normalized_term: the
+  definition_text: of access from the street to the building, and to all other buildings
+    (if any) which the applicant intends to erect upon his contiguous land referred
+    to in (iv)(a) above; g) The space to be left around the building to secure free
+    circulation of air, admission of light and access for service purposes; h) The
+    width of the street (if any) in front and of the street (if any) at the side or
+    near the building; i) The direction of the north line relative to the plan of
+    the building; j) Any existing physical features, such as wells, tanks, drains
+    or trees; k) The ground area of the whole property and the back-up of the covered
+    area on each floor with the calculations; l) Overhead electric supply lines including
+    space for electrical transformer sub-station according to the requirements of
+    the electric distribution licensees, water supply and drainage line
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:the
+  owner_entity_id: dcpr:scheme:33-9
+  term: the
+  normalized_term: the
+  definition_text: of access to the sub- division from existing streets and in addition,
+    in the case of plots which are sub-divided in built up area, the means of access
+    to each sub-plot from existing streets
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:public-street-and
+  owner_entity_id: dcpr:scheme:33-9
+  term: Public Street and
+  normalized_term: public street and
+  definition_text: 'of Access (1) Every site to have access free of encroachment:
+    Every site proposed to be developed or redeveloped shall have access from a public
+    street/ road as required in these Regulations'
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:or-fronting-a
+  owner_entity_id: dcpr:scheme:33-9
+  term: or fronting a
+  normalized_term: or fronting a
+  definition_text: 'of Access: 20'
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:fronts-a
+  owner_entity_id: dcpr:scheme:33-9
+  term: fronts a
+  normalized_term: fronts a
+  definition_text: of access; the width of the access shall be as specified in Regulation
+    No 23
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:internat
+  owner_entity_id: dcpr:scheme:33-9
+  term: Internat
+  normalized_term: internat
+  definition_text: "of access (I)Minimum road width vis-\xE5-vis the area served-\
+    \ Plots which do not abut on a street shall abut/ front on a means of access,\
+    \ the width and other requirements of which shall be as given in Table No 7 hereunder\
+    \ for residential and commercial zones and as given in Table N08 hereunder for\
+    \ an industrial zone"
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:width-of
+  owner_entity_id: dcpr:scheme:33-9
+  term: Width of
+  normalized_term: width of
+  definition_text: of access in meter (m) 9
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:larger-width-of
+  owner_entity_id: dcpr:scheme:33-9
+  term: Larger width of
+  normalized_term: larger width of
+  definition_text: of Access- In the interest of the general development of any area,
+    the Commissioner may require the means of access to be of larger width than that
+    required under these Regulations
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:internal
+  owner_entity_id: dcpr:scheme:33-9
+  term: internal
+  normalized_term: internal
+  definition_text: of access shall be through a paved pathway of width specified in
+    Table 9 here-under, the length of pathway being determined by the distance from
+    the farthest plot or building to the internal road proposed under Regulation No
+    23 or to an existing road from which it takes off
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:street-or-other
+  owner_entity_id: dcpr:scheme:33-9
+  term: street or other
+  normalized_term: street or other
+  definition_text: of access is not constructed or maintained as specified in sub-regulation
+    (1) above, or if structures or fixtures arise thereon in contravention of that
+    Development Control andPromotionRegulation-2034 Development Plan 2034 Municipal
+    Corporation of Greater Mumbai 101 DCPR-2034 PART - REQUIREMENT OF SITE AND LAYOUT
+    sub-rule, the Commissioner may, by written notice, direct the owner or owners
+    of the several premises fronting or adjoining the said street or other means of
+    access or abutting thereon or to which access is obtained through such street
+    or other means of access or which shall benefit by works executed, to carry out
+    any or all of the aforesaid requirements in such manner and within such time as
+    he shall direct
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:the-length-of-main
+  owner_entity_id: dcpr:scheme:33-9
+  term: The length of main
+  normalized_term: the length of main
+  definition_text: of access shall be determined by the distance from the farthest
+    plot or building plot and the main street
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:have-an-independent
+  owner_entity_id: dcpr:scheme:33-9
+  term: have an independent
+  normalized_term: have an independent
+  definition_text: of access, unless it is approachable directly from every building
+    in the layout
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:shall-have-proper
+  owner_entity_id: dcpr:scheme:33-9
+  term: shall have proper
+  normalized_term: shall have proper
+  definition_text: of access and shall be so located that it can be conveniently utilised
+    by the persons working in the industry; such LOS shall be kept permanently open
+    to sky and accessible to all the owners and occupants and trees shall be grown
+    therein at the rate of 5 trees for every 100 sq
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:or-by-any
+  owner_entity_id: dcpr:scheme:33-9
+  term: or by any
+  normalized_term: or by any
+  definition_text: has already been granted to the owner
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:under-redevelopment
+  owner_entity_id: dcpr:scheme:33-9
+  term: under redevelopment
+  normalized_term: under redevelopment
+  definition_text: the land demarcated by MHADA for redevelopment
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:the
+  owner_entity_id: dcpr:scheme:33-9
+  term: The
+  normalized_term: the
+  definition_text: of access shall be normally governed by the provisions of Regulation
+    No
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:of-bdd-chawls
+  owner_entity_id: dcpr:scheme:33-9
+  term: of BDD Chawls
+  normalized_term: of bdd chawls
+  definition_text: a scheme for redevelopment of the cluster of buildings and structures
+    constructed by Bombay Development Division in the Island City of Mumbai, at four
+    locations and boundaries of the area as shown in DPhereinafter referred to as
+    " Urban Renewal Cluster or URC " shall be a cluster identified for urban renewal
+    :-- 1) Under the Development Plan (DP) , where the DP contains such well-defined
+    Clusters; or 2) Under the Urban Renewal Plan (URP) for the concerned area, prepared
+    and notified by the Officer appointed by the Planning Authority, who may revise
+    the same as and when required; or 3) By Planning Authority, where such clusters
+    of BDD Chawls are not shown on the DP and the URP is yet to be prepared
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:dwelling-structures
+  owner_entity_id: dcpr:scheme:33-9
+  term: Dwelling Structures
+  normalized_term: dwelling structures
+  definition_text: all dwelling structures, as defined in Section 3 X of Maharashtra
+    Slums Area (Improvement, Clearance and Redevelopment) Act, 1971, existing prior
+    1-1-2000
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:pathways-and
+  owner_entity_id: dcpr:scheme:33-9
+  term: Pathways and
+  normalized_term: pathways and
+  definition_text: of Access
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:the
+  owner_entity_id: dcpr:scheme:33-9
+  term: The
+  normalized_term: the
+  definition_text: of access shall be normally governed by the provisions of Regulation
+    No
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:where-carpet-area
+  owner_entity_id: dcpr:scheme:33-9
+  term: where Carpet area
+  normalized_term: where carpet area
+  definition_text: area of tenements exclusive of all areas under walls including
+    partition walls if any in the tenement
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:above
+  owner_entity_id: dcpr:scheme:33-9
+  term: above
+  normalized_term: above
+  definition_text: the net usable floor area within a tenement excluding that covered
+    by the walls or any other areas specifically exempted from floor space index computation
+    as per prevailing Regulation
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:through-any
+  owner_entity_id: dcpr:scheme:33-9
+  term: through any
+  normalized_term: through any
+  definition_text: are provided
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:the
+  owner_entity_id: dcpr:scheme:33-9
+  term: The
+  normalized_term: the
+  definition_text: of access shall be normally governed by the provisions of Regulation
+    No
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:above
+  owner_entity_id: dcpr:scheme:33-9
+  term: above
+  normalized_term: above
+  definition_text: the net usable floor area within a tenement excluding that covered
+    by the walls or any other areas specifically exempted from floor space index computation
+    as per then/ prevailing Regulation but including the areas of balcony if allowed
+    free of FSI as per then Regulation 1
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:water-there-from-by
+  owner_entity_id: dcpr:scheme:33-9
+  term: water there from by
+  normalized_term: water there from by
+  definition_text: of rain water pipes at the scale of at least one pipe of 10cm diameter
+    for every 40-sq
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:door-is-the-single
+  owner_entity_id: dcpr:scheme:33-9
+  term: door is the single
+  normalized_term: door is the single
+  definition_text: of entry, adequate space to accommodate wheelchair users should
+    be rovided
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:be-provided-if-the
+  owner_entity_id: dcpr:scheme:33-9
+  term: be provided if the
+  normalized_term: be provided if the
+  definition_text: of access serving such plots is at least 3 m in width
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:and-has-no-exclusive
+  owner_entity_id: dcpr:scheme:33-9
+  term: and has no exclusive
+  normalized_term: and has no exclusive
+  definition_text: of access, the rear marginal open spacein plots abutting such amenity
+    open space shall not be less than 3 m (b) In case of redevelopment in Gaothan/Koliada/
+    Adivasi Pada with the height restricted to 4 storeys or maximum 14 m, the ground
+    coverage of the structure shall not be more than 75% of the plot area and open
+    spaces left at side and rear shall be as to consume the FSI as permissible and
+    not to affect adversely the light and ventilation of adjoining buildings and to
+    provide proper drainage facilities
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:here
+  owner_entity_id: dcpr:scheme:33-9
+  term: here
+  normalized_term: here
+  definition_text: the width prescribed in the DP or the width resulting from the
+    prescription of a sanctioned regular line of the street under the MMC Act, whichever
+    is larger
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:and-protected
+  owner_entity_id: dcpr:scheme:33-9
+  term: and protected
+  normalized_term: and protected
+  definition_text: of egress; (b) An exit doorway shall open outwards i
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:water-therefrom-by
+  owner_entity_id: dcpr:scheme:33-9
+  term: water therefrom by
+  normalized_term: water therefrom by
+  definition_text: of rain water pipes
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:trench-by
+  owner_entity_id: dcpr:scheme:33-9
+  term: trench by
+  normalized_term: trench by
+  definition_text: of HDPE/PVC pipes through filter media
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:the-building-by
+  owner_entity_id: dcpr:scheme:33-9
+  term: the building by
+  normalized_term: the building by
+  definition_text: of vertical rising mains of not less than IO cm
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:installations-by
+  owner_entity_id: dcpr:scheme:33-9
+  term: installations by
+  normalized_term: installations by
+  definition_text: 'of adapter: (i) Static Water Storage Tank: - A satisfactory supply
+    of water for the purpose of firefighting shall always be available in the form
+    of an underground static storage tank with capacity specified for each building
+    with arrangements of replenishment by main or alternative source of supply at
+    1,000 liters per minute'
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW
+- id: def:33-9:is-the-width-of-the
+  owner_entity_id: dcpr:scheme:33-9
+  term: is the width of the
+  normalized_term: is the width of the
+  definition_text: of access? (b) What is its clear height? Development Controla Regulation-2034
+    436 Munici Development Plan 2034 tion of Greater Mumbai DCPR-2034 APPENDICES AND
+    ANNEXURES (c) Will it be paved, drained and kept free of encroachment? 22) Is
+    the recreational or amenity open space provided as required under Regulations
+    27 (I), 27(2)? 23) (a) Are any accessory buildings proposed? If so, for what purpose?
+    (b)What are their heights? (c) Are the 7
+  definition_kind: MEANS
+  scope: SCHEME
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-1
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.85
+    scoring_method: regex-parser/v1
+    review_status: NEEDS_REVIEW

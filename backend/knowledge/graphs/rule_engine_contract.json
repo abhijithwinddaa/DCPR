@@ -1,0 +1,2241 @@
+{
+  "33(9)": {
+    "scheme_id": "33(9)",
+    "scheme_uri": "dcpr:scheme:33-9",
+    "conditions": [
+      {
+        "phase": "APPLICABILITY",
+        "message": "Gross cluster area must be at least the suburban threshold (6,000 sq. m) for suburban projects.",
+        "expression": {
+          "op": "GTE",
+          "args": [
+            {
+              "kind": "INPUT",
+              "id": "gross_cluster_area"
+            },
+            {
+              "kind": "FACT",
+              "id": "dcpr:33-9:suburbs-minimum-cluster-area"
+            }
+          ]
+        },
+        "id": "dcpr:33-9:cluster-area-eligibility"
+      },
+      {
+        "phase": "APPLICABILITY",
+        "message": "Access road width must be at least 18 metres.",
+        "expression": {
+          "op": "GTE",
+          "args": [
+            {
+              "kind": "INPUT",
+              "id": "access_road_width"
+            },
+            {
+              "kind": "FACT",
+              "id": "dcpr:33-9:ordinary-access-road-width"
+            }
+          ]
+        },
+        "id": "dcpr:33-9:road-access-eligibility"
+      }
+    ],
+    "formulae": [
+      {
+        "formula_type": "RATIO",
+        "raw_expression": "weighted_land_rate / construction_rate",
+        "expression": {
+          "op": "DIVIDE",
+          "args": [
+            {
+              "kind": "INPUT",
+              "id": "weighted_land_rate"
+            },
+            {
+              "kind": "INPUT",
+              "id": "construction_rate"
+            }
+          ]
+        },
+        "variable_bindings": [
+          {
+            "variable": "weighted_land_rate",
+            "source_kind": "INPUT",
+            "source_id": "weighted_land_rate",
+            "value_type": "DECIMAL"
+          },
+          {
+            "variable": "construction_rate",
+            "source_kind": "INPUT",
+            "source_id": "construction_rate",
+            "value_type": "DECIMAL"
+          }
+        ],
+        "output_id": "basic_ratio",
+        "id": "dcpr:33-9:basic-ratio"
+      },
+      {
+        "formula_type": "ARITHMETIC",
+        "raw_expression": "certified_admissible_rehabilitation_bua * incentive_rate",
+        "expression": {
+          "op": "MULTIPLY",
+          "args": [
+            {
+              "kind": "INPUT",
+              "id": "certified_admissible_rehabilitation_bua"
+            },
+            {
+              "op": "LOOKUP",
+              "args": [
+                {
+                  "kind": "FACT",
+                  "id": "dcpr:33-9:table-b:incentive-rate"
+                },
+                {
+                  "kind": "DERIVED",
+                  "id": "basic_ratio"
+                },
+                {
+                  "kind": "INPUT",
+                  "id": "gross_cluster_area"
+                }
+              ]
+            }
+          ]
+        },
+        "variable_bindings": [
+          {
+            "variable": "certified_admissible_rehabilitation_bua",
+            "source_kind": "INPUT",
+            "source_id": "certified_admissible_rehabilitation_bua",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          },
+          {
+            "variable": "basic_ratio",
+            "source_kind": "DERIVED",
+            "source_id": "basic_ratio",
+            "value_type": "DECIMAL"
+          },
+          {
+            "variable": "gross_cluster_area",
+            "source_kind": "INPUT",
+            "source_id": "gross_cluster_area",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          }
+        ],
+        "output_id": "incentive_bua",
+        "id": "dcpr:33-9:incentive-bua"
+      },
+      {
+        "formula_type": "RATIO",
+        "raw_expression": "certified_admissible_rehabilitation_bua / fsi_base_area",
+        "expression": {
+          "op": "DIVIDE",
+          "args": [
+            {
+              "kind": "INPUT",
+              "id": "certified_admissible_rehabilitation_bua"
+            },
+            {
+              "kind": "INPUT",
+              "id": "fsi_base_area"
+            }
+          ]
+        },
+        "variable_bindings": [
+          {
+            "variable": "certified_admissible_rehabilitation_bua",
+            "source_kind": "INPUT",
+            "source_id": "certified_admissible_rehabilitation_bua",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          },
+          {
+            "variable": "fsi_base_area",
+            "source_kind": "INPUT",
+            "source_id": "fsi_base_area",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          }
+        ],
+        "output_id": "rehabilitation_fsi",
+        "id": "dcpr:33-9:rehabilitation-fsi"
+      },
+      {
+        "formula_type": "RATIO",
+        "raw_expression": "incentive_bua / fsi_base_area",
+        "expression": {
+          "op": "DIVIDE",
+          "args": [
+            {
+              "kind": "DERIVED",
+              "id": "incentive_bua"
+            },
+            {
+              "kind": "INPUT",
+              "id": "fsi_base_area"
+            }
+          ]
+        },
+        "variable_bindings": [
+          {
+            "variable": "incentive_bua",
+            "source_kind": "DERIVED",
+            "source_id": "incentive_bua",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          },
+          {
+            "variable": "fsi_base_area",
+            "source_kind": "INPUT",
+            "source_id": "fsi_base_area",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          }
+        ],
+        "output_id": "incentive_fsi",
+        "id": "dcpr:33-9:incentive-fsi"
+      },
+      {
+        "formula_type": "RATIO",
+        "raw_expression": "max(4.00, rehabilitation_fsi + incentive_fsi)",
+        "expression": {
+          "op": "MAX",
+          "args": [
+            {
+              "kind": "FACT",
+              "id": "dcpr:33-9:base-fsi-floor"
+            },
+            {
+              "op": "ADD",
+              "args": [
+                {
+                  "kind": "DERIVED",
+                  "id": "rehabilitation_fsi"
+                },
+                {
+                  "kind": "DERIVED",
+                  "id": "incentive_fsi"
+                }
+              ]
+            }
+          ]
+        },
+        "variable_bindings": [
+          {
+            "variable": "rehabilitation_fsi",
+            "source_kind": "DERIVED",
+            "source_id": "rehabilitation_fsi",
+            "value_type": "DECIMAL"
+          },
+          {
+            "variable": "incentive_fsi",
+            "source_kind": "DERIVED",
+            "source_id": "incentive_fsi",
+            "value_type": "DECIMAL"
+          },
+          {
+            "variable": "base_fsi_floor",
+            "source_kind": "FACT",
+            "source_id": "dcpr:33-9:base-fsi-floor",
+            "value_type": "DECIMAL"
+          }
+        ],
+        "output_id": "applicable_fsi",
+        "id": "dcpr:33-9:applicable-fsi"
+      },
+      {
+        "formula_type": "ARITHMETIC",
+        "raw_expression": "applicable_fsi * fsi_base_area",
+        "expression": {
+          "op": "MULTIPLY",
+          "args": [
+            {
+              "kind": "DERIVED",
+              "id": "applicable_fsi"
+            },
+            {
+              "kind": "INPUT",
+              "id": "fsi_base_area"
+            }
+          ]
+        },
+        "variable_bindings": [
+          {
+            "variable": "applicable_fsi",
+            "source_kind": "DERIVED",
+            "source_id": "applicable_fsi",
+            "value_type": "DECIMAL"
+          },
+          {
+            "variable": "fsi_base_area",
+            "source_kind": "INPUT",
+            "source_id": "fsi_base_area",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          }
+        ],
+        "output_id": "maximum_fsi_counted_bua",
+        "id": "dcpr:33-9:maximum-fsi-counted-bua"
+      },
+      {
+        "formula_type": "ALLOCATION",
+        "raw_expression": "maximum_fsi_counted_bua - (certified_admissible_rehabilitation_bua + incentive_bua)",
+        "expression": {
+          "op": "SUBTRACT",
+          "args": [
+            {
+              "kind": "DERIVED",
+              "id": "maximum_fsi_counted_bua"
+            },
+            {
+              "op": "ADD",
+              "args": [
+                {
+                  "kind": "INPUT",
+                  "id": "certified_admissible_rehabilitation_bua"
+                },
+                {
+                  "kind": "DERIVED",
+                  "id": "incentive_bua"
+                }
+              ]
+            }
+          ]
+        },
+        "variable_bindings": [
+          {
+            "variable": "maximum_fsi_counted_bua",
+            "source_kind": "DERIVED",
+            "source_id": "maximum_fsi_counted_bua",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          },
+          {
+            "variable": "certified_admissible_rehabilitation_bua",
+            "source_kind": "INPUT",
+            "source_id": "certified_admissible_rehabilitation_bua",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          },
+          {
+            "variable": "incentive_bua",
+            "source_kind": "DERIVED",
+            "source_id": "incentive_bua",
+            "value_type": "QUANTITY",
+            "unit": "square_metre"
+          }
+        ],
+        "output_id": "balance_bua",
+        "id": "dcpr:33-9:balance-bua"
+      }
+    ],
+    "tables": [
+      {
+        "title": "Table B: Incentive FSI Rate Table",
+        "table_type": "RATE_MATRIX",
+        "dimensions": [
+          {
+            "id": "basic_ratio",
+            "concept_type_id": "concept:basic-ratio",
+            "members": [
+              {
+                "id": "member:basic_ratio:gt6",
+                "label": "Basic Ratio > 6.00",
+                "lower_bound": "6.00",
+                "lower_inclusive": false,
+                "upper_bound": null,
+                "upper_inclusive": null,
+                "unit": "ratio"
+              },
+              {
+                "id": "member:basic_ratio:gt4_lte6",
+                "label": "Basic Ratio > 4.00 and <= 6.00",
+                "lower_bound": "4.00",
+                "lower_inclusive": false,
+                "upper_bound": "6.00",
+                "upper_inclusive": true,
+                "unit": "ratio"
+              },
+              {
+                "id": "member:basic_ratio:gt2_lte4",
+                "label": "Basic Ratio > 2.00 and <= 4.00",
+                "lower_bound": "2.00",
+                "lower_inclusive": false,
+                "upper_bound": "4.00",
+                "upper_inclusive": true,
+                "unit": "ratio"
+              },
+              {
+                "id": "member:basic_ratio:lte2",
+                "label": "Basic Ratio <= 2.00",
+                "lower_bound": null,
+                "lower_inclusive": null,
+                "upper_bound": "2.00",
+                "upper_inclusive": true,
+                "unit": "ratio"
+              }
+            ]
+          },
+          {
+            "id": "cluster_area",
+            "concept_type_id": "concept:gross-cluster-area",
+            "members": [
+              {
+                "id": "member:cluster_area:4k_10k",
+                "label": "Gross Cluster Area 4,000 to 10,000 sq. m",
+                "lower_bound": "4000",
+                "lower_inclusive": true,
+                "upper_bound": "10000",
+                "upper_inclusive": true,
+                "unit": "square_metre"
+              },
+              {
+                "id": "member:cluster_area:10k_50k",
+                "label": "Gross Cluster Area 10,000 to 50,000 sq. m",
+                "lower_bound": "10000",
+                "lower_inclusive": false,
+                "upper_bound": "50000",
+                "upper_inclusive": true,
+                "unit": "square_metre"
+              },
+              {
+                "id": "member:cluster_area:50k_100k",
+                "label": "Gross Cluster Area 50,000 to 100,000 sq. m",
+                "lower_bound": "50000",
+                "lower_inclusive": false,
+                "upper_bound": "100000",
+                "upper_inclusive": true,
+                "unit": "square_metre"
+              },
+              {
+                "id": "member:cluster_area:gt100k",
+                "label": "Gross Cluster Area > 100,000 sq. m",
+                "lower_bound": "100000",
+                "lower_inclusive": false,
+                "upper_bound": null,
+                "upper_inclusive": null,
+                "unit": "square_metre"
+              }
+            ]
+          }
+        ],
+        "cells": [
+          {
+            "id": "cell:table_b:r0c0",
+            "row": 0,
+            "column": 0,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "55",
+            "normalized_value": 55,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt6",
+              "member:cluster_area:4k_10k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r0c1",
+            "row": 0,
+            "column": 1,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "60",
+            "normalized_value": 60,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt6",
+              "member:cluster_area:10k_50k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r0c2",
+            "row": 0,
+            "column": 2,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "65",
+            "normalized_value": 65,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt6",
+              "member:cluster_area:50k_100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r0c3",
+            "row": 0,
+            "column": 3,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "70",
+            "normalized_value": 70,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt6",
+              "member:cluster_area:gt100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r1c0",
+            "row": 1,
+            "column": 0,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "65",
+            "normalized_value": 65,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt4_lte6",
+              "member:cluster_area:4k_10k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r1c1",
+            "row": 1,
+            "column": 1,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "70",
+            "normalized_value": 70,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt4_lte6",
+              "member:cluster_area:10k_50k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r1c2",
+            "row": 1,
+            "column": 2,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "75",
+            "normalized_value": 75,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt4_lte6",
+              "member:cluster_area:50k_100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r1c3",
+            "row": 1,
+            "column": 3,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "80",
+            "normalized_value": 80,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt4_lte6",
+              "member:cluster_area:gt100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r2c0",
+            "row": 2,
+            "column": 0,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "75",
+            "normalized_value": 75,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt2_lte4",
+              "member:cluster_area:4k_10k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r2c1",
+            "row": 2,
+            "column": 1,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "80",
+            "normalized_value": 80,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt2_lte4",
+              "member:cluster_area:10k_50k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r2c2",
+            "row": 2,
+            "column": 2,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "85",
+            "normalized_value": 85,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt2_lte4",
+              "member:cluster_area:50k_100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r2c3",
+            "row": 2,
+            "column": 3,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "90",
+            "normalized_value": 90,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:gt2_lte4",
+              "member:cluster_area:gt100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r3c0",
+            "row": 3,
+            "column": 0,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "85",
+            "normalized_value": 85,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:lte2",
+              "member:cluster_area:4k_10k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r3c1",
+            "row": 3,
+            "column": 1,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "90",
+            "normalized_value": 90,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:lte2",
+              "member:cluster_area:10k_50k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r3c2",
+            "row": 3,
+            "column": 2,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "95",
+            "normalized_value": 95,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:lte2",
+              "member:cluster_area:50k_100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          },
+          {
+            "id": "cell:table_b:r3c3",
+            "row": 3,
+            "column": 3,
+            "row_span": 1,
+            "column_span": 1,
+            "raw_text": "100",
+            "normalized_value": 100,
+            "value_type": "PERCENTAGE",
+            "unit": "percentage",
+            "dimension_member_ids": [
+              "member:basic_ratio:lte2",
+              "member:cluster_area:gt100k"
+            ],
+            "source_span_ids": [
+              "span:33-9:page-428"
+            ],
+            "confidence": {
+              "overall": 1.0,
+              "scoring_method": "deterministic-table-parser/v1",
+              "review_status": "VERIFIED"
+            }
+          }
+        ],
+        "output_concept_type_id": "concept:incentive-bua",
+        "id": "dcpr:33-9:table-b:incentive-rate"
+      }
+    ],
+    "definitions": [
+      {
+        "term": "Public Street and",
+        "definition_text": "of Access (1) Every site to have access free of encroachment: Every site proposed to be developed or redeveloped shall have access from a public street/ road as required in these Regulations",
+        "id": "def:33-9:public-street-and"
+      },
+      {
+        "term": "of any required",
+        "definition_text": "of ingress or egress, or change to fixtures or equipment, as provided in these Regulations",
+        "id": "def:33-9:of-any-required"
+      },
+      {
+        "term": "with adequate",
+        "definition_text": "of egress, (iv) constitutes a fire hazard, (v) is dangerous to human life, (vi) in relation to its existing use, constitutes a hazard to safety or health or public welfare by reasons of inadequate maintenance, dilapidation or abandonment",
+        "id": "def:33-9:with-adequate"
+      },
+      {
+        "term": "a construction by",
+        "definition_text": "of which a flue is formed for the purpose of carrying products of combustion to the open air and includes a chimney stack and the flue pipe",
+        "id": "def:33-9:a-construction-by"
+      },
+      {
+        "term": "Commissioner",
+        "definition_text": "Municipal Commissioner of Greater Mumbai or any other officer designated by him",
+        "id": "def:33-9:commissioner"
+      },
+      {
+        "term": "with internal",
+        "definition_text": "of access",
+        "id": "def:33-9:with-internal"
+      },
+      {
+        "term": "hardship",
+        "definition_text": "plot under (37) (38) (39) (40) (41) development/ redevelopment affected due to Nalla, Nallah/river buffer, road widening, height restriction due to statutory restriction as per these Regulations such as railway buffer, height restrictions in the vicinity of Airport, height restriction in the vicinity of defence establishments, and/or any other restrictions as per the provisions of these Regulations affecting the project, odd shape plot, rehabilitation of existing tenants/ occupants on small size plot/ s etc",
+        "id": "def:33-9:hardship"
+      },
+      {
+        "term": "a passage channel or",
+        "definition_text": "of egress from any building, storey or floor area to a street or other open space of safety; horizontal, outside and vertical exits having meanings at (i), (ii) and (iii) respectively as under: \"Horizontal exit\" means an exit which is a protected opening through or around a fire wall or a bridge connecting two or more buildings",
+        "id": "def:33-9:a-passage-channel-or"
+      },
+      {
+        "term": "building and also",
+        "definition_text": "a wall abutting on an interior open space of any building",
+        "id": "def:33-9:building-and-also"
+      },
+      {
+        "term": "a plot abutting the",
+        "definition_text": "of access/ road/ street and the building line",
+        "id": "def:33-9:a-plot-abutting-the"
+      },
+      {
+        "term": "facing two or more",
+        "definition_text": "of accesses/ roads/ streets shall be deemed to front on all such means of accesses/ roads/ streets",
+        "id": "def:33-9:facing-two-or-more"
+      },
+      {
+        "term": "with a pitched roof",
+        "definition_text": "the average height between the finished floor surface and the bottom of the eaves and the bottom of the ridge",
+        "id": "def:33-9:with-a-pitched-roof"
+      },
+      {
+        "term": "Establishment",
+        "definition_text": "an establishment which is in the business of developing either software or hardware or providing IT Enabled services",
+        "id": "def:33-9:establishment"
+      },
+      {
+        "term": "direction by",
+        "definition_text": "of guided car or platform etc",
+        "id": "def:33-9:direction-by"
+      },
+      {
+        "term": "by mechanical",
+        "definition_text": "sufficient in size to park vehicles",
+        "id": "def:33-9:by-mechanical"
+      },
+      {
+        "term": "The",
+        "definition_text": "of access shall be normally governed by the provisions of Regulation No",
+        "id": "def:33-9:the"
+      },
+      {
+        "term": "or fronting a",
+        "definition_text": "of Access: 20",
+        "id": "def:33-9:or-fronting-a"
+      },
+      {
+        "term": "fronts a",
+        "definition_text": "of access; the width of the access shall be as specified in Regulation No 23",
+        "id": "def:33-9:fronts-a"
+      },
+      {
+        "term": "Internat",
+        "definition_text": "of access (I)Minimum road width vis-\u00e5-vis the area served- Plots which do not abut on a street shall abut/ front on a means of access, the width and other requirements of which shall be as given in Table No 7 hereunder for residential and commercial zones and as given in Table N08 hereunder for an industrial zone",
+        "id": "def:33-9:internat"
+      },
+      {
+        "term": "Width of",
+        "definition_text": "of access in meter (m) 9",
+        "id": "def:33-9:width-of"
+      },
+      {
+        "term": "Larger width of",
+        "definition_text": "of Access- In the interest of the general development of any area, the Commissioner may require the means of access to be of larger width than that required under these Regulations",
+        "id": "def:33-9:larger-width-of"
+      },
+      {
+        "term": "internal",
+        "definition_text": "of access shall be through a paved pathway of width specified in Table 9 here-under, the length of pathway being determined by the distance from the farthest plot or building to the internal road proposed under Regulation No 23 or to an existing road from which it takes off",
+        "id": "def:33-9:internal"
+      },
+      {
+        "term": "street or other",
+        "definition_text": "of access is not constructed or maintained as specified in sub-regulation (1) above, or if structures or fixtures arise thereon in contravention of that Development Control andPromotionRegulation-2034 Development Plan 2034 Municipal Corporation of Greater Mumbai 101 DCPR-2034 PART - REQUIREMENT OF SITE AND LAYOUT sub-rule, the Commissioner may, by written notice, direct the owner or owners of the several premises fronting or adjoining the said street or other means of access or abutting thereon or to which access is obtained through such street or other means of access or which shall benefit by works executed, to carry out any or all of the aforesaid requirements in such manner and within such time as he shall direct",
+        "id": "def:33-9:street-or-other"
+      },
+      {
+        "term": "The length of main",
+        "definition_text": "of access shall be determined by the distance from the farthest plot or building plot and the main street",
+        "id": "def:33-9:the-length-of-main"
+      },
+      {
+        "term": "have an independent",
+        "definition_text": "of access, unless it is approachable directly from every building in the layout",
+        "id": "def:33-9:have-an-independent"
+      },
+      {
+        "term": "shall have proper",
+        "definition_text": "of access and shall be so located that it can be conveniently utilised by the persons working in the industry; such LOS shall be kept permanently open to sky and accessible to all the owners and occupants and trees shall be grown therein at the rate of 5 trees for every 100 sq",
+        "id": "def:33-9:shall-have-proper"
+      },
+      {
+        "term": "or by any",
+        "definition_text": "has already been granted to the owner",
+        "id": "def:33-9:or-by-any"
+      },
+      {
+        "term": "under redevelopment",
+        "definition_text": "the land demarcated by MHADA for redevelopment",
+        "id": "def:33-9:under-redevelopment"
+      },
+      {
+        "term": "of BDD Chawls",
+        "definition_text": "a scheme for redevelopment of the cluster of buildings and structures constructed by Bombay Development Division in the Island City of Mumbai, at four locations and boundaries of the area as shown in DPhereinafter referred to as \" Urban Renewal Cluster or URC \" shall be a cluster identified for urban renewal :-- 1) Under the Development Plan (DP) , where the DP contains such well-defined Clusters; or 2) Under the Urban Renewal Plan (URP) for the concerned area, prepared and notified by the Officer appointed by the Planning Authority, who may revise the same as and when required; or 3) By Planning Authority, where such clusters of BDD Chawls are not shown on the DP and the URP is yet to be prepared",
+        "id": "def:33-9:of-bdd-chawls"
+      },
+      {
+        "term": "Dwelling Structures",
+        "definition_text": "all dwelling structures, as defined in Section 3 X of Maharashtra Slums Area (Improvement, Clearance and Redevelopment) Act, 1971, existing prior 1-1-2000",
+        "id": "def:33-9:dwelling-structures"
+      },
+      {
+        "term": "Pathways and",
+        "definition_text": "of Access",
+        "id": "def:33-9:pathways-and"
+      },
+      {
+        "term": "where Carpet area",
+        "definition_text": "area of tenements exclusive of all areas under walls including partition walls if any in the tenement",
+        "id": "def:33-9:where-carpet-area"
+      },
+      {
+        "term": "above",
+        "definition_text": "the net usable floor area within a tenement excluding that covered by the walls or any other areas specifically exempted from floor space index computation as per then/ prevailing Regulation but including the areas of balcony if allowed free of FSI as per then Regulation 1",
+        "id": "def:33-9:above"
+      },
+      {
+        "term": "through any",
+        "definition_text": "are provided",
+        "id": "def:33-9:through-any"
+      },
+      {
+        "term": "water there from by",
+        "definition_text": "of rain water pipes at the scale of at least one pipe of 10cm diameter for every 40-sq",
+        "id": "def:33-9:water-there-from-by"
+      },
+      {
+        "term": "door is the single",
+        "definition_text": "of entry, adequate space to accommodate wheelchair users should be rovided",
+        "id": "def:33-9:door-is-the-single"
+      },
+      {
+        "term": "be provided if the",
+        "definition_text": "of access serving such plots is at least 3 m in width",
+        "id": "def:33-9:be-provided-if-the"
+      },
+      {
+        "term": "and has no exclusive",
+        "definition_text": "of access, the rear marginal open spacein plots abutting such amenity open space shall not be less than 3 m (b) In case of redevelopment in Gaothan/Koliada/ Adivasi Pada with the height restricted to 4 storeys or maximum 14 m, the ground coverage of the structure shall not be more than 75% of the plot area and open spaces left at side and rear shall be as to consume the FSI as permissible and not to affect adversely the light and ventilation of adjoining buildings and to provide proper drainage facilities",
+        "id": "def:33-9:and-has-no-exclusive"
+      },
+      {
+        "term": "here",
+        "definition_text": "the width prescribed in the DP or the width resulting from the prescription of a sanctioned regular line of the street under the MMC Act, whichever is larger",
+        "id": "def:33-9:here"
+      },
+      {
+        "term": "and protected",
+        "definition_text": "of egress; (b) An exit doorway shall open outwards i",
+        "id": "def:33-9:and-protected"
+      },
+      {
+        "term": "water therefrom by",
+        "definition_text": "of rain water pipes",
+        "id": "def:33-9:water-therefrom-by"
+      },
+      {
+        "term": "trench by",
+        "definition_text": "of HDPE/PVC pipes through filter media",
+        "id": "def:33-9:trench-by"
+      },
+      {
+        "term": "the building by",
+        "definition_text": "of vertical rising mains of not less than IO cm",
+        "id": "def:33-9:the-building-by"
+      },
+      {
+        "term": "installations by",
+        "definition_text": "of adapter: (i) Static Water Storage Tank: - A satisfactory supply of water for the purpose of firefighting shall always be available in the form of an underground static storage tank with capacity specified for each building with arrangements of replenishment by main or alternative source of supply at 1,000 liters per minute",
+        "id": "def:33-9:installations-by"
+      },
+      {
+        "term": "is the width of the",
+        "definition_text": "of access? (b) What is its clear height? Development Controla Regulation-2034 436 Munici Development Plan 2034 tion of Greater Mumbai DCPR-2034 APPENDICES AND ANNEXURES (c) Will it be paved, drained and kept free of encroachment? 22) Is the recreational or amenity open space provided as required under Regulations 27 (I), 27(2)? 23) (a) Are any accessory buildings proposed? If so, for what purpose? (b)What are their heights? (c) Are the 7",
+        "id": "def:33-9:is-the-width-of-the"
+      }
+    ],
+    "references": [
+      {
+        "mention_text": "Reference mention to REGULATION 2034",
+        "normalized_target_citation": "regulation:2034",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-0"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 2",
+        "normalized_target_citation": "regulation:2",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-1"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 9(5)",
+        "normalized_target_citation": "regulation:9:5",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-2"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-3"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-4"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-5"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 17(1)",
+        "normalized_target_citation": "regulation:17:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-6"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 17(1)",
+        "normalized_target_citation": "regulation:17:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-7"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 17",
+        "normalized_target_citation": "regulation:17",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-8"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 31",
+        "normalized_target_citation": "regulation:31",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-9"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 17",
+        "normalized_target_citation": "regulation:17",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-10"
+      },
+      {
+        "mention_text": "Reference mention to regulation 17(1)",
+        "normalized_target_citation": "regulation:17:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-11"
+      },
+      {
+        "mention_text": "Reference mention to regulation 17",
+        "normalized_target_citation": "regulation:17",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-12"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-13"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-14"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 53",
+        "normalized_target_citation": "regulation:53",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-15"
+      },
+      {
+        "mention_text": "Reference mention to regulation 16",
+        "normalized_target_citation": "regulation:16",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-16"
+      },
+      {
+        "mention_text": "Reference mention to regulation 32",
+        "normalized_target_citation": "regulation:32",
+        "target_entity_id": "dcpr:regulation:32",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-17"
+      },
+      {
+        "mention_text": "Reference mention to regulation 17",
+        "normalized_target_citation": "regulation:17",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-18"
+      },
+      {
+        "mention_text": "Reference mention to regulation 17(1)",
+        "normalized_target_citation": "regulation:17:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-19"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 32",
+        "normalized_target_citation": "regulation:32",
+        "target_entity_id": "dcpr:regulation:32",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-20"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 16",
+        "normalized_target_citation": "regulation:16",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-21"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 14",
+        "normalized_target_citation": "regulation:14",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-22"
+      },
+      {
+        "mention_text": "Reference mention to regulation 19(2)",
+        "normalized_target_citation": "regulation:19:2",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-23"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 42",
+        "normalized_target_citation": "regulation:42",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-24"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-25"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 4",
+        "normalized_target_citation": "regulation:4",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-26"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-27"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-28"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-29"
+      },
+      {
+        "mention_text": "Reference mention to regulation 37(28)",
+        "normalized_target_citation": "regulation:37:28",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-30"
+      },
+      {
+        "mention_text": "Reference mention to regulation 200",
+        "normalized_target_citation": "regulation:200",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-31"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-32"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(5)",
+        "normalized_target_citation": "regulation:33:5",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-33"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 35(4)",
+        "normalized_target_citation": "regulation:35:4",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-34"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 31(3)",
+        "normalized_target_citation": "regulation:31:3",
+        "target_entity_id": "dcpr:regulation:31-3",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-35"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-36"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-37"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-38"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-39"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-40"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33",
+        "normalized_target_citation": "regulation:33",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-41"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-42"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-43"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-44"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-45"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-46"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-47"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-48"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-49"
+      },
+      {
+        "mention_text": "Reference mention to regulation 1",
+        "normalized_target_citation": "regulation:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-50"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 31",
+        "normalized_target_citation": "regulation:31",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-51"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-52"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 1",
+        "normalized_target_citation": "regulation:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-53"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-54"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33",
+        "normalized_target_citation": "regulation:33",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-55"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(9)",
+        "normalized_target_citation": "regulation:33:9",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-56"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(7)",
+        "normalized_target_citation": "regulation:33:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-57"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(9)",
+        "normalized_target_citation": "regulation:33:9",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-58"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-59"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-60"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 31(3)",
+        "normalized_target_citation": "regulation:31:3",
+        "target_entity_id": "dcpr:regulation:31-3",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-61"
+      },
+      {
+        "mention_text": "Reference mention to regulation 41(5)",
+        "normalized_target_citation": "regulation:41:5",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-62"
+      },
+      {
+        "mention_text": "Reference mention to regulation 32",
+        "normalized_target_citation": "regulation:32",
+        "target_entity_id": "dcpr:regulation:32",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-63"
+      },
+      {
+        "mention_text": "Reference mention to regulation 32",
+        "normalized_target_citation": "regulation:32",
+        "target_entity_id": "dcpr:regulation:32",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-64"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33",
+        "normalized_target_citation": "regulation:33",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-65"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-66"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33",
+        "normalized_target_citation": "regulation:33",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-67"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 44",
+        "normalized_target_citation": "regulation:44",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-68"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 13(6)",
+        "normalized_target_citation": "regulation:13:6",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-69"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-70"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 9",
+        "normalized_target_citation": "regulation:9",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-71"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 1",
+        "normalized_target_citation": "regulation:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-72"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 31(1)",
+        "normalized_target_citation": "regulation:31:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-73"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-74"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-75"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 13(6)",
+        "normalized_target_citation": "regulation:13:6",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-76"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33",
+        "normalized_target_citation": "regulation:33",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-77"
+      },
+      {
+        "mention_text": "Reference mention to regulation 8",
+        "normalized_target_citation": "regulation:8",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-78"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-79"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-80"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 44",
+        "normalized_target_citation": "regulation:44",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-81"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-82"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-83"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 14",
+        "normalized_target_citation": "regulation:14",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-84"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-85"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 27",
+        "normalized_target_citation": "regulation:27",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-86"
+      },
+      {
+        "mention_text": "Reference mention to regulation 3",
+        "normalized_target_citation": "regulation:3",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-87"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(4)",
+        "normalized_target_citation": "regulation:33:4",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-88"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-89"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-90"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 44",
+        "normalized_target_citation": "regulation:44",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-91"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37(35)",
+        "normalized_target_citation": "regulation:37:35",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-92"
+      },
+      {
+        "mention_text": "Reference mention to regulation 33(8)",
+        "normalized_target_citation": "regulation:33:8",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-93"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(10)",
+        "normalized_target_citation": "regulation:33:10",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-94"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-95"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-96"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 31",
+        "normalized_target_citation": "regulation:31",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-97"
+      },
+      {
+        "mention_text": "Reference mention to regulation 1",
+        "normalized_target_citation": "regulation:1",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-98"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 41",
+        "normalized_target_citation": "regulation:41",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-99"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 41",
+        "normalized_target_citation": "regulation:41",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-100"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 40",
+        "normalized_target_citation": "regulation:40",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-101"
+      },
+      {
+        "mention_text": "Reference mention to regulation 27",
+        "normalized_target_citation": "regulation:27",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-102"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-103"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 44",
+        "normalized_target_citation": "regulation:44",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-104"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-105"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-106"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 48",
+        "normalized_target_citation": "regulation:48",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-107"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 48",
+        "normalized_target_citation": "regulation:48",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-108"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 50",
+        "normalized_target_citation": "regulation:50",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-109"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 27",
+        "normalized_target_citation": "regulation:27",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-110"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-111"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37(16)",
+        "normalized_target_citation": "regulation:37:16",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-112"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 41(2)",
+        "normalized_target_citation": "regulation:41:2",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-113"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-114"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 37",
+        "normalized_target_citation": "regulation:37",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-115"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 33(5)",
+        "normalized_target_citation": "regulation:33:5",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-116"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 28",
+        "normalized_target_citation": "regulation:28",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-117"
+      },
+      {
+        "mention_text": "Reference mention to regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-118"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 47",
+        "normalized_target_citation": "regulation:47",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-119"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 60",
+        "normalized_target_citation": "regulation:60",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-120"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 44(2)",
+        "normalized_target_citation": "regulation:44:2",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-121"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 2",
+        "normalized_target_citation": "regulation:2",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-122"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-123"
+      },
+      {
+        "mention_text": "Reference mention to regulation 30",
+        "normalized_target_citation": "regulation:30",
+        "target_entity_id": "dcpr:regulation:30",
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-124"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 10(5)",
+        "normalized_target_citation": "regulation:10:5",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-125"
+      },
+      {
+        "mention_text": "Reference mention to Regulation 11(7)",
+        "normalized_target_citation": "regulation:11:7",
+        "target_entity_id": null,
+        "reference_type": "REFERENCES",
+        "id": "dcpr:reference:33-9-ref-126"
+      }
+    ],
+    "inputs": [
+      {
+        "name": "gross_cluster_area",
+        "value_type": "QUANTITY",
+        "unit": "square_metre",
+        "required": true,
+        "resolution_source": "USER_INPUT",
+        "constraints": [
+          {
+            "expression": {
+              "op": "GT",
+              "args": [
+                {
+                  "kind": "INPUT",
+                  "id": "gross_cluster_area"
+                },
+                {
+                  "kind": "LITERAL",
+                  "value": "0"
+                }
+              ]
+            },
+            "message": "Gross cluster area must be positive."
+          }
+        ],
+        "id": "input:gross_cluster_area"
+      },
+      {
+        "name": "access_road_width",
+        "value_type": "QUANTITY",
+        "unit": "metre",
+        "required": true,
+        "resolution_source": "USER_INPUT",
+        "constraints": [
+          {
+            "expression": {
+              "op": "GT",
+              "args": [
+                {
+                  "kind": "INPUT",
+                  "id": "access_road_width"
+                },
+                {
+                  "kind": "LITERAL",
+                  "value": "0"
+                }
+              ]
+            },
+            "message": "Access road width must be positive."
+          }
+        ],
+        "id": "input:access_road_width"
+      },
+      {
+        "name": "certified_admissible_rehabilitation_bua",
+        "value_type": "QUANTITY",
+        "unit": "square_metre",
+        "required": true,
+        "resolution_source": "USER_INPUT",
+        "constraints": [
+          {
+            "expression": {
+              "op": "GT",
+              "args": [
+                {
+                  "kind": "INPUT",
+                  "id": "certified_admissible_rehabilitation_bua"
+                },
+                {
+                  "kind": "LITERAL",
+                  "value": "0"
+                }
+              ]
+            },
+            "message": "Certified rehab BUA must be positive."
+          }
+        ],
+        "id": "input:certified_admissible_rehabilitation_bua"
+      },
+      {
+        "name": "weighted_land_rate",
+        "value_type": "DECIMAL",
+        "unit": "",
+        "required": true,
+        "resolution_source": "USER_INPUT",
+        "constraints": [],
+        "id": "input:weighted_land_rate"
+      },
+      {
+        "name": "construction_rate",
+        "value_type": "DECIMAL",
+        "unit": "",
+        "required": true,
+        "resolution_source": "USER_INPUT",
+        "constraints": [],
+        "id": "input:construction_rate"
+      },
+      {
+        "name": "fsi_base_area",
+        "value_type": "QUANTITY",
+        "unit": "square_metre",
+        "required": true,
+        "resolution_source": "DERIVED",
+        "constraints": [],
+        "id": "input:fsi_base_area"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "applicable_fsi",
+        "value_type": "DECIMAL",
+        "producer_policy_ids": [
+          "dcpr:33-9:applicable-fsi"
+        ],
+        "nullable_statuses": [
+          "INDETERMINATE",
+          "CONFLICT"
+        ],
+        "validation_constraints": [],
+        "id": "output:applicable_fsi"
+      },
+      {
+        "name": "maximum_fsi_counted_bua",
+        "value_type": "QUANTITY",
+        "producer_policy_ids": [
+          "dcpr:33-9:maximum-fsi-counted-bua"
+        ],
+        "nullable_statuses": [
+          "INDETERMINATE",
+          "CONFLICT"
+        ],
+        "validation_constraints": [],
+        "id": "output:maximum_fsi_counted_bua"
+      }
+    ],
+    "facts": [
+      {
+        "name": "Base FSI Floor",
+        "concept_type_id": "concept:applicable-fsi",
+        "value_type": "DECIMAL",
+        "value": "4.00",
+        "id": "dcpr:33-9:base-fsi-floor"
+      },
+      {
+        "name": "Island City Minimum Cluster Area",
+        "concept_type_id": "concept:gross-cluster-area",
+        "value_type": "QUANTITY",
+        "value": {
+          "value": "4000",
+          "unit": "square_metre"
+        },
+        "id": "dcpr:33-9:island-city-minimum-cluster-area"
+      },
+      {
+        "name": "Suburbs Minimum Cluster Area",
+        "concept_type_id": "concept:gross-cluster-area",
+        "value_type": "QUANTITY",
+        "value": {
+          "value": "6000",
+          "unit": "square_metre"
+        },
+        "id": "dcpr:33-9:suburbs-minimum-cluster-area"
+      },
+      {
+        "name": "Ordinary Access Road Width",
+        "concept_type_id": "concept:access-road-width",
+        "value_type": "QUANTITY",
+        "value": {
+          "value": "18",
+          "unit": "metre"
+        },
+        "id": "dcpr:33-9:ordinary-access-road-width"
+      }
+    ]
+  },
+  "33(10)": {
+    "scheme_id": "33(10)",
+    "scheme_uri": "dcpr:scheme:33-10",
+    "conditions": [],
+    "formulae": [],
+    "tables": [],
+    "definitions": [],
+    "references": [
+      {
+        "mention_text": "depends on Regulation 52",
+        "normalized_target_citation": "regulation:52",
+        "target_entity_id": "dcpr:regulation:52",
+        "reference_type": "DEPENDS_ON",
+        "id": "ref:33-10-dep-52"
+      }
+    ],
+    "inputs": [],
+    "outputs": [],
+    "facts": []
+  },
+  "33(11)": {
+    "scheme_id": "33(11)",
+    "scheme_uri": "dcpr:scheme:33-11",
+    "conditions": [],
+    "formulae": [],
+    "tables": [],
+    "definitions": [],
+    "references": [],
+    "inputs": [],
+    "outputs": [],
+    "facts": []
+  },
+  "33(7)": {
+    "scheme_id": "33(7)",
+    "scheme_uri": "dcpr:scheme:33-7",
+    "conditions": [
+      {
+        "phase": "APPLICABILITY",
+        "message": "",
+        "expression": {
+          "op": "GTE",
+          "args": [
+            {
+              "kind": "INPUT",
+              "id": "gross_cluster_area"
+            },
+            {
+              "kind": "FACT",
+              "id": "dcpr:33-7:min-area"
+            }
+          ]
+        },
+        "id": "dcpr:33-7:area-check"
+      }
+    ],
+    "formulae": [
+      {
+        "formula_type": "RATIO",
+        "raw_expression": "",
+        "expression": {
+          "op": "MAX",
+          "args": [
+            {
+              "kind": "LITERAL",
+              "value": "3.0"
+            }
+          ]
+        },
+        "variable_bindings": [],
+        "output_id": "applicable_fsi",
+        "id": "dcpr:33-7:applicable-fsi"
+      }
+    ],
+    "tables": [],
+    "definitions": [],
+    "references": [
+      {
+        "mention_text": "depends on Regulation 52",
+        "normalized_target_citation": "regulation:52",
+        "target_entity_id": "dcpr:regulation:52",
+        "reference_type": "DEPENDS_ON",
+        "id": "ref:33-7-dep-52"
+      }
+    ],
+    "inputs": [
+      {
+        "name": "gross_cluster_area",
+        "value_type": "QUANTITY",
+        "unit": "square_metre",
+        "required": true,
+        "resolution_source": "USER_INPUT",
+        "constraints": [
+          {
+            "expression": {
+              "op": "GT",
+              "args": [
+                {
+                  "kind": "INPUT",
+                  "id": "gross_cluster_area"
+                },
+                {
+                  "kind": "LITERAL",
+                  "value": "0"
+                }
+              ]
+            },
+            "message": "Gross cluster area must be positive."
+          }
+        ],
+        "id": "input:gross_cluster_area"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "applicable_fsi",
+        "value_type": "DECIMAL",
+        "producer_policy_ids": [
+          "dcpr:33-9:applicable-fsi"
+        ],
+        "nullable_statuses": [
+          "INDETERMINATE",
+          "CONFLICT"
+        ],
+        "validation_constraints": [],
+        "id": "output:applicable_fsi"
+      }
+    ],
+    "facts": [
+      {
+        "name": "",
+        "concept_type_id": "concept:gross-cluster-area",
+        "value_type": "",
+        "value": "1000",
+        "id": "dcpr:33-7:min-area"
+      }
+    ]
+  },
+  "58": {
+    "scheme_id": "58",
+    "scheme_uri": "dcpr:scheme:58",
+    "conditions": [],
+    "formulae": [],
+    "tables": [],
+    "definitions": [],
+    "references": [],
+    "inputs": [],
+    "outputs": [],
+    "facts": []
+  }
+}

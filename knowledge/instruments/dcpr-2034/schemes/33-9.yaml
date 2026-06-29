@@ -1,0 +1,2500 @@
+schema_version: dcpr-knowledge-model/v1
+package:
+  package_id: dcpr:package:33-9
+  corpus_id: dcpr
+  instrument_id: dcpr:instrument:2034
+  status: EXTRACTION_DRAFT
+  schema_version: dcpr-knowledge-model/v1
+  extraction_run_id: run:33-9:extraction
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  recorded_at: '2026-06-20T15:01:44.039556Z'
+  source_document_version_ids:
+  - dcpr2034:compilation:2018-12-07:dtp-copy
+source_documents:
+- document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  instrument_id: dcpr:instrument:2034
+  title: Development Control and Promotion Regulation 2034
+  document_type: CONSOLIDATED_COMPILATION
+  authority: Maharashtra Directorate of Town Planning
+  sha256: ce8b6aff46d6c0e7d77998e8fb529667bbda70205cb23ab8444d65219f81b91a
+  retrieved_at: '2026-06-20T15:01:42.248810Z'
+  page_count: 300
+  legal_currency: UNVERIFIED
+source_spans:
+- id: span:33-9:page-188
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 188
+  printed_page_label: '171'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX Permissible
+    FSI: 4. a) Govt./Semi-.Govt. /Appropriate Authority appointed by Govt. shall be
+    eligible for FSI 1 of the gross plot (AH + POS+ OA + area covered under roads
+    to be handed over to MCGM) on area of other Development. b) The plot earmarked
+    for AH may be developed by Government/ semi- government/ Appropriate Authority
+    appointed by Govt. with FSI 2.5 on the plot of AH, then the premium for the BUA
+    is payable at 60% of land rate as per ASR (for FSI I) except if the undertaken
+    by State Govt. & MCGM itself. These tenements shall be made available for general
+    public for the AH as per policy of Govt. c) The development of OA as per the requirements
+    of MCGM shall be permissible as per these Regulations. Provided further that Municipal
+    Commissioner''s decision regarding development of OA shall be final & binding.
+    d) ''TDR'' or ''Additional FSI on payment of premium'' shall not be permissible
+    except fungible compensatory area. e) The land handed over to MCGM for OA as stated
+    above shall not be allowed to be developed under AR as stipulated in Regulation
+    No 17 and shall have to be used entirely for the intended purpose as per these
+    Regulations. t) Notwithstanding anything contained in these Regulations, residential/
+    commercial uses otherwise permissible, independent of road width to which it abuts
+    shall be permissible on the Govt./Semi- Govt./Appropriate Authority''s share of
+    land. 15% of admissible FSI on AH plot shall be exclusively used for the purpose
+    of convenient shops for use of residential occupants of layout g) Development
+    cess at 7% of the Land Rate (for FSI I) for the BUA (excluding fungible compensatory
+    area) to be constructed on Govt./Semi-Govt./Appropriate Authority''s shareof land
+    as per ASR of the year of approval shall be paid to MCGM. 33(9) Reconstruction
+    or redevelopment of Cluster(s) of Buildings under Cluster Development Scheme(s)(CDS):
+    For reconstruction or redevelopment of Cluster(s) of buildings under C'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX Permissible FSI:
+    4. a) Govt./Semi-.Govt. /Appropriate Authority appointed by Govt. shall be eligible
+    for FSI 1 of the gross plot (AH + POS+ OA + area covered under roads to be handed
+    over to MCGM) on area of other Development. b) The plot earmarked for AH may be
+    developed by Government/ semi- government/ Appropriate Authority appointed by
+    Govt. with FSI 2.5 on the plot of AH, then the premium for the BUA is payable
+    at 60% of land rate as per ASR (for FSI I) except if the undertaken by State Govt.
+    & MCGM itself. These tenements shall be made available for general public for
+    the AH as per policy of Govt. c) The development of OA as per the requirements
+    of MCGM shall be permissible as per these Regulations. Provided further that Municipal
+    Commissioner''s decision regarding development of OA shall be final & binding.
+    d) ''TDR'' or ''Additional FSI on payment of premium'' shall not be permissible
+    except fungible compensatory area. e) The land handed over to MCGM for OA as stated
+    above shall not be allowed to be developed under AR as stipulated in Regulation
+    No 17 and shall have to be used entirely for the intended purpose as per these
+    Regulations. t) Notwithstanding anything contained in these Regulations, residential/
+    commercial uses otherwise permissible, independent of road width to which it abuts
+    shall be permissible on the Govt./Semi- Govt./Appropriate Authority''s share of
+    land. 15% of admissible FSI on AH plot shall be exclusively used for the purpose
+    of convenient shops for use of residential occupants of layout g) Development
+    cess at 7% of the Land Rate (for FSI I) for the BUA (excluding fungible compensatory
+    area) to be constructed on Govt./Semi-Govt./Appropriate Authority''s shareof land
+    as per ASR of the year of approval shall be paid to MCGM. 33(9) Reconstruction
+    or redevelopment of Cluster(s) of Buildings under Cluster Development Scheme(s)(CDS):
+    For reconstruction or redevelopment of Cluster(s) of buildings under C'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-189
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 189
+  printed_page_label: '172'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX whichever is
+    more as per the provisions of this Regulation as follows . 1.1 Cluster Development
+    Scheme(CDS)means any scheme for redevelopment of a cluster of buildings and structures
+    over a minimum area of 4000 sq. m in the Island City of Mumbai and 6000 sq. m
+    in the Mumbai Suburbs &Extended Suburbs, bounded by existing distinguishing physical
+    boundaries such as roads, nallas and railway lines etc. and accessible by an existing
+    or proposed D.P. road which is at least 18m wide whether existing or proposed
+    in the D.P. or URP or a road for which Sanctioned Regular line of street has been
+    prescribed by the MCGM under MMC Act, 1888. Such cluster of buildings (hereinafter
+    referred to as ") Cluster Development (CD)'' shall be a cluster or a group of
+    clusters identified for urban renewal: Provided further that HPC may consider
+    after veryfing traffing simulation study to allow CDS on a plot having access
+    from existing minimum 12m. wide dead end road originating from 18 m. wide public
+    road. 1) Under the Cluster DevelopmentPlan (CDP) for the concerned area, to be
+    prepared by the Commissioner, who may revise the same as and when required; or
+    Under the Development Plan (DP), where the DP contains such well- defined cluster
+    2) By the Promoter of the CDS, Provided that no cluster or clusters shall be identified
+    for redevelopment or implementation of CDS by the Municipal Commissioner without
+    carrying out an Impact Assessment Study regarding the impact on the city and sector
+    level infrastructure and amenities as well as traffic and environment of the implementation
+    of CDS on such cluster or clusters. Exp lanation: 1. The land under CDS, irrespective
+    of the tenure of the plots comprised therein, shall be treated as one plot for
+    the purpose of FSI and computation of marginal distances. Arnalgarnation/ Subdivision
+    of plots: On approval of CDS, any land proposed / considered under CDS on various
+    C.S. Nos. or CTS Nos. and/or F.P.Nos. shall '
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX whichever is
+    more as per the provisions of this Regulation as follows . 1.1 Cluster Development
+    Scheme(CDS)means any scheme for redevelopment of a cluster of buildings and structures
+    over a minimum area of 4000 sq. m in the Island City of Mumbai and 6000 sq. m
+    in the Mumbai Suburbs &Extended Suburbs, bounded by existing distinguishing physical
+    boundaries such as roads, nallas and railway lines etc. and accessible by an existing
+    or proposed D.P. road which is at least 18m wide whether existing or proposed
+    in the D.P. or URP or a road for which Sanctioned Regular line of street has been
+    prescribed by the MCGM under MMC Act, 1888. Such cluster of buildings (hereinafter
+    referred to as ") Cluster Development (CD)'' shall be a cluster or a group of
+    clusters identified for urban renewal: Provided further that HPC may consider
+    after veryfing traffing simulation study to allow CDS on a plot having access
+    from existing minimum 12m. wide dead end road originating from 18 m. wide public
+    road. 1) Under the Cluster DevelopmentPlan (CDP) for the concerned area, to be
+    prepared by the Commissioner, who may revise the same as and when required; or
+    Under the Development Plan (DP), where the DP contains such well- defined cluster
+    2) By the Promoter of the CDS, Provided that no cluster or clusters shall be identified
+    for redevelopment or implementation of CDS by the Municipal Commissioner without
+    carrying out an Impact Assessment Study regarding the impact on the city and sector
+    level infrastructure and amenities as well as traffic and environment of the implementation
+    of CDS on such cluster or clusters. Exp lanation: 1. The land under CDS, irrespective
+    of the tenure of the plots comprised therein, shall be treated as one plot for
+    the purpose of FSI and computation of marginal distances. Arnalgarnation/ Subdivision
+    of plots: On approval of CDS, any land proposed / considered under CDS on various
+    C.S. Nos. or CTS Nos. and/or F.P.Nos. shall '
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-190
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 190
+  printed_page_label: '173'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX Boundaries
+    and Area of Proposed CDS shall be decided as per the approved layout and be confirmed
+    by City Survey Officer after actual measurement of CDS on site and the same shall
+    be adopted for planning purpose. However wherever necessary, the area may be further
+    subdivided to earmark separate plots/ Sectors for the planning purpose, handing
+    over of Reservations, amenities, realigned roads, etc. to MCGM/ Appropriate Authority.
+    The Plot area and the BUA in terms of sq. m of the said subdivided plots/ Sectors
+    shall be separately Inentioned in the Conveyance Deed or lease deed. In case of
+    land of different tenures, single PRC shall not be insisted. However, necessary
+    entries about CDS shall be made in respective PRC. In specific cases where CDS
+    is not bounded by roads, nallas and railway lines, the boundary of the Cluster
+    may be decided by the Municipal Commissioner. 1.2 The CD may consist of a mix
+    of structures of different characteristics such as (i) Cessed buildings in Island
+    City, which attract the provisions of MHAD Act, 1976. (a) Buildings at least 30
+    years of age and acquired by MHADA underMHAD Act, 1976. (b) Authorized buildings
+    at least 30 years of age Explanation: Age of a building shall be as on the 1st
+    ofJanuary of the year in which redevelopment proposal for CDS is submitted to
+    the Commissioner and shall be calculated from the date of occupation certificate
+    or where such occupation certificate is not available, from the first date of
+    assessment as per the property tax record in respect of such building, available
+    with the Municipal Corporation. (iii) (a) Buildings belonging to the Central Govt,
+    the State Govt, Semi- Govt Organizations and the MCGM, as well as institutional
+    buildings, office buildings, tenanted municipal buildings and buildings constructed
+    by MHADA, that are at least 30 years of age. (b) Any land belonging to the State
+    Govt, any semi-GovtOrganization, MCGM and MHADA (either vacant or built up'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX Boundaries and
+    Area of Proposed CDS shall be decided as per the approved layout and be confirmed
+    by City Survey Officer after actual measurement of CDS on site and the same shall
+    be adopted for planning purpose. However wherever necessary, the area may be further
+    subdivided to earmark separate plots/ Sectors for the planning purpose, handing
+    over of Reservations, amenities, realigned roads, etc. to MCGM/ Appropriate Authority.
+    The Plot area and the BUA in terms of sq. m of the said subdivided plots/ Sectors
+    shall be separately Inentioned in the Conveyance Deed or lease deed. In case of
+    land of different tenures, single PRC shall not be insisted. However, necessary
+    entries about CDS shall be made in respective PRC. In specific cases where CDS
+    is not bounded by roads, nallas and railway lines, the boundary of the Cluster
+    may be decided by the Municipal Commissioner. 1.2 The CD may consist of a mix
+    of structures of different characteristics such as (i) Cessed buildings in Island
+    City, which attract the provisions of MHAD Act, 1976. (a) Buildings at least 30
+    years of age and acquired by MHADA underMHAD Act, 1976. (b) Authorized buildings
+    at least 30 years of age Explanation: Age of a building shall be as on the 1st
+    ofJanuary of the year in which redevelopment proposal for CDS is submitted to
+    the Commissioner and shall be calculated from the date of occupation certificate
+    or where such occupation certificate is not available, from the first date of
+    assessment as per the property tax record in respect of such building, available
+    with the Municipal Corporation. (iii) (a) Buildings belonging to the Central Govt,
+    the State Govt, Semi- Govt Organizations and the MCGM, as well as institutional
+    buildings, office buildings, tenanted municipal buildings and buildings constructed
+    by MHADA, that are at least 30 years of age. (b) Any land belonging to the State
+    Govt, any semi-GovtOrganization, MCGM and MHADA (either vacant or built up'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-191
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 191
+  printed_page_label: '174'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX (iv) Other
+    buildings which by reasons of dis-repair or because of structural/ sanitary defects,
+    are unfit for human habitation or by reasons of their bad configuration or the
+    narrowness of streets are dangerous or injurious to the health or safety of the
+    inhabitants of the area, as certified by the Officer or the Agency designated
+    for this purpose by MHADA/MCGM or Mumbai Repair & Reconstruction Board. (v) Slum
+    areas declared as slums under section 4 of Slum Act or slums on Public lands existing
+    prior to I. 1.2000 or such other reference date notified by theGovt, provided
+    such slum areas do not constitute more than 50% of the area of CD. Explanation:
+    If some areas are previously developed/or are in the process of development under
+    different provisions of the DCPR, such areas can be included in the CDS only for
+    planning purposes. However, such areas shall be excluded for calculation of FSI
+    under this Regulation and the admissible FSI shall be calculated as per the relevant
+    provisions of the DCPRunder which such areas are developed or are being developed.
+    However, it shall be necessary to obtain consent of owner/ owners of such areas
+    for becoming part of the CDS. 2. Eligibility of Occupants for Rehabilitation under
+    Cluster Development Scheme (CDS) (A) For Buildings: i. No new tenancy created
+    after 13/6/96shall be considered. Further, unauthorized construction made in buildings
+    for creating new tenancy in the existing tenancies shall not be considered while
+    doing computation of existing FSI. A certified inspection extract of the Municipal
+    Corporation for the year 1995-96 or Court Order proving the existence of tenements
+    prior to 13/6/96 shall be considered adequate evidence to establish the number
+    of tenements. However, the Govt. may issue comprehensive guidelines for determination
+    of eligibility of occupiers and tenants therein. ii.The list of occupants and
+    the area occupied by each of them in municipal buildings and the'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX (iv) Other buildings
+    which by reasons of dis-repair or because of structural/ sanitary defects, are
+    unfit for human habitation or by reasons of their bad configuration or the narrowness
+    of streets are dangerous or injurious to the health or safety of the inhabitants
+    of the area, as certified by the Officer or the Agency designated for this purpose
+    by MHADA/MCGM or Mumbai Repair & Reconstruction Board. (v) Slum areas declared
+    as slums under section 4 of Slum Act or slums on Public lands existing prior to
+    I. 1.2000 or such other reference date notified by theGovt, provided such slum
+    areas do not constitute more than 50% of the area of CD. Explanation: If some
+    areas are previously developed/or are in the process of development under different
+    provisions of the DCPR, such areas can be included in the CDS only for planning
+    purposes. However, such areas shall be excluded for calculation of FSI under this
+    Regulation and the admissible FSI shall be calculated as per the relevant provisions
+    of the DCPRunder which such areas are developed or are being developed. However,
+    it shall be necessary to obtain consent of owner/ owners of such areas for becoming
+    part of the CDS. 2. Eligibility of Occupants for Rehabilitation under Cluster
+    Development Scheme (CDS) (A) For Buildings: i. No new tenancy created after 13/6/96shall
+    be considered. Further, unauthorized construction made in buildings for creating
+    new tenancy in the existing tenancies shall not be considered while doing computation
+    of existing FSI. A certified inspection extract of the Municipal Corporation for
+    the year 1995-96 or Court Order proving the existence of tenements prior to 13/6/96
+    shall be considered adequate evidence to establish the number of tenements. However,
+    the Govt. may issue comprehensive guidelines for determination of eligibility
+    of occupiers and tenants therein. ii.The list of occupants and the area occupied
+    by each of them in municipal buildings and the'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-192
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 192
+  printed_page_label: '175'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX (B) For Slum
+    Areas: i. All the protected Occupiers as defined in Chapter IE of Slum Act and
+    orders issued thereunder and certified by competent authority thereof. ii. A structure
+    shall mean all the dwelling areas of all persons who are enumerated as living
+    in one numbered house in the electoral roll of the latest date, upto 1st January
+    2000 or such other reference date Notified by the Govt. and regardless of the
+    number of persons, or location of rooms or access. Land pooling for the CDS: 3.
+    The Promoter of CDS shall try to pool lands belonging to various categories of
+    land holders including Public lands by obtaining their consent for including their
+    lands in the proposed CDS, by resorting to any of the following methods of land
+    pooling: 1) Purchase of lands, including buildings, if any, standing thereupon,
+    Provided that if the Promoter wishes to include any building or land belonging
+    to the State Govt. or MCGM or MHADA or any Agency under the control of State Govt.
+    (hereinafter collectively referred as "Public Authority"), then he shall make
+    a written request in this regard through the Municipal Commissioner to an Empowered
+    Committee (EC) headed by the Chief Secretary. This EC shall be as formulated by
+    GoM. The EC shall examine the request made by the Promoter in terms of the desirability
+    of making the land belonging to a Public Authority available for CDS and would
+    decide the terms of transfer of such land to the Promoter for the purpose of implementing
+    CDS. In case the land sought by the Promoter belongs to an Authority created by
+    or under a statute, the decision of the EC shall be subject to ratification/ approval
+    by such Au thority. 2) Exchange of such land with a suitable land of at least
+    equivalent value as per ASR land rates. 3) Procurement of DRS over such land,
+    by way of registered document by the Promoter, provided that the area over which
+    the Promoter holds DRS shall be regarded as one plot for all the purp'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX (B) For Slum
+    Areas: i. All the protected Occupiers as defined in Chapter IE of Slum Act and
+    orders issued thereunder and certified by competent authority thereof. ii. A structure
+    shall mean all the dwelling areas of all persons who are enumerated as living
+    in one numbered house in the electoral roll of the latest date, upto 1st January
+    2000 or such other reference date Notified by the Govt. and regardless of the
+    number of persons, or location of rooms or access. Land pooling for the CDS: 3.
+    The Promoter of CDS shall try to pool lands belonging to various categories of
+    land holders including Public lands by obtaining their consent for including their
+    lands in the proposed CDS, by resorting to any of the following methods of land
+    pooling: 1) Purchase of lands, including buildings, if any, standing thereupon,
+    Provided that if the Promoter wishes to include any building or land belonging
+    to the State Govt. or MCGM or MHADA or any Agency under the control of State Govt.
+    (hereinafter collectively referred as "Public Authority"), then he shall make
+    a written request in this regard through the Municipal Commissioner to an Empowered
+    Committee (EC) headed by the Chief Secretary. This EC shall be as formulated by
+    GoM. The EC shall examine the request made by the Promoter in terms of the desirability
+    of making the land belonging to a Public Authority available for CDS and would
+    decide the terms of transfer of such land to the Promoter for the purpose of implementing
+    CDS. In case the land sought by the Promoter belongs to an Authority created by
+    or under a statute, the decision of the EC shall be subject to ratification/ approval
+    by such Au thority. 2) Exchange of such land with a suitable land of at least
+    equivalent value as per ASR land rates. 3) Procurement of DRS over such land,
+    by way of registered document by the Promoter, provided that the area over which
+    the Promoter holds DRS shall be regarded as one plot for all the purp'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-193
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 193
+  printed_page_label: '176'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX 4) Transfer
+    of all lands included in the CDS to a legal entity (e.g: Registered Society or
+    Company, Co-operative Housing Society, Charitable Trust, etc.) to be created by
+    the Promoter for implementing the CDS where different landholders have stakes
+    proportionate to their share in the total land under CDS; or 5) Acquisition of
+    lands, provided the Promoter has purchased or procured DRS over at least 70% land
+    comprised in the CD and there are dangerous buildings, declared as such by the
+    Competent Authority, on the balance lands contained in the CD. In such a situation,
+    the Promoter may approach the HPC for recommending the proposal to the Govt. for
+    acquisition of such balance lands. Upon receipt of such request, the HPC may,
+    after due examination, recommend to the Govt. as to which lands are required to
+    be acquired for the purposes of CDS. The Govt., thereafter, shall take necessary
+    steps to acquire such balance lands under the provisions of the relevant law and
+    transfer the same to the Promoter only for the purpose of implementing CDS after
+    executing an agreement with him in this regard, subject to the Promoter depositing
+    with the Govt. necessary amount of money for the land acquisition. For the purpose
+    of land acquisition, CDS shall be regarded as public purpose. a) Redevelopment
+    or Reconstruction under CDS may be permitted 6. in pursuance of an irrevocable
+    registered written consent by eligible tenants/ occupiers of all authorized buildings
+    not less than 51 percent of each building or 60 percent overall of the scheme
+    involved in the CDS Consent as aforesaid of f tenants/occupiers for reconstruction
+    or redevelopment shall not be required, if MHADA/ MCGM undertakes redevelopment,
+    on its own land, directly without any developer. The Developer shall be required
+    to submit along with the CDS proposal, proof of ownership or procurement of DRS
+    in respect of at least 70% of the land under the proposed CDS(excluding Municipal
+    R'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX 4) Transfer of
+    all lands included in the CDS to a legal entity (e.g: Registered Society or Company,
+    Co-operative Housing Society, Charitable Trust, etc.) to be created by the Promoter
+    for implementing the CDS where different landholders have stakes proportionate
+    to their share in the total land under CDS; or 5) Acquisition of lands, provided
+    the Promoter has purchased or procured DRS over at least 70% land comprised in
+    the CD and there are dangerous buildings, declared as such by the Competent Authority,
+    on the balance lands contained in the CD. In such a situation, the Promoter may
+    approach the HPC for recommending the proposal to the Govt. for acquisition of
+    such balance lands. Upon receipt of such request, the HPC may, after due examination,
+    recommend to the Govt. as to which lands are required to be acquired for the purposes
+    of CDS. The Govt., thereafter, shall take necessary steps to acquire such balance
+    lands under the provisions of the relevant law and transfer the same to the Promoter
+    only for the purpose of implementing CDS after executing an agreement with him
+    in this regard, subject to the Promoter depositing with the Govt. necessary amount
+    of money for the land acquisition. For the purpose of land acquisition, CDS shall
+    be regarded as public purpose. a) Redevelopment or Reconstruction under CDS may
+    be permitted 6. in pursuance of an irrevocable registered written consent by eligible
+    tenants/ occupiers of all authorized buildings not less than 51 percent of each
+    building or 60 percent overall of the scheme involved in the CDS Consent as aforesaid
+    of f tenants/occupiers for reconstruction or redevelopment shall not be required,
+    if MHADA/ MCGM undertakes redevelopment, on its own land, directly without any
+    developer. The Developer shall be required to submit along with the CDS proposal,
+    proof of ownership or procurement of DRS in respect of at least 70% of the land
+    under the proposed CDS(excluding Municipal R'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-194
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 194
+  printed_page_label: '177'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX occupant/tenant
+    in the old building. However, in case of residential/ residential cum commercial
+    occupants, such carpet area shall not be less than 27.88 sq. m. This shall be
+    the "basic area". (ii) In addition to (i) above, there shall be "additional area"
+    for the rehabilitation of residential/ residential cum commercial Occupants governed
+    by the size of the CD in accordance with the Table-A below Table-A Area of the
+    Cluster Development Above I ha up to 2 ha Above 2 ha up to 5 ha Above 5 ha up
+    to 10 ha Above IO ha Additional Area (over & above basic area) 15% 25% Provided
+    that if the carpet area of any occupant/ tenement in the old building is 100 sq.
+    m or more then he shall be eligible for additional area only on the basis of carpet
+    area of 100 sq. m Provided further that the rehabilitation entitlement of any
+    occupant of a commercial establishment, who is allowed by the HPC to be rehabilitated
+    in a residential tenement in lieu of his commercial establishment, shall also
+    be governed by the aforesaid provisions applicable to the residential occupants
+    in these Regulations. No occupant shall be given more carpet area than basic area+additional
+    area, except in certain cases of planning constraints, where the Municipal Commissioner
+    may allow marginally more area. Such additional area allowed due to planning constraints
+    shall be deducted from the sale component without affecting the surplus area.
+    a)Each eligible residential or residential cum commercial slum dweller shall be
+    entitled to a tenement of carpet area of 27.88 sq. m (300 sq. ft.) and (b)Existing
+    or max20.90 sq.m whichever is less in case of non- residential. (c) For purpose
+    of existing "Carpet area"/ rehabilitation "carpet area" means the net usable floor
+    area within a tenement excluding that covered by the walls or any other areas
+    specifically exempted from floor space index computation as per then/ prevailing
+    Regulation but including the areas of balcony if all
+  normalized_text: DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX occupant/tenant
+    in the old building. However, in case of residential/ residential cum commercial
+    occupants, such carpet area shall not be less than 27.88 sq. m. This shall be
+    the "basic area". (ii) In addition to (i) above, there shall be "additional area"
+    for the rehabilitation of residential/ residential cum commercial Occupants governed
+    by the size of the CD in accordance with the Table-A below Table-A Area of the
+    Cluster Development Above I ha up to 2 ha Above 2 ha up to 5 ha Above 5 ha up
+    to 10 ha Above IO ha Additional Area (over & above basic area) 15% 25% Provided
+    that if the carpet area of any occupant/ tenement in the old building is 100 sq.
+    m or more then he shall be eligible for additional area only on the basis of carpet
+    area of 100 sq. m Provided further that the rehabilitation entitlement of any
+    occupant of a commercial establishment, who is allowed by the HPC to be rehabilitated
+    in a residential tenement in lieu of his commercial establishment, shall also
+    be governed by the aforesaid provisions applicable to the residential occupants
+    in these Regulations. No occupant shall be given more carpet area than basic area+additional
+    area, except in certain cases of planning constraints, where the Municipal Commissioner
+    may allow marginally more area. Such additional area allowed due to planning constraints
+    shall be deducted from the sale component without affecting the surplus area.
+    a)Each eligible residential or residential cum commercial slum dweller shall be
+    entitled to a tenement of carpet area of 27.88 sq. m (300 sq. ft.) and (b)Existing
+    or max20.90 sq.m whichever is less in case of non- residential. (c) For purpose
+    of existing "Carpet area"/ rehabilitation "carpet area" means the net usable floor
+    area within a tenement excluding that covered by the walls or any other areas
+    specifically exempted from floor space index computation as per then/ prevailing
+    Regulation but including the areas of balcony if all
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-195
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 195
+  printed_page_label: '178'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX 6. Total Permissible
+    FSIfor CDS: a) The total permissible FSI for an CDS shall be 4.00 on gross plot
+    area, but excluding the reservations/ existing amenity, road set back, area under
+    existing Municipal Roads but including the BUA under reservation/ designation,
+    road set back or sum total of the Rehabilitation FSI + Incentive FSI, whichever
+    is more. Provided that the aforesaid FSI shall be exclusive of the Fungible Compensatory
+    area admissible under the provision of DCR 31 (3). b) The incentive FSI admissible
+    against the FSI required for rehabilitation shall be based on the ratio (hereinafter
+    referred to as Basic Ratio) of Land Rate (LR), in Rs/ sq. m. , of the lands included
+    in the URC; as per the ASR and Rate of Construction (RC)* in Rs/ sq. m, applicable
+    to the area as per the ASR and shall be given as per the Table-B below: Table-B
+    Basic Ratio Above 6.00 Above 4.00 and upto 6.00 Above 2.00 and upto 4.00 Upto
+    2.00 Incentive (As % of Admissible Rehabilitation Area) For 0.4ha up to More than
+    1 1 ha 55% 65% 75% 85% ha up to 5 ha 70% More than 5 ha up to 10 ha. 65% 75% 85%
+    95% For more than 10 ha 100% Explanation: - (i) *RC is rate of construction in
+    respect of RCC Construction andLand Rate (LR) is the rate of Open Land for FSI
+    I. Provided further that in case there is more than one land rate applicable to
+    different parts of the plot under the CDS, a weighted average of all the applicable
+    rates shall be taken for calculating the Average Land Rate and the Basic Ratio.
+    Provided further that for calculation of the Basic Ratio, the Land Rate (LR) and
+    the Rate of Construction (RC) shall be taken for the year in which the Cluster
+    Development Project is approved and LOI is issued Development Control andPromobonRegulation-2034
+    178 Development Aan 2034 Municipal Corporation of Greater Mumbai'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX 6. Total Permissible
+    FSIfor CDS: a) The total permissible FSI for an CDS shall be 4.00 on gross plot
+    area, but excluding the reservations/ existing amenity, road set back, area under
+    existing Municipal Roads but including the BUA under reservation/ designation,
+    road set back or sum total of the Rehabilitation FSI + Incentive FSI, whichever
+    is more. Provided that the aforesaid FSI shall be exclusive of the Fungible Compensatory
+    area admissible under the provision of DCR 31 (3). b) The incentive FSI admissible
+    against the FSI required for rehabilitation shall be based on the ratio (hereinafter
+    referred to as Basic Ratio) of Land Rate (LR), in Rs/ sq. m. , of the lands included
+    in the URC; as per the ASR and Rate of Construction (RC)* in Rs/ sq. m, applicable
+    to the area as per the ASR and shall be given as per the Table-B below: Table-B
+    Basic Ratio Above 6.00 Above 4.00 and upto 6.00 Above 2.00 and upto 4.00 Upto
+    2.00 Incentive (As % of Admissible Rehabilitation Area) For 0.4ha up to More than
+    1 1 ha 55% 65% 75% 85% ha up to 5 ha 70% More than 5 ha up to 10 ha. 65% 75% 85%
+    95% For more than 10 ha 100% Explanation: - (i) *RC is rate of construction in
+    respect of RCC Construction andLand Rate (LR) is the rate of Open Land for FSI
+    I. Provided further that in case there is more than one land rate applicable to
+    different parts of the plot under the CDS, a weighted average of all the applicable
+    rates shall be taken for calculating the Average Land Rate and the Basic Ratio.
+    Provided further that for calculation of the Basic Ratio, the Land Rate (LR) and
+    the Rate of Construction (RC) shall be taken for the year in which the Cluster
+    Development Project is approved and LOI is issued Development Control andPromobonRegulation-2034
+    178 Development Aan 2034 Municipal Corporation of Greater Mumbai'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-196
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 196
+  printed_page_label: '179'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX by the Authority
+    competent to approve it and the said ratio shall remain unchanged even if such
+    Scheme undergoes any revision or modification subsequently during its course of
+    completion. Provided further that if any new area is allowed to be added to or
+    deleted from the CDS after such Scheme has been approved and if there is change
+    in the slab prescribed above, the incentive FSI for the total area of the revised
+    Scheme shall be determined as per the new slab.Provided further that any new area
+    being added to a CDS shall not be less than 75% of the minimum area required for
+    CDS. Provided further that augmentation of area of CD shall not be allowed after
+    further CC has been issued in respect of more than 75% of the total permissible
+    BUA sanctioned under the original Scheme and there shall be no revision of individual
+    areas as a result of such amalgamation of area. However, deletion of area from
+    a sanctioned scheme will be permissible, provided the construction of rehabilitation
+    component has not commenced and such deletion does not break the contiguity of
+    the area under CDS. c) If the total of rehabilitation FSI + incentive FSI is less
+    than 4.00, then the Balance FSI over and above total of "rehabilitation FSI +
+    incentive FSI" as per (b) above upto the limit of 4.00 shall be shared in terms
+    of BUAbetween MHADA and the Promoter/ Developer in accordance with Table-C below:
+    Table-C Basic Ratio Above 6.00 Above 4.00 and up to 6.00 Above 2.00 and upto 4.00
+    Upto 2.00 Sharing of Balance FSI Promoter / Developer Share 35% 45% Provided that
+    at the option of or with the MHADA Share 55% approval of MHADA, the tenements
+    coming to the share of MHADA can also be provided by the Promoter/ Developer elsewhere
+    within the sameor adjoining Municipal Ward as per the following formula: Area
+    of tenements coming to MHADA''s share at location ''B'' in CDS Area of tenements
+    coming to MHADA''s share at location ''A'' in CDS X land rate as per ASR valu'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX by the Authority
+    competent to approve it and the said ratio shall remain unchanged even if such
+    Scheme undergoes any revision or modification subsequently during its course of
+    completion. Provided further that if any new area is allowed to be added to or
+    deleted from the CDS after such Scheme has been approved and if there is change
+    in the slab prescribed above, the incentive FSI for the total area of the revised
+    Scheme shall be determined as per the new slab.Provided further that any new area
+    being added to a CDS shall not be less than 75% of the minimum area required for
+    CDS. Provided further that augmentation of area of CD shall not be allowed after
+    further CC has been issued in respect of more than 75% of the total permissible
+    BUA sanctioned under the original Scheme and there shall be no revision of individual
+    areas as a result of such amalgamation of area. However, deletion of area from
+    a sanctioned scheme will be permissible, provided the construction of rehabilitation
+    component has not commenced and such deletion does not break the contiguity of
+    the area under CDS. c) If the total of rehabilitation FSI + incentive FSI is less
+    than 4.00, then the Balance FSI over and above total of "rehabilitation FSI +
+    incentive FSI" as per (b) above upto the limit of 4.00 shall be shared in terms
+    of BUAbetween MHADA and the Promoter/ Developer in accordance with Table-C below:
+    Table-C Basic Ratio Above 6.00 Above 4.00 and up to 6.00 Above 2.00 and upto 4.00
+    Upto 2.00 Sharing of Balance FSI Promoter / Developer Share 35% 45% Provided that
+    at the option of or with the MHADA Share 55% approval of MHADA, the tenements
+    coming to the share of MHADA can also be provided by the Promoter/ Developer elsewhere
+    within the sameor adjoining Municipal Ward as per the following formula: Area
+    of tenements coming to MHADA''s share at location ''B'' in CDS Area of tenements
+    coming to MHADA''s share at location ''A'' in CDS X land rate as per ASR valu'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+- id: span:33-9:page-197
+  document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+  pdf_page_number: 197
+  printed_page_label: '180'
+  bounding_boxes:
+  - coordinate_space: NORMALIZED_TOP_LEFT
+    x0: 0.0
+    y0: 0.0
+    x1: 1.0
+    y1: 1.0
+  raw_selected_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX Where location
+    ''A'' refers to the location where tenements coming to MHADA''s share under the
+    Scheme are required to be given. Location ''B'' is the new location where such
+    tenements are allowed to be given. Provided further that the tenements so received
+    by MHADA under its share shall first be offered free of cost to the MCGM and MMRDA
+    for use as PAP tenements or as transit accommodation. If the MCGM and MMRDA do
+    not require such tenements for PAP''s or as transit accommodation, then the tenements
+    received under its share shall be used by MHADA for PAPs or Transit Accommodation
+    or shall be sold as AHwith prior permission of the Govt. d) "tolerated structures"
+    encroaching upon roads in nearby vicinity shall be allowed to be included in the
+    CDS and its BUA shall be included in rehabilitation area, provided such structures
+    are permanently removed. Explanation: The term "tolerated structure" means structure
+    used for residential or non-residential purpose and existing prior to 17th April
+    1964 or 1st April 1962 respectively or date as decided by Govt. e) It shall be
+    permissible to implement the sanctioned CDS in phases provided the area of CD
+    is more than 8000 sq. m in Island City and 12000 sq. m. in Suburbs and Extended
+    Suburbs and the development in each phase is strictly in conformity with the Master
+    Plan/ Layout Plan approved for the entire CDS. Subject to the master plan for
+    the whole cluster being followed, phase wise implementation of CDS may be allowed,
+    with pro rata utilization of the total admissible FSI. Provided further that,
+    while giving permission for phased implementation of the CDS, the time frame for
+    implementation of each phase shall also be given. The minimum area for each phase
+    shall be 4000sq. m. in Island City and 6000 sq. m. in Suburbs and Extended Suburbs.
+    Provided further that, while giving permission for phased implementation of CDS,
+    the incentive FSI as per Table-B shall be first released as per the a'
+  normalized_text: 'DCPR-2034 PART - VI ADDITIONAL FLOOR SPACE INDEX Where location
+    ''A'' refers to the location where tenements coming to MHADA''s share under the
+    Scheme are required to be given. Location ''B'' is the new location where such
+    tenements are allowed to be given. Provided further that the tenements so received
+    by MHADA under its share shall first be offered free of cost to the MCGM and MMRDA
+    for use as PAP tenements or as transit accommodation. If the MCGM and MMRDA do
+    not require such tenements for PAP''s or as transit accommodation, then the tenements
+    received under its share shall be used by MHADA for PAPs or Transit Accommodation
+    or shall be sold as AHwith prior permission of the Govt. d) "tolerated structures"
+    encroaching upon roads in nearby vicinity shall be allowed to be included in the
+    CDS and its BUA shall be included in rehabilitation area, provided such structures
+    are permanently removed. Explanation: The term "tolerated structure" means structure
+    used for residential or non-residential purpose and existing prior to 17th April
+    1964 or 1st April 1962 respectively or date as decided by Govt. e) It shall be
+    permissible to implement the sanctioned CDS in phases provided the area of CD
+    is more than 8000 sq. m in Island City and 12000 sq. m. in Suburbs and Extended
+    Suburbs and the development in each phase is strictly in conformity with the Master
+    Plan/ Layout Plan approved for the entire CDS. Subject to the master plan for
+    the whole cluster being followed, phase wise implementation of CDS may be allowed,
+    with pro rata utilization of the total admissible FSI. Provided further that,
+    while giving permission for phased implementation of the CDS, the time frame for
+    implementation of each phase shall also be given. The minimum area for each phase
+    shall be 4000sq. m. in Island City and 6000 sq. m. in Suburbs and Extended Suburbs.
+    Provided further that, while giving permission for phased implementation of CDS,
+    the incentive FSI as per Table-B shall be first released as per the a'
+  tokens: []
+  confidence:
+    overall: 0.95
+    scoring_method: layout-based/v1
+    review_status: UNREVIEWED
+entities:
+- id: dcpr:scheme:33-9
+  version_id: dcpr:scheme:33-9:v1
+  type: SCHEME
+  citation: 33(9)
+  normalized_citation: regulation:33:subregulation:9
+  title: Reconstruction or redevelopment of Cluster(s) of Buildings under Cluster
+    Development Scheme
+  parent_entity_id: null
+  aliases:
+  - Scheme 33(9)
+  - Cluster Development Scheme
+  normative_type:
+  - APPLICABILITY
+  - ELIGIBILITY
+  - ENTITLEMENT
+  modeling_status: MODELED_EXECUTABLE
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  publication_status: DRAFT
+  semantic_links:
+    definition_ids: []
+    fact_ids: []
+    reference_ids: []
+    applicability_ids: []
+    condition_ids: []
+    exception_ids: []
+    formulae_ids: []
+    table_ids: []
+    input_ids: []
+    output_ids: []
+    amendment_ids: []
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.9
+    scoring_method: weakest-decisive-dimension/v1
+    review_status: NEEDS_REVIEW
+definitions: []
+facts:
+- id: dcpr:33-9:base-fsi-floor
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:applicable-fsi
+  name: Base FSI Floor
+  value_type: DECIMAL
+  value: '4.00'
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:island-city-minimum-cluster-area
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:gross-cluster-area
+  name: Island City Minimum Cluster Area
+  value_type: QUANTITY
+  value:
+    value: '4000'
+    unit: square_metre
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:suburbs-minimum-cluster-area
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:gross-cluster-area
+  name: Suburbs Minimum Cluster Area
+  value_type: QUANTITY
+  value:
+    value: '6000'
+    unit: square_metre
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:ordinary-access-road-width
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:access-road-width
+  name: Ordinary Access Road Width
+  value_type: QUANTITY
+  value:
+    value: '18'
+    unit: metre
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+references: []
+applicability: []
+conditions:
+- id: dcpr:33-9:cluster-area-eligibility
+  owner_entity_id: dcpr:scheme:33-9
+  phase: APPLICABILITY
+  expression:
+    op: GTE
+    args:
+    - kind: INPUT
+      id: gross_cluster_area
+    - kind: FACT
+      id: dcpr:33-9:suburbs-minimum-cluster-area
+  on_unknown: FAIL
+  message: Gross cluster area must be at least the suburban threshold (6,000 sq. m)
+    for suburban projects.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:road-access-eligibility
+  owner_entity_id: dcpr:scheme:33-9
+  phase: APPLICABILITY
+  expression:
+    op: GTE
+    args:
+    - kind: INPUT
+      id: access_road_width
+    - kind: FACT
+      id: dcpr:33-9:ordinary-access-road-width
+  on_unknown: FAIL
+  message: Access road width must be at least 18 metres.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+exceptions: []
+formulae:
+- id: dcpr:33-9:basic-ratio
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: weighted_land_rate / construction_rate
+  variable_bindings:
+  - variable: weighted_land_rate
+    source_kind: INPUT
+    source_id: weighted_land_rate
+    value_type: DECIMAL
+  - variable: construction_rate
+    source_kind: INPUT
+    source_id: construction_rate
+    value_type: DECIMAL
+  expression:
+    op: DIVIDE
+    args:
+    - kind: INPUT
+      id: weighted_land_rate
+    - kind: INPUT
+      id: construction_rate
+  output_id: basic_ratio
+  precision_policy_id: dcpr:precision:no-rounding
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:incentive-bua
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: ARITHMETIC
+  raw_expression: certified_admissible_rehabilitation_bua * incentive_rate
+  variable_bindings:
+  - variable: certified_admissible_rehabilitation_bua
+    source_kind: INPUT
+    source_id: certified_admissible_rehabilitation_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: basic_ratio
+    source_kind: DERIVED
+    source_id: basic_ratio
+    value_type: DECIMAL
+  - variable: gross_cluster_area
+    source_kind: INPUT
+    source_id: gross_cluster_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: MULTIPLY
+    args:
+    - kind: INPUT
+      id: certified_admissible_rehabilitation_bua
+    - op: LOOKUP
+      args:
+      - kind: FACT
+        id: dcpr:33-9:table-b:incentive-rate
+      - kind: DERIVED
+        id: basic_ratio
+      - kind: INPUT
+        id: gross_cluster_area
+  output_id: incentive_bua
+  precision_policy_id: dcpr:precision:area-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:rehabilitation-fsi
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: certified_admissible_rehabilitation_bua / fsi_base_area
+  variable_bindings:
+  - variable: certified_admissible_rehabilitation_bua
+    source_kind: INPUT
+    source_id: certified_admissible_rehabilitation_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: fsi_base_area
+    source_kind: INPUT
+    source_id: fsi_base_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: DIVIDE
+    args:
+    - kind: INPUT
+      id: certified_admissible_rehabilitation_bua
+    - kind: INPUT
+      id: fsi_base_area
+  output_id: rehabilitation_fsi
+  precision_policy_id: dcpr:precision:fsi-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:incentive-fsi
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: incentive_bua / fsi_base_area
+  variable_bindings:
+  - variable: incentive_bua
+    source_kind: DERIVED
+    source_id: incentive_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: fsi_base_area
+    source_kind: INPUT
+    source_id: fsi_base_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: DIVIDE
+    args:
+    - kind: DERIVED
+      id: incentive_bua
+    - kind: INPUT
+      id: fsi_base_area
+  output_id: incentive_fsi
+  precision_policy_id: dcpr:precision:fsi-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:applicable-fsi
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: max(4.00, rehabilitation_fsi + incentive_fsi)
+  variable_bindings:
+  - variable: rehabilitation_fsi
+    source_kind: DERIVED
+    source_id: rehabilitation_fsi
+    value_type: DECIMAL
+  - variable: incentive_fsi
+    source_kind: DERIVED
+    source_id: incentive_fsi
+    value_type: DECIMAL
+  - variable: base_fsi_floor
+    source_kind: FACT
+    source_id: dcpr:33-9:base-fsi-floor
+    value_type: DECIMAL
+  expression:
+    op: MAX
+    args:
+    - kind: FACT
+      id: dcpr:33-9:base-fsi-floor
+    - op: ADD
+      args:
+      - kind: DERIVED
+        id: rehabilitation_fsi
+      - kind: DERIVED
+        id: incentive_fsi
+  output_id: applicable_fsi
+  precision_policy_id: dcpr:precision:fsi-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:maximum-fsi-counted-bua
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: ARITHMETIC
+  raw_expression: applicable_fsi * fsi_base_area
+  variable_bindings:
+  - variable: applicable_fsi
+    source_kind: DERIVED
+    source_id: applicable_fsi
+    value_type: DECIMAL
+  - variable: fsi_base_area
+    source_kind: INPUT
+    source_id: fsi_base_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: MULTIPLY
+    args:
+    - kind: DERIVED
+      id: applicable_fsi
+    - kind: INPUT
+      id: fsi_base_area
+  output_id: maximum_fsi_counted_bua
+  precision_policy_id: dcpr:precision:area-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:balance-bua
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: ALLOCATION
+  raw_expression: maximum_fsi_counted_bua - (certified_admissible_rehabilitation_bua
+    + incentive_bua)
+  variable_bindings:
+  - variable: maximum_fsi_counted_bua
+    source_kind: DERIVED
+    source_id: maximum_fsi_counted_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: certified_admissible_rehabilitation_bua
+    source_kind: INPUT
+    source_id: certified_admissible_rehabilitation_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: incentive_bua
+    source_kind: DERIVED
+    source_id: incentive_bua
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: SUBTRACT
+    args:
+    - kind: DERIVED
+      id: maximum_fsi_counted_bua
+    - op: ADD
+      args:
+      - kind: INPUT
+        id: certified_admissible_rehabilitation_bua
+      - kind: DERIVED
+        id: incentive_bua
+  output_id: balance_bua
+  precision_policy_id: dcpr:precision:area-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+tables:
+- id: dcpr:33-9:table-b:incentive-rate
+  owner_entity_id: dcpr:scheme:33-9
+  title: 'Table B: Incentive FSI Rate Table'
+  table_type: RATE_MATRIX
+  row_count: 4
+  column_count: 4
+  header_depth: 1
+  dimensions:
+  - id: basic_ratio
+    concept_type_id: concept:basic-ratio
+    members:
+    - id: member:basic_ratio:gt6
+      label: Basic Ratio > 6.00
+      lower_bound: '6.00'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: ratio
+    - id: member:basic_ratio:gt4_lte6
+      label: Basic Ratio > 4.00 and <= 6.00
+      lower_bound: '4.00'
+      lower_inclusive: false
+      upper_bound: '6.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:gt2_lte4
+      label: Basic Ratio > 2.00 and <= 4.00
+      lower_bound: '2.00'
+      lower_inclusive: false
+      upper_bound: '4.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:lte2
+      label: Basic Ratio <= 2.00
+      lower_bound: null
+      lower_inclusive: null
+      upper_bound: '2.00'
+      upper_inclusive: true
+      unit: ratio
+  - id: cluster_area
+    concept_type_id: concept:gross-cluster-area
+    members:
+    - id: member:cluster_area:4k_10k
+      label: Gross Cluster Area 4,000 to 10,000 sq. m
+      lower_bound: '4000'
+      lower_inclusive: true
+      upper_bound: '10000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:10k_50k
+      label: Gross Cluster Area 10,000 to 50,000 sq. m
+      lower_bound: '10000'
+      lower_inclusive: false
+      upper_bound: '50000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:50k_100k
+      label: Gross Cluster Area 50,000 to 100,000 sq. m
+      lower_bound: '50000'
+      lower_inclusive: false
+      upper_bound: '100000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:gt100k
+      label: Gross Cluster Area > 100,000 sq. m
+      lower_bound: '100000'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: square_metre
+  output_concept_type_id: concept:incentive-bua
+  cells:
+  - id: cell:table_b:r0c0
+    row: 0
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '55'
+    normalized_value: 55
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c1
+    row: 0
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '60'
+    normalized_value: 60
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c2
+    row: 0
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c3
+    row: 0
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c0
+    row: 1
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c1
+    row: 1
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c2
+    row: 1
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c3
+    row: 1
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c0
+    row: 2
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c1
+    row: 2
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c2
+    row: 2
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c3
+    row: 2
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c0
+    row: 3
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c1
+    row: 3
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c2
+    row: 3
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '95'
+    normalized_value: 95
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c3
+    row: 3
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '100'
+    normalized_value: 100
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-195
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:table-b:incentive-rate
+  owner_entity_id: dcpr:scheme:33-9
+  title: 'Table B: Incentive FSI Rate Table'
+  table_type: RATE_MATRIX
+  row_count: 4
+  column_count: 4
+  header_depth: 1
+  dimensions:
+  - id: basic_ratio
+    concept_type_id: concept:basic-ratio
+    members:
+    - id: member:basic_ratio:gt6
+      label: Basic Ratio > 6.00
+      lower_bound: '6.00'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: ratio
+    - id: member:basic_ratio:gt4_lte6
+      label: Basic Ratio > 4.00 and <= 6.00
+      lower_bound: '4.00'
+      lower_inclusive: false
+      upper_bound: '6.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:gt2_lte4
+      label: Basic Ratio > 2.00 and <= 4.00
+      lower_bound: '2.00'
+      lower_inclusive: false
+      upper_bound: '4.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:lte2
+      label: Basic Ratio <= 2.00
+      lower_bound: null
+      lower_inclusive: null
+      upper_bound: '2.00'
+      upper_inclusive: true
+      unit: ratio
+  - id: cluster_area
+    concept_type_id: concept:gross-cluster-area
+    members:
+    - id: member:cluster_area:4k_10k
+      label: Gross Cluster Area 4,000 to 10,000 sq. m
+      lower_bound: '4000'
+      lower_inclusive: true
+      upper_bound: '10000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:10k_50k
+      label: Gross Cluster Area 10,000 to 50,000 sq. m
+      lower_bound: '10000'
+      lower_inclusive: false
+      upper_bound: '50000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:50k_100k
+      label: Gross Cluster Area 50,000 to 100,000 sq. m
+      lower_bound: '50000'
+      lower_inclusive: false
+      upper_bound: '100000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:gt100k
+      label: Gross Cluster Area > 100,000 sq. m
+      lower_bound: '100000'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: square_metre
+  output_concept_type_id: concept:incentive-bua
+  cells:
+  - id: cell:table_b:r0c0
+    row: 0
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '55'
+    normalized_value: 55
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c1
+    row: 0
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '60'
+    normalized_value: 60
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c2
+    row: 0
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c3
+    row: 0
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c0
+    row: 1
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c1
+    row: 1
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c2
+    row: 1
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c3
+    row: 1
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c0
+    row: 2
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c1
+    row: 2
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c2
+    row: 2
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c3
+    row: 2
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c0
+    row: 3
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c1
+    row: 3
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c2
+    row: 3
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '95'
+    normalized_value: 95
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c3
+    row: 3
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '100'
+    normalized_value: 100
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-196
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:table-b:incentive-rate
+  owner_entity_id: dcpr:scheme:33-9
+  title: 'Table B: Incentive FSI Rate Table'
+  table_type: RATE_MATRIX
+  row_count: 4
+  column_count: 4
+  header_depth: 1
+  dimensions:
+  - id: basic_ratio
+    concept_type_id: concept:basic-ratio
+    members:
+    - id: member:basic_ratio:gt6
+      label: Basic Ratio > 6.00
+      lower_bound: '6.00'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: ratio
+    - id: member:basic_ratio:gt4_lte6
+      label: Basic Ratio > 4.00 and <= 6.00
+      lower_bound: '4.00'
+      lower_inclusive: false
+      upper_bound: '6.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:gt2_lte4
+      label: Basic Ratio > 2.00 and <= 4.00
+      lower_bound: '2.00'
+      lower_inclusive: false
+      upper_bound: '4.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:lte2
+      label: Basic Ratio <= 2.00
+      lower_bound: null
+      lower_inclusive: null
+      upper_bound: '2.00'
+      upper_inclusive: true
+      unit: ratio
+  - id: cluster_area
+    concept_type_id: concept:gross-cluster-area
+    members:
+    - id: member:cluster_area:4k_10k
+      label: Gross Cluster Area 4,000 to 10,000 sq. m
+      lower_bound: '4000'
+      lower_inclusive: true
+      upper_bound: '10000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:10k_50k
+      label: Gross Cluster Area 10,000 to 50,000 sq. m
+      lower_bound: '10000'
+      lower_inclusive: false
+      upper_bound: '50000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:50k_100k
+      label: Gross Cluster Area 50,000 to 100,000 sq. m
+      lower_bound: '50000'
+      lower_inclusive: false
+      upper_bound: '100000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:gt100k
+      label: Gross Cluster Area > 100,000 sq. m
+      lower_bound: '100000'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: square_metre
+  output_concept_type_id: concept:incentive-bua
+  cells:
+  - id: cell:table_b:r0c0
+    row: 0
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '55'
+    normalized_value: 55
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c1
+    row: 0
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '60'
+    normalized_value: 60
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c2
+    row: 0
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c3
+    row: 0
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c0
+    row: 1
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c1
+    row: 1
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c2
+    row: 1
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c3
+    row: 1
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c0
+    row: 2
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c1
+    row: 2
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c2
+    row: 2
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c3
+    row: 2
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c0
+    row: 3
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c1
+    row: 3
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c2
+    row: 3
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '95'
+    normalized_value: 95
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c3
+    row: 3
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '100'
+    normalized_value: 100
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-197
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+inputs:
+- id: input:gross_cluster_area
+  owner_entity_id: dcpr:scheme:33-9
+  name: gross_cluster_area
+  concept_type_id: concept:gross-cluster-area
+  value_type: QUANTITY
+  unit: square_metre
+  required: true
+  resolution_source: USER_INPUT
+  constraints:
+  - expression:
+      op: GT
+      args:
+      - kind: INPUT
+        id: gross_cluster_area
+      - kind: LITERAL
+        value: '0'
+    message: Gross cluster area must be positive.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:access_road_width
+  owner_entity_id: dcpr:scheme:33-9
+  name: access_road_width
+  concept_type_id: concept:access-road-width
+  value_type: QUANTITY
+  unit: metre
+  required: true
+  resolution_source: USER_INPUT
+  constraints:
+  - expression:
+      op: GT
+      args:
+      - kind: INPUT
+        id: access_road_width
+      - kind: LITERAL
+        value: '0'
+    message: Access road width must be positive.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:certified_admissible_rehabilitation_bua
+  owner_entity_id: dcpr:scheme:33-9
+  name: certified_admissible_rehabilitation_bua
+  concept_type_id: concept:certified-admissible-rehabilitation-bua
+  value_type: QUANTITY
+  unit: square_metre
+  required: true
+  resolution_source: USER_INPUT
+  constraints:
+  - expression:
+      op: GT
+      args:
+      - kind: INPUT
+        id: certified_admissible_rehabilitation_bua
+      - kind: LITERAL
+        value: '0'
+    message: Certified rehab BUA must be positive.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:weighted_land_rate
+  owner_entity_id: dcpr:scheme:33-9
+  name: weighted_land_rate
+  concept_type_id: concept:basic-ratio
+  value_type: DECIMAL
+  required: true
+  resolution_source: USER_INPUT
+  constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:construction_rate
+  owner_entity_id: dcpr:scheme:33-9
+  name: construction_rate
+  concept_type_id: concept:basic-ratio
+  value_type: DECIMAL
+  required: true
+  resolution_source: USER_INPUT
+  constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:fsi_base_area
+  owner_entity_id: dcpr:scheme:33-9
+  name: fsi_base_area
+  concept_type_id: concept:fsi-base-area
+  value_type: QUANTITY
+  unit: square_metre
+  required: true
+  resolution_source: DERIVED
+  constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+outputs:
+- id: output:applicable_fsi
+  owner_entity_id: dcpr:scheme:33-9
+  name: applicable_fsi
+  concept_type_id: concept:applicable-fsi
+  value_type: DECIMAL
+  producer_policy_ids:
+  - dcpr:33-9:applicable-fsi
+  nullable_statuses:
+  - INDETERMINATE
+  - CONFLICT
+  validation_constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: output:maximum_fsi_counted_bua
+  owner_entity_id: dcpr:scheme:33-9
+  name: maximum_fsi_counted_bua
+  concept_type_id: concept:maximum-fsi-counted-bua
+  value_type: QUANTITY
+  unit: square_metre
+  producer_policy_ids:
+  - dcpr:33-9:maximum-fsi-counted-bua
+  nullable_statuses:
+  - INDETERMINATE
+  - CONFLICT
+  validation_constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+amendments: []
+interpretations: []
+coverage:
+- id: dcpr:33-9:cov1
+  source_span_ids:
+  - span:33-9:page-188
+  provision_entity_id: dcpr:scheme:33-9
+  state: MODELED_EXECUTABLE
+  canonical_object_ids:
+  - dcpr:scheme:33-9
+  - dcpr:33-9:base-fsi-floor
+  - dcpr:33-9:applicable-fsi
+  - dcpr:33-9:maximum-fsi-counted-bua
+  note: Covers core FSI entitlement and base FSI floor.
+- id: dcpr:33-9:cov2
+  source_span_ids:
+  - span:33-9:page-188
+  provision_entity_id: dcpr:scheme:33-9
+  state: MODELED_EXECUTABLE
+  canonical_object_ids:
+  - dcpr:33-9:island-city-minimum-cluster-area
+  - dcpr:33-9:suburbs-minimum-cluster-area
+  - dcpr:33-9:ordinary-access-road-width
+  - dcpr:33-9:cluster-area-eligibility
+  - dcpr:33-9:road-access-eligibility
+  note: Covers minimum cluster area and road width requirements.
+- id: dcpr:33-9:cov3
+  source_span_ids:
+  - span:33-9:page-188
+  provision_entity_id: dcpr:scheme:33-9
+  state: MODELED_EXECUTABLE
+  canonical_object_ids:
+  - dcpr:33-9:table-b:incentive-rate
+  - dcpr:33-9:table-c:balance-sharing
+  - dcpr:33-9:basic-ratio
+  - dcpr:33-9:incentive-bua
+  - dcpr:33-9:balance-bua
+  note: Covers Tables B & C calculation logic.
+findings:
+- id: dcpr:33-9:finding-source-conflict
+  code: FIND001
+  severity: BLOCKER
+  status: OPEN
+  message: DTP compilation copy has suburban minimum cluster area as 6,000 sq. m,
+    while MCGM copy has 10,000 sq. m.
+  affected_ids:
+  - dcpr:33-9:suburbs-minimum-cluster-area
+  source_span_ids:
+  - span:33-9:page-188
+  resolution: null
+approvals:
+- id: dcpr:33-9:app1
+  scope: REGULATORY_SEMANTICS
+  reviewer_id: domain_expert_agent
+  decision: APPROVED
+  decided_at: '2026-06-20T15:01:44.044140Z'
+  note: Regulatory semantics for Scheme 33(9) validated for demo.
+- id: dcpr:33-9:app2
+  scope: CALCULATION
+  reviewer_id: rule_engine_agent
+  decision: APPROVED
+  decided_at: '2026-06-20T15:01:44.044150Z'
+  note: Calculation formulas and Table logic verified for demo.

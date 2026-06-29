@@ -1,0 +1,1773 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "urn:dcpr:schema:canonical-knowledge-model:v1"
+title: "DCPR Canonical Knowledge Model Package"
+description: >
+  Corpus-wide schema for reviewed DCPR regulatory knowledge. YAML instances are
+  normalized to canonical JSON before hashing, compilation, and release.
+type: object
+additionalProperties: false
+required:
+  - schema_version
+  - package
+  - source_documents
+  - source_spans
+  - entities
+  - definitions
+  - facts
+  - references
+  - applicability
+  - conditions
+  - exceptions
+  - formulae
+  - tables
+  - inputs
+  - outputs
+  - amendments
+  - interpretations
+  - coverage
+  - findings
+  - approvals
+properties:
+  schema_version:
+    const: "dcpr-knowledge-model/v1"
+  package:
+    $ref: "#/$defs/Package"
+  source_documents:
+    type: array
+    items:
+      $ref: "#/$defs/SourceDocument"
+  source_spans:
+    type: array
+    items:
+      $ref: "#/$defs/SourceSpan"
+  entities:
+    type: array
+    items:
+      $ref: "#/$defs/Entity"
+  definitions:
+    type: array
+    items:
+      $ref: "#/$defs/Definition"
+  facts:
+    type: array
+    items:
+      $ref: "#/$defs/Fact"
+  references:
+    type: array
+    items:
+      $ref: "#/$defs/Reference"
+  applicability:
+    type: array
+    items:
+      $ref: "#/$defs/Applicability"
+  conditions:
+    type: array
+    items:
+      $ref: "#/$defs/Condition"
+  exceptions:
+    type: array
+    items:
+      $ref: "#/$defs/Exception"
+  formulae:
+    type: array
+    items:
+      $ref: "#/$defs/Formula"
+  tables:
+    type: array
+    items:
+      $ref: "#/$defs/Table"
+  inputs:
+    type: array
+    items:
+      $ref: "#/$defs/InputDefinition"
+  outputs:
+    type: array
+    items:
+      $ref: "#/$defs/OutputDefinition"
+  amendments:
+    type: array
+    items:
+      $ref: "#/$defs/Amendment"
+  interpretations:
+    type: array
+    items:
+      $ref: "#/$defs/Interpretation"
+  coverage:
+    type: array
+    items:
+      $ref: "#/$defs/Coverage"
+  findings:
+    type: array
+    items:
+      $ref: "#/$defs/Finding"
+  approvals:
+    type: array
+    items:
+      $ref: "#/$defs/Approval"
+
+$defs:
+  Identifier:
+    type: string
+    minLength: 3
+    pattern: "^[a-z0-9][a-z0-9:._@/\\-]*$"
+
+  Date:
+    type: string
+    format: date
+
+  DateTime:
+    type: string
+    format: date-time
+
+  DecimalString:
+    type: string
+    pattern: "^-?[0-9]+(\\.[0-9]+)?$"
+
+  StringOrNumberOrBoolean:
+    oneOf:
+      - type: string
+      - type: number
+      - type: boolean
+
+  EffectivePeriod:
+    type: object
+    additionalProperties: false
+    required:
+      - from
+      - to
+    properties:
+      from:
+        oneOf:
+          - $ref: "#/$defs/Date"
+          - type: "null"
+      to:
+        oneOf:
+          - $ref: "#/$defs/Date"
+          - type: "null"
+
+  BoundingBox:
+    type: object
+    additionalProperties: false
+    required:
+      - coordinate_space
+      - x0
+      - y0
+      - x1
+      - y1
+    properties:
+      coordinate_space:
+        enum:
+          - PDF_POINTS_BOTTOM_LEFT
+          - NORMALIZED_TOP_LEFT
+          - IMAGE_PIXELS_TOP_LEFT
+      x0:
+        type: number
+      y0:
+        type: number
+      x1:
+        type: number
+      y1:
+        type: number
+
+  Confidence:
+    type: object
+    additionalProperties: false
+    required:
+      - overall
+      - scoring_method
+      - review_status
+    properties:
+      text:
+        type: number
+        minimum: 0
+        maximum: 1
+      layout:
+        type: number
+        minimum: 0
+        maximum: 1
+      structure:
+        type: number
+        minimum: 0
+        maximum: 1
+      semantic:
+        type: number
+        minimum: 0
+        maximum: 1
+      scope:
+        type: number
+        minimum: 0
+        maximum: 1
+      numeric:
+        type: number
+        minimum: 0
+        maximum: 1
+      table_structure:
+        type: number
+        minimum: 0
+        maximum: 1
+      formula:
+        type: number
+        minimum: 0
+        maximum: 1
+      reference_resolution:
+        type: number
+        minimum: 0
+        maximum: 1
+      amendment_resolution:
+        type: number
+        minimum: 0
+        maximum: 1
+      overall:
+        type: number
+        minimum: 0
+        maximum: 1
+      decisive:
+        type: boolean
+        default: false
+      scoring_method:
+        type: string
+        minLength: 1
+      calibration_version:
+        type:
+          - string
+          - "null"
+      review_status:
+        enum:
+          - UNREVIEWED
+          - NEEDS_REVIEW
+          - VERIFIED
+          - CORRECTED
+          - REJECTED
+
+  Evidence:
+    type: object
+    additionalProperties: false
+    required:
+      - source_span_ids
+      - extraction_run_id
+      - extraction_method
+    properties:
+      source_span_ids:
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items:
+          $ref: "#/$defs/Identifier"
+      extraction_run_id:
+        $ref: "#/$defs/Identifier"
+      candidate_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      extraction_method:
+        enum:
+          - NATIVE_TEXT
+          - OCR
+          - DETERMINISTIC_PARSER
+          - MODEL_ASSISTED
+          - MANUAL
+          - DETERMINISTIC_AND_REVIEWED
+          - MODEL_ASSISTED_AND_REVIEWED
+      extractor_versions:
+        type: object
+        additionalProperties:
+          type: string
+      source_text_digest:
+        type:
+          - string
+          - "null"
+
+  Quantity:
+    type: object
+    additionalProperties: false
+    required:
+      - value
+      - unit
+    properties:
+      value:
+        $ref: "#/$defs/DecimalString"
+      unit:
+        type: string
+        minLength: 1
+
+  ExpressionValue:
+    type: object
+    additionalProperties: false
+    required:
+      - kind
+    properties:
+      kind:
+        enum:
+          - INPUT
+          - FACT
+          - DERIVED
+          - CONCEPT
+          - POLICY_RESULT
+          - LITERAL
+      id:
+        $ref: "#/$defs/Identifier"
+      value:
+        oneOf:
+          - $ref: "#/$defs/StringOrNumberOrBoolean"
+          - type: "null"
+      unit:
+        type:
+          - string
+          - "null"
+    allOf:
+      - if:
+          properties:
+            kind:
+              const: LITERAL
+        then:
+          required:
+            - value
+        else:
+          required:
+            - id
+
+  ExpressionOperation:
+    type: object
+    additionalProperties: false
+    required:
+      - op
+      - args
+    properties:
+      op:
+        enum:
+          - ALL
+          - ANY
+          - NOT
+          - EQUALS
+          - NOT_EQUALS
+          - GT
+          - GTE
+          - LT
+          - LTE
+          - BETWEEN
+          - ADD
+          - SUBTRACT
+          - MULTIPLY
+          - DIVIDE
+          - MIN
+          - MAX
+          - ABS
+          - CONTAINS
+          - INTERSECTS
+          - SUBSET
+          - COUNT
+          - SUM
+          - WEIGHTED_AVERAGE
+          - BEFORE
+          - AFTER
+          - ON_OR_BEFORE
+          - ON_OR_AFTER
+          - DURING
+          - AGE_ON_DATE
+          - LOOKUP
+          - BAND_LOOKUP
+          - MATRIX_LOOKUP
+          - CONVERT_UNIT
+      args:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/Expression"
+      params:
+        type: object
+        additionalProperties:
+          $ref: "#/$defs/StringOrNumberOrBoolean"
+
+  Expression:
+    oneOf:
+      - $ref: "#/$defs/ExpressionValue"
+      - $ref: "#/$defs/ExpressionOperation"
+
+  Package:
+    type: object
+    additionalProperties: false
+    required:
+      - package_id
+      - corpus_id
+      - instrument_id
+      - status
+      - schema_version
+      - extraction_run_id
+      - effective_period
+      - recorded_at
+    properties:
+      package_id:
+        $ref: "#/$defs/Identifier"
+      corpus_id:
+        $ref: "#/$defs/Identifier"
+      instrument_id:
+        $ref: "#/$defs/Identifier"
+      status:
+        enum:
+          - EXTRACTION_DRAFT
+          - RECONCILED_DRAFT
+          - IN_REVIEW
+          - APPROVED
+          - PUBLISHED
+          - SUPERSEDED
+      schema_version:
+        const: "dcpr-knowledge-model/v1"
+      extraction_run_id:
+        $ref: "#/$defs/Identifier"
+      knowledge_release_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      recorded_at:
+        $ref: "#/$defs/DateTime"
+      language_codes:
+        type: array
+        items:
+          type: string
+      source_document_version_ids:
+        type: array
+        uniqueItems: true
+        items:
+          $ref: "#/$defs/Identifier"
+
+  SourceDocument:
+    type: object
+    additionalProperties: false
+    required:
+      - document_version_id
+      - instrument_id
+      - title
+      - document_type
+      - authority
+      - sha256
+      - retrieved_at
+      - page_count
+      - legal_currency
+    properties:
+      document_version_id:
+        $ref: "#/$defs/Identifier"
+      instrument_id:
+        $ref: "#/$defs/Identifier"
+      title:
+        type: string
+        minLength: 1
+      document_type:
+        enum:
+          - ORIGINAL_INSTRUMENT
+          - AMENDMENT_NOTIFICATION
+          - CORRIGENDUM
+          - ADDENDUM
+          - CONSOLIDATED_COMPILATION
+          - CIRCULAR
+          - GUIDELINE
+          - APPENDIX
+          - ANNEXURE
+          - INTERPRETATION
+          - DRAFT
+          - OTHER
+      authority:
+        type: string
+        minLength: 1
+      notification_number:
+        type:
+          - string
+          - "null"
+      source_url:
+        type:
+          - string
+          - "null"
+        format: uri
+      sha256:
+        type: string
+        pattern: "^[a-fA-F0-9]{64}$"
+      declared_effective_from:
+        oneOf:
+          - $ref: "#/$defs/Date"
+          - type: "null"
+      declared_compilation_cutoff:
+        oneOf:
+          - $ref: "#/$defs/Date"
+          - type: "null"
+      retrieved_at:
+        $ref: "#/$defs/DateTime"
+      page_count:
+        type: integer
+        minimum: 1
+      language_codes:
+        type: array
+        items:
+          type: string
+      legal_currency:
+        enum:
+          - UNVERIFIED
+          - CURRENT
+          - HISTORICAL
+          - SUPERSEDED
+          - DRAFT
+          - CONFLICTING_COPY
+      supersedes_document_version_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+
+  Token:
+    type: object
+    additionalProperties: false
+    required:
+      - token_id
+      - text
+      - bounding_box
+      - extraction_source
+    properties:
+      token_id:
+        $ref: "#/$defs/Identifier"
+      text:
+        type: string
+      normalized_text:
+        type:
+          - string
+          - "null"
+      bounding_box:
+        $ref: "#/$defs/BoundingBox"
+      extraction_source:
+        enum:
+          - NATIVE
+          - OCR
+          - CORRECTED
+      engine:
+        type:
+          - string
+          - "null"
+      engine_confidence:
+        type:
+          - number
+          - "null"
+        minimum: 0
+        maximum: 1
+      alternate_text:
+        type:
+          - string
+          - "null"
+
+  SourceSpan:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - document_version_id
+      - pdf_page_number
+      - printed_page_label
+      - bounding_boxes
+      - raw_selected_text
+      - normalized_text
+      - tokens
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      document_version_id:
+        $ref: "#/$defs/Identifier"
+      pdf_page_index:
+        type: integer
+        minimum: 0
+      pdf_page_number:
+        type: integer
+        minimum: 1
+      printed_page_label:
+        type:
+          - string
+          - "null"
+      block_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      bounding_boxes:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/BoundingBox"
+      native_text:
+        type:
+          - string
+          - "null"
+      ocr_text:
+        type:
+          - string
+          - "null"
+      raw_selected_text:
+        type: string
+      normalized_text:
+        type: string
+      corrected_text:
+        type:
+          - string
+          - "null"
+      correction_reason:
+        type:
+          - string
+          - "null"
+      tokens:
+        type: array
+        items:
+          $ref: "#/$defs/Token"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  SemanticLinks:
+    type: object
+    additionalProperties: false
+    properties:
+      definition_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      fact_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      reference_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      applicability_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      condition_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      exception_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      formula_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      table_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      input_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      output_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      amendment_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+
+  Entity:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - version_id
+      - type
+      - citation
+      - normalized_citation
+      - title
+      - effective_period
+      - publication_status
+      - semantic_links
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      version_id:
+        $ref: "#/$defs/Identifier"
+      type:
+        enum:
+          - SCHEME
+          - REGULATION
+          - SUB_REGULATION
+          - CLAUSE
+          - SUB_CLAUSE
+          - ITEM
+          - PROVISO
+          - EXPLANATION
+          - NOTE
+          - APPENDIX
+          - ANNEXURE
+          - TABLE
+          - DEFINITION
+          - NOTIFICATION
+          - AMENDMENT
+          - INTERPRETATION
+      citation:
+        type: string
+        minLength: 1
+      normalized_citation:
+        type: string
+        minLength: 1
+      printed_citation:
+        type:
+          - string
+          - "null"
+      title:
+        type: string
+      parent_entity_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      aliases:
+        type: array
+        items:
+          type: string
+      normative_type:
+        type: array
+        uniqueItems: true
+        items:
+          enum:
+            - DEFINITION
+            - APPLICABILITY
+            - ELIGIBILITY
+            - ENTITLEMENT
+            - FORMULA
+            - RATE_TABLE
+            - AREA_TREATMENT
+            - ALLOCATION
+            - PROCEDURE
+            - EXCEPTION
+            - EXTERNAL_REFERENCE
+            - NARRATIVE
+      modeling_status:
+        enum:
+          - MODELED_EXECUTABLE
+          - MODELED_NON_EXECUTABLE
+          - PENDING_REVIEW
+          - SOURCE_CONFLICT
+          - OUT_OF_SCOPE
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      publication_status:
+        enum:
+          - DRAFT
+          - IN_REVIEW
+          - APPROVED
+          - PUBLISHED
+          - SUPERSEDED
+          - REJECTED
+      semantic_links:
+        $ref: "#/$defs/SemanticLinks"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  Definition:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - term
+      - normalized_term
+      - definition_text
+      - definition_kind
+      - scope
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      term:
+        type: string
+        minLength: 1
+      normalized_term:
+        type: string
+        minLength: 1
+      definition_text:
+        type: string
+        minLength: 1
+      definition_kind:
+        enum:
+          - MEANS
+          - INCLUDES
+          - EXCLUDES
+          - SAME_MEANING_AS
+          - ABBREVIATION
+          - EXPLANATION
+      scope:
+        enum:
+          - CORPUS
+          - INSTRUMENT
+          - PART
+          - REGULATION
+          - SCHEME
+          - CLAUSE
+          - TABLE
+      concept_type_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      aliases:
+        type: array
+        items:
+          type: string
+      included_definition_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      excluded_definition_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      external_reference_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  Fact:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - concept_type_id
+      - value_type
+      - value
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      concept_type_id:
+        $ref: "#/$defs/Identifier"
+      name:
+        type: string
+      value_type:
+        enum:
+          - DECIMAL
+          - INTEGER
+          - BOOLEAN
+          - STRING
+          - DATE
+          - ENUM
+          - QUANTITY
+          - PERCENTAGE
+          - MONEY
+      value:
+        oneOf:
+          - $ref: "#/$defs/StringOrNumberOrBoolean"
+          - $ref: "#/$defs/Quantity"
+      unit:
+        type:
+          - string
+          - "null"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  ReferenceCandidate:
+    type: object
+    additionalProperties: false
+    required:
+      - target_entity_id
+      - score
+      - reason
+    properties:
+      target_entity_id:
+        $ref: "#/$defs/Identifier"
+      score:
+        type: number
+        minimum: 0
+        maximum: 1
+      reason:
+        type: string
+
+  Reference:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - from_entity_id
+      - mention_text
+      - normalized_target_citation
+      - reference_type
+      - resolution_status
+      - required_for_execution
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      from_entity_id:
+        $ref: "#/$defs/Identifier"
+      mention_text:
+        type: string
+        minLength: 1
+      normalized_target_citation:
+        type: string
+        minLength: 1
+      target_entity_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      target_external_instrument:
+        type:
+          - string
+          - "null"
+      reference_type:
+        enum:
+          - REFERENCES
+          - DEFINES
+          - DEPENDS_ON
+          - USES_TABLE
+          - USES_FORMULA
+          - SUBJECT_TO
+          - EXCEPT_AS_PROVIDED_BY
+          - OVERRIDES
+          - AMENDS
+          - SUPERSEDES
+      purpose:
+        type:
+          - string
+          - "null"
+      resolution_status:
+        enum:
+          - RESOLVED
+          - UNRESOLVED
+          - AMBIGUOUS
+          - EXTERNAL_UNMODELED
+      candidates:
+        type: array
+        items:
+          $ref: "#/$defs/ReferenceCandidate"
+      required_for_execution:
+        type: boolean
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  Applicability:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - subject_type
+      - expression
+      - on_unknown
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      subject_type:
+        enum:
+          - DEVELOPMENT_SITE
+          - PLOT
+          - CLUSTER
+          - BUILDING
+          - STRUCTURE
+          - OCCUPANT
+          - TENEMENT
+          - AUTHORITY
+          - LAND
+          - OTHER
+      expression:
+        $ref: "#/$defs/Expression"
+      on_unknown:
+        enum:
+          - INDETERMINATE
+          - NOT_APPLICABLE
+          - REQUIRES_REVIEW
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  Condition:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - phase
+      - expression
+      - on_unknown
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      phase:
+        enum:
+          - APPLICABILITY
+          - ELIGIBILITY
+          - AREA_BASIS
+          - ENTITLEMENT
+          - CALCULATION
+          - CONSTRAINT
+          - PROCEDURAL
+      expression:
+        $ref: "#/$defs/Expression"
+      reads:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      on_unknown:
+        enum:
+          - INDETERMINATE
+          - FAIL
+          - REQUIRES_REVIEW
+      message:
+        type:
+          - string
+          - "null"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  ExceptionEffect:
+    type: object
+    additionalProperties: false
+    required:
+      - type
+      - target_policy_ids
+    properties:
+      type:
+        enum:
+          - OVERRIDE
+          - EXCLUDE
+          - MODIFY
+          - ALLOW
+          - DENY
+          - APPLY_CAP
+          - APPLY_FLOOR
+          - REQUIRE_APPROVAL
+          - MANUAL_REVIEW
+      target_policy_ids:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/Identifier"
+      expression:
+        oneOf:
+          - $ref: "#/$defs/Expression"
+          - type: "null"
+      result_value:
+        oneOf:
+          - $ref: "#/$defs/StringOrNumberOrBoolean"
+          - $ref: "#/$defs/Quantity"
+          - type: "null"
+
+  Exception:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - exception_type
+      - trigger
+      - effect
+      - precedence_basis
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      exception_type:
+        enum:
+          - OVERRIDE
+          - EXCLUSION
+          - QUALIFICATION
+          - ALTERNATIVE
+          - PERMISSION
+          - PROHIBITION
+          - CAP
+          - FLOOR
+          - AUTHORITY_DISCRETION
+          - PROCEDURAL_PROVISO
+      trigger:
+        $ref: "#/$defs/Expression"
+      effect:
+        $ref: "#/$defs/ExceptionEffect"
+      precedence_basis:
+        enum:
+          - EXPLICIT_SOURCE_OVERRIDE
+          - INSTRUMENT_HIERARCHY
+          - APPROVED_INTERPRETATION
+          - PROCEDURAL_ONLY
+          - UNRESOLVED
+      authority_approval_input_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  VariableBinding:
+    type: object
+    additionalProperties: false
+    required:
+      - variable
+      - source_kind
+      - source_id
+      - value_type
+    properties:
+      variable:
+        type: string
+        minLength: 1
+      source_kind:
+        enum:
+          - INPUT
+          - FACT
+          - DERIVED
+          - CONCEPT
+          - TABLE
+      source_id:
+        $ref: "#/$defs/Identifier"
+      value_type:
+        type: string
+      unit:
+        type:
+          - string
+          - "null"
+
+  Formula:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - formula_type
+      - raw_expression
+      - variable_bindings
+      - expression
+      - output_id
+      - precision_policy_id
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      formula_type:
+        enum:
+          - ARITHMETIC
+          - PERCENTAGE
+          - RATIO
+          - CAP_OR_FLOOR
+          - ALLOCATION
+          - TABLE_LOOKUP
+          - AREA_ACCOUNTING
+          - VALUE_ADJUSTMENT
+          - OTHER
+      raw_expression:
+        type: string
+        minLength: 1
+      variable_bindings:
+        type: array
+        items:
+          $ref: "#/$defs/VariableBinding"
+      expression:
+        $ref: "#/$defs/Expression"
+      output_id:
+        $ref: "#/$defs/Identifier"
+      precision_policy_id:
+        $ref: "#/$defs/Identifier"
+      rounding_policy_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  TableDimensionMember:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - label
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      label:
+        type: string
+      lower_bound:
+        oneOf:
+          - $ref: "#/$defs/DecimalString"
+          - type: "null"
+      lower_inclusive:
+        type:
+          - boolean
+          - "null"
+      upper_bound:
+        oneOf:
+          - $ref: "#/$defs/DecimalString"
+          - type: "null"
+      upper_inclusive:
+        type:
+          - boolean
+          - "null"
+      unit:
+        type:
+          - string
+          - "null"
+
+  TableDimension:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - concept_type_id
+      - members
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      concept_type_id:
+        $ref: "#/$defs/Identifier"
+      members:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/TableDimensionMember"
+
+  TableCell:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - row
+      - column
+      - row_span
+      - column_span
+      - raw_text
+      - value_type
+      - source_span_ids
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      row:
+        type: integer
+        minimum: 0
+      column:
+        type: integer
+        minimum: 0
+      row_span:
+        type: integer
+        minimum: 1
+      column_span:
+        type: integer
+        minimum: 1
+      raw_text:
+        type: string
+      normalized_value:
+        oneOf:
+          - $ref: "#/$defs/StringOrNumberOrBoolean"
+          - type: "null"
+      value_type:
+        enum:
+          - HEADER
+          - STRING
+          - DECIMAL
+          - INTEGER
+          - PERCENTAGE
+          - QUANTITY
+          - DATE
+          - BOOLEAN
+          - NOT_APPLICABLE
+          - NOT_PERMISSIBLE
+          - BLANK
+      unit:
+        type:
+          - string
+          - "null"
+      dimension_member_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      footnote_source_span_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      source_span_ids:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/Identifier"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  Table:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - title
+      - table_type
+      - row_count
+      - column_count
+      - header_depth
+      - dimensions
+      - cells
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      title:
+        type: string
+      table_type:
+        enum:
+          - RATE_MATRIX
+          - THRESHOLD_BANDS
+          - ALLOCATION_TABLE
+          - AREA_STANDARD
+          - PARKING_STANDARD
+          - USE_PERMISSION_MATRIX
+          - FEE_OR_PREMIUM_TABLE
+          - SCHEDULE
+          - DEFINITION_TABLE
+          - REFERENCE_INDEX
+          - OTHER
+      row_count:
+        type: integer
+        minimum: 1
+      column_count:
+        type: integer
+        minimum: 1
+      header_depth:
+        type: integer
+        minimum: 0
+      dimensions:
+        type: array
+        items:
+          $ref: "#/$defs/TableDimension"
+      output_concept_type_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      cells:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/TableCell"
+      note_source_span_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  FieldConstraint:
+    type: object
+    additionalProperties: false
+    required:
+      - expression
+      - message
+    properties:
+      expression:
+        $ref: "#/$defs/Expression"
+      message:
+        type: string
+
+  InputDefinition:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - name
+      - concept_type_id
+      - value_type
+      - required
+      - resolution_source
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      name:
+        type: string
+        minLength: 1
+      concept_type_id:
+        $ref: "#/$defs/Identifier"
+      value_type:
+        type: string
+      unit:
+        type:
+          - string
+          - "null"
+      required:
+        type: boolean
+      resolution_source:
+        enum:
+          - USER_INPUT
+          - PROJECT_RECORD
+          - GRAPH_FACT
+          - EXTERNAL_AUTHORITY
+          - DERIVED
+      constraints:
+        type: array
+        items:
+          $ref: "#/$defs/FieldConstraint"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  OutputDefinition:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - name
+      - concept_type_id
+      - value_type
+      - nullable_statuses
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      name:
+        type: string
+        minLength: 1
+      concept_type_id:
+        $ref: "#/$defs/Identifier"
+      value_type:
+        type: string
+      unit:
+        type:
+          - string
+          - "null"
+      producer_policy_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      nullable_statuses:
+        type: array
+        items:
+          enum:
+            - INDETERMINATE
+            - CONFLICT
+            - MISSING_INPUTS
+            - NOT_APPLICABLE
+      validation_constraints:
+        type: array
+        items:
+          $ref: "#/$defs/FieldConstraint"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  AmendmentOperation:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - operation
+      - target_entity_id
+      - resolution_status
+      - source_span_ids
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      operation:
+        enum:
+          - ADD
+          - REPLACE
+          - DELETE
+          - RENUMBER
+          - INSERT_BEFORE
+          - INSERT_AFTER
+          - MODIFY_TABLE_CELL
+          - MODIFY_REFERENCE
+          - SUPERSEDE
+          - CORRECT_TYPO
+      target_entity_id:
+        $ref: "#/$defs/Identifier"
+      target_version_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      replacement_version_id:
+        oneOf:
+          - $ref: "#/$defs/Identifier"
+          - type: "null"
+      payload:
+        type: object
+        additionalProperties: true
+      resolution_status:
+        enum:
+          - RESOLVED
+          - UNRESOLVED
+          - AMBIGUOUS
+          - CONFLICT
+      source_span_ids:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/Identifier"
+
+  Amendment:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - amending_document_version_id
+      - effective_from
+      - operations
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      amending_document_version_id:
+        $ref: "#/$defs/Identifier"
+      notification_date:
+        oneOf:
+          - $ref: "#/$defs/Date"
+          - type: "null"
+      publication_date:
+        oneOf:
+          - $ref: "#/$defs/Date"
+          - type: "null"
+      effective_from:
+        $ref: "#/$defs/Date"
+      operations:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/AmendmentOperation"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  Interpretation:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - owner_entity_id
+      - interpretation_type
+      - text
+      - binding_status
+      - effective_period
+      - evidence
+      - confidence
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      owner_entity_id:
+        $ref: "#/$defs/Identifier"
+      interpretation_type:
+        enum:
+          - AUTHORITY_GUIDANCE
+          - LEGAL_OPINION
+          - INTERNAL_REVIEW
+          - COURT_DECISION
+          - SOURCE_CONFLICT_RESOLUTION
+      text:
+        type: string
+        minLength: 1
+      binding_status:
+        enum:
+          - BINDING
+          - PERSUASIVE
+          - INTERNAL
+          - UNRESOLVED
+      affected_policy_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      effective_period:
+        $ref: "#/$defs/EffectivePeriod"
+      evidence:
+        $ref: "#/$defs/Evidence"
+      confidence:
+        $ref: "#/$defs/Confidence"
+
+  Coverage:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - source_span_ids
+      - provision_entity_id
+      - state
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      source_span_ids:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/Identifier"
+      provision_entity_id:
+        $ref: "#/$defs/Identifier"
+      state:
+        enum:
+          - MODELED_EXECUTABLE
+          - MODELED_NON_EXECUTABLE
+          - PENDING_REVIEW
+          - SOURCE_CONFLICT
+          - OUT_OF_SCOPE
+          - NON_NORMATIVE
+      canonical_object_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      note:
+        type:
+          - string
+          - "null"
+
+  Finding:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - code
+      - severity
+      - status
+      - message
+      - affected_ids
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      code:
+        type: string
+        minLength: 1
+      severity:
+        enum:
+          - BLOCKER
+          - ERROR
+          - WARNING
+          - INFO
+      status:
+        enum:
+          - OPEN
+          - RESOLVED
+          - WAIVED
+      message:
+        type: string
+        minLength: 1
+      affected_ids:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/Identifier"
+      source_span_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      resolution:
+        type:
+          - string
+          - "null"
+
+  Approval:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - scope
+      - reviewer_id
+      - decision
+      - decided_at
+    properties:
+      id:
+        $ref: "#/$defs/Identifier"
+      scope:
+        enum:
+          - SOURCE
+          - STRUCTURE
+          - REGULATORY_SEMANTICS
+          - CALCULATION
+          - AMENDMENT
+          - RELEASE
+      target_ids:
+        type: array
+        items:
+          $ref: "#/$defs/Identifier"
+      reviewer_id:
+        type: string
+        minLength: 1
+      decision:
+        enum:
+          - APPROVED
+          - REJECTED
+          - CHANGES_REQUESTED
+      decided_at:
+        $ref: "#/$defs/DateTime"
+      note:
+        type:
+          - string
+          - "null"

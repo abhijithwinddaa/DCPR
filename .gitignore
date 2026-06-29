@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+*.log
+
+# Node & Frontend
+node_modules/
+dist/
+build/
+.env
+.env.local
+
+# Heavy PDF & Data Files
+*.pdf
+backend/storage/
+storage/bm25_indices/
+chroma_db/
+*.sqlite
+*.sqlite3
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+graphify-out/

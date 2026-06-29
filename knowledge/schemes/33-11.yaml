@@ -1,0 +1,20 @@
+schema_version: dcpr-knowledge-model/v1
+package_metadata:
+  package_id: dcpr:package:33-11
+  status: DRAFT
+  instrument_id: dcpr:instrument:2034
+entities:
+- id: dcpr:scheme:33-11
+  type: SCHEME
+  citation: 33(11)
+  normalized_citation: regulation:33:subregulation:11
+  title: Housing for Dishoused under 33(11)
+  semantic_links:
+    reference_ids: []
+facts: []
+formulae: []
+tables: []
+conditions: []
+inputs: []
+outputs: []
+references: []

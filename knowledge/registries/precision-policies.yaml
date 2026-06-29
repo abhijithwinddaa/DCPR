@@ -1,0 +1,18 @@
+# DCPR Precision and Rounding Policies
+# Defines standard rules for decimal precision during calculations.
+
+precision_policies:
+  - id: dcpr:precision:area-default
+    decimal_places: 2
+    rounding_mode: ROUND_HALF_UP
+    description: Standard area calculations rounded to two decimal places.
+
+  - id: dcpr:precision:fsi-default
+    decimal_places: 3
+    rounding_mode: ROUND_HALF_UP
+    description: FSI ratios rounded to three decimal places.
+
+  - id: dcpr:precision:no-rounding
+    decimal_places: 10
+    rounding_mode: ROUND_HALF_UP
+    description: High-precision arithmetic with no intermediate rounding.

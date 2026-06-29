@@ -1,0 +1,1775 @@
+schema_version: dcpr-knowledge-model/v1
+package_metadata:
+  package_id: dcpr:package:33-9
+  corpus_id: dcpr
+  instrument_id: dcpr:instrument:2034
+  status: EXTRACTION_DRAFT
+  schema_version: dcpr-knowledge-model/v1
+  extraction_run_id: run:33-9:extraction
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  recorded_at: '2026-06-20T15:01:44.039556Z'
+  source_document_version_ids:
+  - dcpr2034:compilation:2018-12-07:dtp-copy
+entities:
+- id: dcpr:scheme:33-9
+  version_id: dcpr:scheme:33-9:v1
+  type: SCHEME
+  citation: 33(9)
+  normalized_citation: regulation:33:subregulation:9
+  title: Reconstruction or redevelopment of Cluster(s) of Buildings under Cluster
+    Development Scheme
+  parent_entity_id: null
+  aliases:
+  - Scheme 33(9)
+  - Cluster Development Scheme
+  normative_type:
+  - APPLICABILITY
+  - ELIGIBILITY
+  - ENTITLEMENT
+  modeling_status: MODELED_EXECUTABLE
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  publication_status: DRAFT
+  semantic_links:
+    definition_ids: []
+    fact_ids: []
+    reference_ids: []
+    applicability_ids: []
+    condition_ids: []
+    exception_ids: []
+    formulae_ids: []
+    table_ids: []
+    input_ids: []
+    output_ids: []
+    amendment_ids: []
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: MODEL_ASSISTED
+  confidence:
+    overall: 0.9
+    scoring_method: weakest-decisive-dimension/v1
+    review_status: NEEDS_REVIEW
+facts:
+- id: dcpr:33-9:base-fsi-floor
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:applicable-fsi
+  name: Base FSI Floor
+  value_type: DECIMAL
+  value: '4.00'
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:island-city-minimum-cluster-area
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:gross-cluster-area
+  name: Island City Minimum Cluster Area
+  value_type: QUANTITY
+  value:
+    value: '4000'
+    unit: square_metre
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:suburbs-minimum-cluster-area
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:gross-cluster-area
+  name: Suburbs Minimum Cluster Area
+  value_type: QUANTITY
+  value:
+    value: '6000'
+    unit: square_metre
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:ordinary-access-road-width
+  owner_entity_id: dcpr:scheme:33-9
+  concept_type_id: concept:access-road-width
+  name: Ordinary Access Road Width
+  value_type: QUANTITY
+  value:
+    value: '18'
+    unit: metre
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+formulae:
+- id: dcpr:33-9:basic-ratio
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: weighted_land_rate / construction_rate
+  variable_bindings:
+  - variable: weighted_land_rate
+    source_kind: INPUT
+    source_id: weighted_land_rate
+    value_type: DECIMAL
+  - variable: construction_rate
+    source_kind: INPUT
+    source_id: construction_rate
+    value_type: DECIMAL
+  expression:
+    op: DIVIDE
+    args:
+    - kind: INPUT
+      id: weighted_land_rate
+    - kind: INPUT
+      id: construction_rate
+  output_id: basic_ratio
+  precision_policy_id: dcpr:precision:no-rounding
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:incentive-bua
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: ARITHMETIC
+  raw_expression: certified_admissible_rehabilitation_bua * incentive_rate
+  variable_bindings:
+  - variable: certified_admissible_rehabilitation_bua
+    source_kind: INPUT
+    source_id: certified_admissible_rehabilitation_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: basic_ratio
+    source_kind: DERIVED
+    source_id: basic_ratio
+    value_type: DECIMAL
+  - variable: gross_cluster_area
+    source_kind: INPUT
+    source_id: gross_cluster_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: MULTIPLY
+    args:
+    - kind: INPUT
+      id: certified_admissible_rehabilitation_bua
+    - op: LOOKUP
+      args:
+      - kind: FACT
+        id: dcpr:33-9:table-b:incentive-rate
+      - kind: DERIVED
+        id: basic_ratio
+      - kind: INPUT
+        id: gross_cluster_area
+  output_id: incentive_bua
+  precision_policy_id: dcpr:precision:area-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:rehabilitation-fsi
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: certified_admissible_rehabilitation_bua / fsi_base_area
+  variable_bindings:
+  - variable: certified_admissible_rehabilitation_bua
+    source_kind: INPUT
+    source_id: certified_admissible_rehabilitation_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: fsi_base_area
+    source_kind: INPUT
+    source_id: fsi_base_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: DIVIDE
+    args:
+    - kind: INPUT
+      id: certified_admissible_rehabilitation_bua
+    - kind: INPUT
+      id: fsi_base_area
+  output_id: rehabilitation_fsi
+  precision_policy_id: dcpr:precision:fsi-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:incentive-fsi
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: incentive_bua / fsi_base_area
+  variable_bindings:
+  - variable: incentive_bua
+    source_kind: DERIVED
+    source_id: incentive_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: fsi_base_area
+    source_kind: INPUT
+    source_id: fsi_base_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: DIVIDE
+    args:
+    - kind: DERIVED
+      id: incentive_bua
+    - kind: INPUT
+      id: fsi_base_area
+  output_id: incentive_fsi
+  precision_policy_id: dcpr:precision:fsi-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:applicable-fsi
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: RATIO
+  raw_expression: max(4.00, rehabilitation_fsi + incentive_fsi)
+  variable_bindings:
+  - variable: rehabilitation_fsi
+    source_kind: DERIVED
+    source_id: rehabilitation_fsi
+    value_type: DECIMAL
+  - variable: incentive_fsi
+    source_kind: DERIVED
+    source_id: incentive_fsi
+    value_type: DECIMAL
+  - variable: base_fsi_floor
+    source_kind: FACT
+    source_id: dcpr:33-9:base-fsi-floor
+    value_type: DECIMAL
+  expression:
+    op: MAX
+    args:
+    - kind: FACT
+      id: dcpr:33-9:base-fsi-floor
+    - op: ADD
+      args:
+      - kind: DERIVED
+        id: rehabilitation_fsi
+      - kind: DERIVED
+        id: incentive_fsi
+  output_id: applicable_fsi
+  precision_policy_id: dcpr:precision:fsi-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:maximum-fsi-counted-bua
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: ARITHMETIC
+  raw_expression: applicable_fsi * fsi_base_area
+  variable_bindings:
+  - variable: applicable_fsi
+    source_kind: DERIVED
+    source_id: applicable_fsi
+    value_type: DECIMAL
+  - variable: fsi_base_area
+    source_kind: INPUT
+    source_id: fsi_base_area
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: MULTIPLY
+    args:
+    - kind: DERIVED
+      id: applicable_fsi
+    - kind: INPUT
+      id: fsi_base_area
+  output_id: maximum_fsi_counted_bua
+  precision_policy_id: dcpr:precision:area-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:balance-bua
+  owner_entity_id: dcpr:scheme:33-9
+  formula_type: ALLOCATION
+  raw_expression: maximum_fsi_counted_bua - (certified_admissible_rehabilitation_bua
+    + incentive_bua)
+  variable_bindings:
+  - variable: maximum_fsi_counted_bua
+    source_kind: DERIVED
+    source_id: maximum_fsi_counted_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: certified_admissible_rehabilitation_bua
+    source_kind: INPUT
+    source_id: certified_admissible_rehabilitation_bua
+    value_type: QUANTITY
+    unit: square_metre
+  - variable: incentive_bua
+    source_kind: DERIVED
+    source_id: incentive_bua
+    value_type: QUANTITY
+    unit: square_metre
+  expression:
+    op: SUBTRACT
+    args:
+    - kind: DERIVED
+      id: maximum_fsi_counted_bua
+    - op: ADD
+      args:
+      - kind: INPUT
+        id: certified_admissible_rehabilitation_bua
+      - kind: DERIVED
+        id: incentive_bua
+  output_id: balance_bua
+  precision_policy_id: dcpr:precision:area-default
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+tables:
+- id: dcpr:33-9:table-b:incentive-rate
+  owner_entity_id: dcpr:scheme:33-9
+  title: 'Table B: Incentive FSI Rate Table'
+  table_type: RATE_MATRIX
+  row_count: 4
+  column_count: 4
+  header_depth: 1
+  dimensions:
+  - id: basic_ratio
+    concept_type_id: concept:basic-ratio
+    members:
+    - id: member:basic_ratio:gt6
+      label: Basic Ratio > 6.00
+      lower_bound: '6.00'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: ratio
+    - id: member:basic_ratio:gt4_lte6
+      label: Basic Ratio > 4.00 and <= 6.00
+      lower_bound: '4.00'
+      lower_inclusive: false
+      upper_bound: '6.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:gt2_lte4
+      label: Basic Ratio > 2.00 and <= 4.00
+      lower_bound: '2.00'
+      lower_inclusive: false
+      upper_bound: '4.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:lte2
+      label: Basic Ratio <= 2.00
+      lower_bound: null
+      lower_inclusive: null
+      upper_bound: '2.00'
+      upper_inclusive: true
+      unit: ratio
+  - id: cluster_area
+    concept_type_id: concept:gross-cluster-area
+    members:
+    - id: member:cluster_area:4k_10k
+      label: Gross Cluster Area 4,000 to 10,000 sq. m
+      lower_bound: '4000'
+      lower_inclusive: true
+      upper_bound: '10000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:10k_50k
+      label: Gross Cluster Area 10,000 to 50,000 sq. m
+      lower_bound: '10000'
+      lower_inclusive: false
+      upper_bound: '50000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:50k_100k
+      label: Gross Cluster Area 50,000 to 100,000 sq. m
+      lower_bound: '50000'
+      lower_inclusive: false
+      upper_bound: '100000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:gt100k
+      label: Gross Cluster Area > 100,000 sq. m
+      lower_bound: '100000'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: square_metre
+  output_concept_type_id: concept:incentive-bua
+  cells:
+  - id: cell:table_b:r0c0
+    row: 0
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '55'
+    normalized_value: 55
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c1
+    row: 0
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '60'
+    normalized_value: 60
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c2
+    row: 0
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c3
+    row: 0
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c0
+    row: 1
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c1
+    row: 1
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c2
+    row: 1
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c3
+    row: 1
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c0
+    row: 2
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c1
+    row: 2
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c2
+    row: 2
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c3
+    row: 2
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c0
+    row: 3
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c1
+    row: 3
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c2
+    row: 3
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '95'
+    normalized_value: 95
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c3
+    row: 3
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '100'
+    normalized_value: 100
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-195
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-195
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:table-b:incentive-rate
+  owner_entity_id: dcpr:scheme:33-9
+  title: 'Table B: Incentive FSI Rate Table'
+  table_type: RATE_MATRIX
+  row_count: 4
+  column_count: 4
+  header_depth: 1
+  dimensions:
+  - id: basic_ratio
+    concept_type_id: concept:basic-ratio
+    members:
+    - id: member:basic_ratio:gt6
+      label: Basic Ratio > 6.00
+      lower_bound: '6.00'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: ratio
+    - id: member:basic_ratio:gt4_lte6
+      label: Basic Ratio > 4.00 and <= 6.00
+      lower_bound: '4.00'
+      lower_inclusive: false
+      upper_bound: '6.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:gt2_lte4
+      label: Basic Ratio > 2.00 and <= 4.00
+      lower_bound: '2.00'
+      lower_inclusive: false
+      upper_bound: '4.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:lte2
+      label: Basic Ratio <= 2.00
+      lower_bound: null
+      lower_inclusive: null
+      upper_bound: '2.00'
+      upper_inclusive: true
+      unit: ratio
+  - id: cluster_area
+    concept_type_id: concept:gross-cluster-area
+    members:
+    - id: member:cluster_area:4k_10k
+      label: Gross Cluster Area 4,000 to 10,000 sq. m
+      lower_bound: '4000'
+      lower_inclusive: true
+      upper_bound: '10000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:10k_50k
+      label: Gross Cluster Area 10,000 to 50,000 sq. m
+      lower_bound: '10000'
+      lower_inclusive: false
+      upper_bound: '50000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:50k_100k
+      label: Gross Cluster Area 50,000 to 100,000 sq. m
+      lower_bound: '50000'
+      lower_inclusive: false
+      upper_bound: '100000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:gt100k
+      label: Gross Cluster Area > 100,000 sq. m
+      lower_bound: '100000'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: square_metre
+  output_concept_type_id: concept:incentive-bua
+  cells:
+  - id: cell:table_b:r0c0
+    row: 0
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '55'
+    normalized_value: 55
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c1
+    row: 0
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '60'
+    normalized_value: 60
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c2
+    row: 0
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c3
+    row: 0
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c0
+    row: 1
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c1
+    row: 1
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c2
+    row: 1
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c3
+    row: 1
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c0
+    row: 2
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c1
+    row: 2
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c2
+    row: 2
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c3
+    row: 2
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c0
+    row: 3
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c1
+    row: 3
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c2
+    row: 3
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '95'
+    normalized_value: 95
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c3
+    row: 3
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '100'
+    normalized_value: 100
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-196
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-196
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:table-b:incentive-rate
+  owner_entity_id: dcpr:scheme:33-9
+  title: 'Table B: Incentive FSI Rate Table'
+  table_type: RATE_MATRIX
+  row_count: 4
+  column_count: 4
+  header_depth: 1
+  dimensions:
+  - id: basic_ratio
+    concept_type_id: concept:basic-ratio
+    members:
+    - id: member:basic_ratio:gt6
+      label: Basic Ratio > 6.00
+      lower_bound: '6.00'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: ratio
+    - id: member:basic_ratio:gt4_lte6
+      label: Basic Ratio > 4.00 and <= 6.00
+      lower_bound: '4.00'
+      lower_inclusive: false
+      upper_bound: '6.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:gt2_lte4
+      label: Basic Ratio > 2.00 and <= 4.00
+      lower_bound: '2.00'
+      lower_inclusive: false
+      upper_bound: '4.00'
+      upper_inclusive: true
+      unit: ratio
+    - id: member:basic_ratio:lte2
+      label: Basic Ratio <= 2.00
+      lower_bound: null
+      lower_inclusive: null
+      upper_bound: '2.00'
+      upper_inclusive: true
+      unit: ratio
+  - id: cluster_area
+    concept_type_id: concept:gross-cluster-area
+    members:
+    - id: member:cluster_area:4k_10k
+      label: Gross Cluster Area 4,000 to 10,000 sq. m
+      lower_bound: '4000'
+      lower_inclusive: true
+      upper_bound: '10000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:10k_50k
+      label: Gross Cluster Area 10,000 to 50,000 sq. m
+      lower_bound: '10000'
+      lower_inclusive: false
+      upper_bound: '50000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:50k_100k
+      label: Gross Cluster Area 50,000 to 100,000 sq. m
+      lower_bound: '50000'
+      lower_inclusive: false
+      upper_bound: '100000'
+      upper_inclusive: true
+      unit: square_metre
+    - id: member:cluster_area:gt100k
+      label: Gross Cluster Area > 100,000 sq. m
+      lower_bound: '100000'
+      lower_inclusive: false
+      upper_bound: null
+      upper_inclusive: null
+      unit: square_metre
+  output_concept_type_id: concept:incentive-bua
+  cells:
+  - id: cell:table_b:r0c0
+    row: 0
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '55'
+    normalized_value: 55
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c1
+    row: 0
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '60'
+    normalized_value: 60
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c2
+    row: 0
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r0c3
+    row: 0
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c0
+    row: 1
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '65'
+    normalized_value: 65
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c1
+    row: 1
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '70'
+    normalized_value: 70
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c2
+    row: 1
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r1c3
+    row: 1
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt4_lte6
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c0
+    row: 2
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '75'
+    normalized_value: 75
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c1
+    row: 2
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '80'
+    normalized_value: 80
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c2
+    row: 2
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r2c3
+    row: 2
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:gt2_lte4
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c0
+    row: 3
+    column: 0
+    row_span: 1
+    column_span: 1
+    raw_text: '85'
+    normalized_value: 85
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:4k_10k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c1
+    row: 3
+    column: 1
+    row_span: 1
+    column_span: 1
+    raw_text: '90'
+    normalized_value: 90
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:10k_50k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c2
+    row: 3
+    column: 2
+    row_span: 1
+    column_span: 1
+    raw_text: '95'
+    normalized_value: 95
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:50k_100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  - id: cell:table_b:r3c3
+    row: 3
+    column: 3
+    row_span: 1
+    column_span: 1
+    raw_text: '100'
+    normalized_value: 100
+    value_type: PERCENTAGE
+    unit: percentage
+    dimension_member_ids:
+    - member:basic_ratio:lte2
+    - member:cluster_area:gt100k
+    source_span_ids:
+    - span:33-9:page-197
+    confidence:
+      overall: 1.0
+      scoring_method: deterministic-table-parser/v1
+      review_status: VERIFIED
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-197
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+conditions:
+- id: dcpr:33-9:cluster-area-eligibility
+  owner_entity_id: dcpr:scheme:33-9
+  phase: APPLICABILITY
+  expression:
+    op: GTE
+    args:
+    - kind: INPUT
+      id: gross_cluster_area
+    - kind: FACT
+      id: dcpr:33-9:suburbs-minimum-cluster-area
+  on_unknown: FAIL
+  message: Gross cluster area must be at least the suburban threshold (6,000 sq. m)
+    for suburban projects.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: dcpr:33-9:road-access-eligibility
+  owner_entity_id: dcpr:scheme:33-9
+  phase: APPLICABILITY
+  expression:
+    op: GTE
+    args:
+    - kind: INPUT
+      id: access_road_width
+    - kind: FACT
+      id: dcpr:33-9:ordinary-access-road-width
+  on_unknown: FAIL
+  message: Access road width must be at least 18 metres.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+inputs:
+- id: input:gross_cluster_area
+  owner_entity_id: dcpr:scheme:33-9
+  name: gross_cluster_area
+  concept_type_id: concept:gross-cluster-area
+  value_type: QUANTITY
+  unit: square_metre
+  required: true
+  resolution_source: USER_INPUT
+  constraints:
+  - expression:
+      op: GT
+      args:
+      - kind: INPUT
+        id: gross_cluster_area
+      - kind: LITERAL
+        value: '0'
+    message: Gross cluster area must be positive.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:access_road_width
+  owner_entity_id: dcpr:scheme:33-9
+  name: access_road_width
+  concept_type_id: concept:access-road-width
+  value_type: QUANTITY
+  unit: metre
+  required: true
+  resolution_source: USER_INPUT
+  constraints:
+  - expression:
+      op: GT
+      args:
+      - kind: INPUT
+        id: access_road_width
+      - kind: LITERAL
+        value: '0'
+    message: Access road width must be positive.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:certified_admissible_rehabilitation_bua
+  owner_entity_id: dcpr:scheme:33-9
+  name: certified_admissible_rehabilitation_bua
+  concept_type_id: concept:certified-admissible-rehabilitation-bua
+  value_type: QUANTITY
+  unit: square_metre
+  required: true
+  resolution_source: USER_INPUT
+  constraints:
+  - expression:
+      op: GT
+      args:
+      - kind: INPUT
+        id: certified_admissible_rehabilitation_bua
+      - kind: LITERAL
+        value: '0'
+    message: Certified rehab BUA must be positive.
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:weighted_land_rate
+  owner_entity_id: dcpr:scheme:33-9
+  name: weighted_land_rate
+  concept_type_id: concept:basic-ratio
+  value_type: DECIMAL
+  required: true
+  resolution_source: USER_INPUT
+  constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:construction_rate
+  owner_entity_id: dcpr:scheme:33-9
+  name: construction_rate
+  concept_type_id: concept:basic-ratio
+  value_type: DECIMAL
+  required: true
+  resolution_source: USER_INPUT
+  constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: input:fsi_base_area
+  owner_entity_id: dcpr:scheme:33-9
+  name: fsi_base_area
+  concept_type_id: concept:fsi-base-area
+  value_type: QUANTITY
+  unit: square_metre
+  required: true
+  resolution_source: DERIVED
+  constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+outputs:
+- id: output:applicable_fsi
+  owner_entity_id: dcpr:scheme:33-9
+  name: applicable_fsi
+  concept_type_id: concept:applicable-fsi
+  value_type: DECIMAL
+  producer_policy_ids:
+  - dcpr:33-9:applicable-fsi
+  nullable_statuses:
+  - INDETERMINATE
+  - CONFLICT
+  validation_constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED
+- id: output:maximum_fsi_counted_bua
+  owner_entity_id: dcpr:scheme:33-9
+  name: maximum_fsi_counted_bua
+  concept_type_id: concept:maximum-fsi-counted-bua
+  value_type: QUANTITY
+  unit: square_metre
+  producer_policy_ids:
+  - dcpr:33-9:maximum-fsi-counted-bua
+  nullable_statuses:
+  - INDETERMINATE
+  - CONFLICT
+  validation_constraints: []
+  effective_period:
+    from: '2018-11-13'
+    to: null
+  evidence:
+    source_span_ids:
+    - span:33-9:page-188
+    extraction_run_id: run:33-9:extraction
+    extraction_method: DETERMINISTIC_AND_REVIEWED
+  confidence:
+    overall: 1.0
+    scoring_method: MANUAL
+    review_status: VERIFIED

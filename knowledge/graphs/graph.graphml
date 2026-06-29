@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d30" for="edge" attr.name="type" attr.type="string"/>
+<key id="d29" for="node" attr.name="reference_type" attr.type="string"/>
+<key id="d28" for="node" attr.name="target_entity_id" attr.type="string"/>
+<key id="d27" for="node" attr.name="normalized_target_citation" attr.type="string"/>
+<key id="d26" for="node" attr.name="mention_text" attr.type="string"/>
+<key id="d25" for="node" attr.name="value" attr.type="string"/>
+<key id="d24" for="node" attr.name="concept_type_id" attr.type="string"/>
+<key id="d23" for="node" attr.name="validation_constraints" attr.type="string"/>
+<key id="d22" for="node" attr.name="nullable_statuses" attr.type="string"/>
+<key id="d21" for="node" attr.name="producer_policy_ids" attr.type="string"/>
+<key id="d20" for="node" attr.name="constraints" attr.type="string"/>
+<key id="d19" for="node" attr.name="resolution_source" attr.type="string"/>
+<key id="d18" for="node" attr.name="required" attr.type="string"/>
+<key id="d17" for="node" attr.name="unit" attr.type="string"/>
+<key id="d16" for="node" attr.name="value_type" attr.type="string"/>
+<key id="d15" for="node" attr.name="name" attr.type="string"/>
+<key id="d14" for="node" attr.name="output_concept_type_id" attr.type="string"/>
+<key id="d13" for="node" attr.name="cells" attr.type="string"/>
+<key id="d12" for="node" attr.name="dimensions" attr.type="string"/>
+<key id="d11" for="node" attr.name="table_type" attr.type="string"/>
+<key id="d10" for="node" attr.name="output_id" attr.type="string"/>
+<key id="d9" for="node" attr.name="variable_bindings" attr.type="string"/>
+<key id="d8" for="node" attr.name="raw_expression" attr.type="string"/>
+<key id="d7" for="node" attr.name="formula_type" attr.type="string"/>
+<key id="d6" for="node" attr.name="expression" attr.type="string"/>
+<key id="d5" for="node" attr.name="message" attr.type="string"/>
+<key id="d4" for="node" attr.name="phase" attr.type="string"/>
+<key id="d3" for="node" attr.name="modeling_status" attr.type="string"/>
+<key id="d2" for="node" attr.name="title" attr.type="string"/>
+<key id="d1" for="node" attr.name="citation" attr.type="string"/>
+<key id="d0" for="node" attr.name="label" attr.type="string"/>
+<graph edgedefault="directed"><node id="dcpr:regulation:52">
+  <data key="d0">Regulation</data>
+  <data key="d1">52</data>
+  <data key="d2">Transit Oriented Development (TOD) and Special Provisions</data>
+  <data key="d3">STUB</data>
+</node>
+<node id="dcpr:scheme:replace-me">
+  <data key="d0">Scheme</data>
+  <data key="d1">None</data>
+  <data key="d2">None</data>
+  <data key="d3">MODELED_EXECUTABLE</data>
+</node>
+<node id="dcpr:scheme:33-9">
+  <data key="d0">Scheme</data>
+  <data key="d1">33(9)</data>
+  <data key="d2">Reconstruction or redevelopment of Cluster(s) of Buildings under Cluster Development Scheme</data>
+  <data key="d3">MODELED_EXECUTABLE</data>
+</node>
+<node id="dcpr:33-9:cluster-area-eligibility">
+  <data key="d0">Condition</data>
+  <data key="d4">APPLICABILITY</data>
+  <data key="d5">Gross cluster area must be at least the suburban threshold (6,000 sq. m) for suburban projects.</data>
+  <data key="d6">{'op': 'GTE', 'args': [{'kind': 'INPUT', 'id': 'gross_cluster_area'}, {'kind': 'FACT', 'id': 'dcpr:33-9:suburbs-minimum-cluster-area'}]}</data>
+</node>
+<node id="dcpr:33-9:road-access-eligibility">
+  <data key="d0">Condition</data>
+  <data key="d4">APPLICABILITY</data>
+  <data key="d5">Access road width must be at least 18 metres.</data>
+  <data key="d6">{'op': 'GTE', 'args': [{'kind': 'INPUT', 'id': 'access_road_width'}, {'kind': 'FACT', 'id': 'dcpr:33-9:ordinary-access-road-width'}]}</data>
+</node>
+<node id="dcpr:33-9:basic-ratio">
+  <data key="d0">Formula</data>
+  <data key="d7">RATIO</data>
+  <data key="d8">weighted_land_rate / construction_rate</data>
+  <data key="d6">{'op': 'DIVIDE', 'args': [{'kind': 'INPUT', 'id': 'weighted_land_rate'}, {'kind': 'INPUT', 'id': 'construction_rate'}]}</data>
+  <data key="d9">[{'variable': 'weighted_land_rate', 'source_kind': 'INPUT', 'source_id': 'weighted_land_rate', 'value_type': 'DECIMAL'}, {'variable': 'construction_rate', 'source_kind': 'INPUT', 'source_id': 'construction_rate', 'value_type': 'DECIMAL'}]</data>
+  <data key="d10">basic_ratio</data>
+</node>
+<node id="dcpr:33-9:incentive-bua">
+  <data key="d0">Formula</data>
+  <data key="d7">ARITHMETIC</data>
+  <data key="d8">certified_admissible_rehabilitation_bua * incentive_rate</data>
+  <data key="d6">{'op': 'MULTIPLY', 'args': [{'kind': 'INPUT', 'id': 'certified_admissible_rehabilitation_bua'}, {'op': 'LOOKUP', 'args': [{'kind': 'FACT', 'id': 'dcpr:33-9:table-b:incentive-rate'}, {'kind': 'DERIVED', 'id': 'basic_ratio'}, {'kind': 'INPUT', 'id': 'gross_cluster_area'}]}]}</data>
+  <data key="d9">[{'variable': 'certified_admissible_rehabilitation_bua', 'source_kind': 'INPUT', 'source_id': 'certified_admissible_rehabilitation_bua', 'value_type': 'QUANTITY', 'unit': 'square_metre'}, {'variable': 'basic_ratio', 'source_kind': 'DERIVED', 'source_id': 'basic_ratio', 'value_type': 'DECIMAL'}, {'variable': 'gross_cluster_area', 'source_kind': 'INPUT', 'source_id': 'gross_cluster_area', 'value_type': 'QUANTITY', 'unit': 'square_metre'}]</data>
+  <data key="d10">incentive_bua</data>
+</node>
+<node id="dcpr:33-9:rehabilitation-fsi">
+  <data key="d0">Formula</data>
+  <data key="d7">RATIO</data>
+  <data key="d8">certified_admissible_rehabilitation_bua / fsi_base_area</data>
+  <data key="d6">{'op': 'DIVIDE', 'args': [{'kind': 'INPUT', 'id': 'certified_admissible_rehabilitation_bua'}, {'kind': 'INPUT', 'id': 'fsi_base_area'}]}</data>
+  <data key="d9">[{'variable': 'certified_admissible_rehabilitation_bua', 'source_kind': 'INPUT', 'source_id': 'certified_admissible_rehabilitation_bua', 'value_type': 'QUANTITY', 'unit': 'square_metre'}, {'variable': 'fsi_base_area', 'source_kind': 'INPUT', 'source_id': 'fsi_base_area', 'value_type': 'QUANTITY', 'unit': 'square_metre'}]</data>
+  <data key="d10">rehabilitation_fsi</data>
+</node>
+<node id="dcpr:33-9:incentive-fsi">
+  <data key="d0">Formula</data>
+  <data key="d7">RATIO</data>
+  <data key="d8">incentive_bua / fsi_base_area</data>
+  <data key="d6">{'op': 'DIVIDE', 'args': [{'kind': 'DERIVED', 'id': 'incentive_bua'}, {'kind': 'INPUT', 'id': 'fsi_base_area'}]}</data>
+  <data key="d9">[{'variable': 'incentive_bua', 'source_kind': 'DERIVED', 'source_id': 'incentive_bua', 'value_type': 'QUANTITY', 'unit': 'square_metre'}, {'variable': 'fsi_base_area', 'source_kind': 'INPUT', 'source_id': 'fsi_base_area', 'value_type': 'QUANTITY', 'unit': 'square_metre'}]</data>
+  <data key="d10">incentive_fsi</data>
+</node>
+<node id="dcpr:33-9:applicable-fsi">
+  <data key="d0">Formula</data>
+  <data key="d7">RATIO</data>
+  <data key="d8">max(4.00, rehabilitation_fsi + incentive_fsi)</data>
+  <data key="d6">{'op': 'MAX', 'args': [{'kind': 'FACT', 'id': 'dcpr:33-9:base-fsi-floor'}, {'op': 'ADD', 'args': [{'kind': 'DERIVED', 'id': 'rehabilitation_fsi'}, {'kind': 'DERIVED', 'id': 'incentive_fsi'}]}]}</data>
+  <data key="d9">[{'variable': 'rehabilitation_fsi', 'source_kind': 'DERIVED', 'source_id': 'rehabilitation_fsi', 'value_type': 'DECIMAL'}, {'variable': 'incentive_fsi', 'source_kind': 'DERIVED', 'source_id': 'incentive_fsi', 'value_type': 'DECIMAL'}, {'variable': 'base_fsi_floor', 'source_kind': 'FACT', 'source_id': 'dcpr:33-9:base-fsi-floor', 'value_type': 'DECIMAL'}]</data>
+  <data key="d10">applicable_fsi</data>
+</node>
+<node id="dcpr:33-9:maximum-fsi-counted-bua">
+  <data key="d0">Formula</data>
+  <data key="d7">ARITHMETIC</data>
+  <data key="d8">applicable_fsi * fsi_base_area</data>
+  <data key="d6">{'op': 'MULTIPLY', 'args': [{'kind': 'DERIVED', 'id': 'applicable_fsi'}, {'kind': 'INPUT', 'id': 'fsi_base_area'}]}</data>
+  <data key="d9">[{'variable': 'applicable_fsi', 'source_kind': 'DERIVED', 'source_id': 'applicable_fsi', 'value_type': 'DECIMAL'}, {'variable': 'fsi_base_area', 'source_kind': 'INPUT', 'source_id': 'fsi_base_area', 'value_type': 'QUANTITY', 'unit': 'square_metre'}]</data>
+  <data key="d10">maximum_fsi_counted_bua</data>
+</node>
+<node id="dcpr:33-9:balance-bua">
+  <data key="d0">Formula</data>
+  <data key="d7">ALLOCATION</data>
+  <data key="d8">maximum_fsi_counted_bua - (certified_admissible_rehabilitation_bua + incentive_bua)</data>
+  <data key="d6">{'op': 'SUBTRACT', 'args': [{'kind': 'DERIVED', 'id': 'maximum_fsi_counted_bua'}, {'op': 'ADD', 'args': [{'kind': 'INPUT', 'id': 'certified_admissible_rehabilitation_bua'}, {'kind': 'DERIVED', 'id': 'incentive_bua'}]}]}</data>
+  <data key="d9">[{'variable': 'maximum_fsi_counted_bua', 'source_kind': 'DERIVED', 'source_id': 'maximum_fsi_counted_bua', 'value_type': 'QUANTITY', 'unit': 'square_metre'}, {'variable': 'certified_admissible_rehabilitation_bua', 'source_kind': 'INPUT', 'source_id': 'certified_admissible_rehabilitation_bua', 'value_type': 'QUANTITY', 'unit': 'square_metre'}, {'variable': 'incentive_bua', 'source_kind': 'DERIVED', 'source_id': 'incentive_bua', 'value_type': 'QUANTITY', 'unit': 'square_metre'}]</data>
+  <data key="d10">balance_bua</data>
+</node>
+<node id="dcpr:33-9:table-b:incentive-rate">
+  <data key="d0">Table</data>
+  <data key="d2">Table B: Incentive FSI Rate Table</data>
+  <data key="d11">RATE_MATRIX</data>
+  <data key="d12">[{'id': 'basic_ratio', 'concept_type_id': 'concept:basic-ratio', 'members': [{'id': 'member:basic_ratio:gt6', 'label': 'Basic Ratio &gt; 6.00', 'lower_bound': '6.00', 'lower_inclusive': False, 'upper_bound': None, 'upper_inclusive': None, 'unit': 'ratio'}, {'id': 'member:basic_ratio:gt4_lte6', 'label': 'Basic Ratio &gt; 4.00 and &lt;= 6.00', 'lower_bound': '4.00', 'lower_inclusive': False, 'upper_bound': '6.00', 'upper_inclusive': True, 'unit': 'ratio'}, {'id': 'member:basic_ratio:gt2_lte4', 'label': 'Basic Ratio &gt; 2.00 and &lt;= 4.00', 'lower_bound': '2.00', 'lower_inclusive': False, 'upper_bound': '4.00', 'upper_inclusive': True, 'unit': 'ratio'}, {'id': 'member:basic_ratio:lte2', 'label': 'Basic Ratio &lt;= 2.00', 'lower_bound': None, 'lower_inclusive': None, 'upper_bound': '2.00', 'upper_inclusive': True, 'unit': 'ratio'}]}, {'id': 'cluster_area', 'concept_type_id': 'concept:gross-cluster-area', 'members': [{'id': 'member:cluster_area:4k_10k', 'label': 'Gross Cluster Area 4,000 to 10,000 sq. m', 'lower_bound': '4000', 'lower_inclusive': True, 'upper_bound': '10000', 'upper_inclusive': True, 'unit': 'square_metre'}, {'id': 'member:cluster_area:10k_50k', 'label': 'Gross Cluster Area 10,000 to 50,000 sq. m', 'lower_bound': '10000', 'lower_inclusive': False, 'upper_bound': '50000', 'upper_inclusive': True, 'unit': 'square_metre'}, {'id': 'member:cluster_area:50k_100k', 'label': 'Gross Cluster Area 50,000 to 100,000 sq. m', 'lower_bound': '50000', 'lower_inclusive': False, 'upper_bound': '100000', 'upper_inclusive': True, 'unit': 'square_metre'}, {'id': 'member:cluster_area:gt100k', 'label': 'Gross Cluster Area &gt; 100,000 sq. m', 'lower_bound': '100000', 'lower_inclusive': False, 'upper_bound': None, 'upper_inclusive': None, 'unit': 'square_metre'}]}]</data>
+  <data key="d13">[{'id': 'cell:table_b:r0c0', 'row': 0, 'column': 0, 'row_span': 1, 'column_span': 1, 'raw_text': '55', 'normalized_value': 55, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt6', 'member:cluster_area:4k_10k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r0c1', 'row': 0, 'column': 1, 'row_span': 1, 'column_span': 1, 'raw_text': '60', 'normalized_value': 60, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt6', 'member:cluster_area:10k_50k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r0c2', 'row': 0, 'column': 2, 'row_span': 1, 'column_span': 1, 'raw_text': '65', 'normalized_value': 65, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt6', 'member:cluster_area:50k_100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r0c3', 'row': 0, 'column': 3, 'row_span': 1, 'column_span': 1, 'raw_text': '70', 'normalized_value': 70, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt6', 'member:cluster_area:gt100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r1c0', 'row': 1, 'column': 0, 'row_span': 1, 'column_span': 1, 'raw_text': '65', 'normalized_value': 65, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt4_lte6', 'member:cluster_area:4k_10k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r1c1', 'row': 1, 'column': 1, 'row_span': 1, 'column_span': 1, 'raw_text': '70', 'normalized_value': 70, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt4_lte6', 'member:cluster_area:10k_50k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r1c2', 'row': 1, 'column': 2, 'row_span': 1, 'column_span': 1, 'raw_text': '75', 'normalized_value': 75, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt4_lte6', 'member:cluster_area:50k_100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r1c3', 'row': 1, 'column': 3, 'row_span': 1, 'column_span': 1, 'raw_text': '80', 'normalized_value': 80, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt4_lte6', 'member:cluster_area:gt100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r2c0', 'row': 2, 'column': 0, 'row_span': 1, 'column_span': 1, 'raw_text': '75', 'normalized_value': 75, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt2_lte4', 'member:cluster_area:4k_10k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r2c1', 'row': 2, 'column': 1, 'row_span': 1, 'column_span': 1, 'raw_text': '80', 'normalized_value': 80, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt2_lte4', 'member:cluster_area:10k_50k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r2c2', 'row': 2, 'column': 2, 'row_span': 1, 'column_span': 1, 'raw_text': '85', 'normalized_value': 85, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt2_lte4', 'member:cluster_area:50k_100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r2c3', 'row': 2, 'column': 3, 'row_span': 1, 'column_span': 1, 'raw_text': '90', 'normalized_value': 90, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:gt2_lte4', 'member:cluster_area:gt100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r3c0', 'row': 3, 'column': 0, 'row_span': 1, 'column_span': 1, 'raw_text': '85', 'normalized_value': 85, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:lte2', 'member:cluster_area:4k_10k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r3c1', 'row': 3, 'column': 1, 'row_span': 1, 'column_span': 1, 'raw_text': '90', 'normalized_value': 90, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:lte2', 'member:cluster_area:10k_50k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r3c2', 'row': 3, 'column': 2, 'row_span': 1, 'column_span': 1, 'raw_text': '95', 'normalized_value': 95, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:lte2', 'member:cluster_area:50k_100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}, {'id': 'cell:table_b:r3c3', 'row': 3, 'column': 3, 'row_span': 1, 'column_span': 1, 'raw_text': '100', 'normalized_value': 100, 'value_type': 'PERCENTAGE', 'unit': 'percentage', 'dimension_member_ids': ['member:basic_ratio:lte2', 'member:cluster_area:gt100k'], 'source_span_ids': ['span:33-9:page-197'], 'confidence': {'overall': 1.0, 'scoring_method': 'deterministic-table-parser/v1', 'review_status': 'VERIFIED'}}]</data>
+  <data key="d14">concept:incentive-bua</data>
+</node>
+<node id="input:gross_cluster_area">
+  <data key="d0">InputParameter</data>
+  <data key="d15">gross_cluster_area</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d17">square_metre</data>
+  <data key="d18">True</data>
+  <data key="d19">USER_INPUT</data>
+  <data key="d20">[{'expression': {'op': 'GT', 'args': [{'kind': 'INPUT', 'id': 'gross_cluster_area'}, {'kind': 'LITERAL', 'value': '0'}]}, 'message': 'Gross cluster area must be positive.'}]</data>
+</node>
+<node id="input:access_road_width">
+  <data key="d0">InputParameter</data>
+  <data key="d15">access_road_width</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d17">metre</data>
+  <data key="d18">True</data>
+  <data key="d19">USER_INPUT</data>
+  <data key="d20">[{'expression': {'op': 'GT', 'args': [{'kind': 'INPUT', 'id': 'access_road_width'}, {'kind': 'LITERAL', 'value': '0'}]}, 'message': 'Access road width must be positive.'}]</data>
+</node>
+<node id="input:certified_admissible_rehabilitation_bua">
+  <data key="d0">InputParameter</data>
+  <data key="d15">certified_admissible_rehabilitation_bua</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d17">square_metre</data>
+  <data key="d18">True</data>
+  <data key="d19">USER_INPUT</data>
+  <data key="d20">[{'expression': {'op': 'GT', 'args': [{'kind': 'INPUT', 'id': 'certified_admissible_rehabilitation_bua'}, {'kind': 'LITERAL', 'value': '0'}]}, 'message': 'Certified rehab BUA must be positive.'}]</data>
+</node>
+<node id="input:weighted_land_rate">
+  <data key="d0">InputParameter</data>
+  <data key="d15">weighted_land_rate</data>
+  <data key="d16">DECIMAL</data>
+  <data key="d17"></data>
+  <data key="d18">True</data>
+  <data key="d19">USER_INPUT</data>
+  <data key="d20">[]</data>
+</node>
+<node id="input:construction_rate">
+  <data key="d0">InputParameter</data>
+  <data key="d15">construction_rate</data>
+  <data key="d16">DECIMAL</data>
+  <data key="d17"></data>
+  <data key="d18">True</data>
+  <data key="d19">USER_INPUT</data>
+  <data key="d20">[]</data>
+</node>
+<node id="input:fsi_base_area">
+  <data key="d0">InputParameter</data>
+  <data key="d15">fsi_base_area</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d17">square_metre</data>
+  <data key="d18">True</data>
+  <data key="d19">DERIVED</data>
+  <data key="d20">[]</data>
+</node>
+<node id="output:applicable_fsi">
+  <data key="d0">OutputParameter</data>
+  <data key="d15">applicable_fsi</data>
+  <data key="d16">DECIMAL</data>
+  <data key="d21">['dcpr:33-9:applicable-fsi']</data>
+  <data key="d22">['INDETERMINATE', 'CONFLICT']</data>
+  <data key="d23">[]</data>
+</node>
+<node id="output:maximum_fsi_counted_bua">
+  <data key="d0">OutputParameter</data>
+  <data key="d15">maximum_fsi_counted_bua</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d21">['dcpr:33-9:maximum-fsi-counted-bua']</data>
+  <data key="d22">['INDETERMINATE', 'CONFLICT']</data>
+  <data key="d23">[]</data>
+</node>
+<node id="dcpr:33-9:base-fsi-floor">
+  <data key="d0">Fact</data>
+  <data key="d15">Base FSI Floor</data>
+  <data key="d24">concept:applicable-fsi</data>
+  <data key="d16">DECIMAL</data>
+  <data key="d25">4.00</data>
+</node>
+<node id="dcpr:33-9:island-city-minimum-cluster-area">
+  <data key="d0">Fact</data>
+  <data key="d15">Island City Minimum Cluster Area</data>
+  <data key="d24">concept:gross-cluster-area</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d25">{'value': '4000', 'unit': 'square_metre'}</data>
+</node>
+<node id="dcpr:33-9:suburbs-minimum-cluster-area">
+  <data key="d0">Fact</data>
+  <data key="d15">Suburbs Minimum Cluster Area</data>
+  <data key="d24">concept:gross-cluster-area</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d25">{'value': '6000', 'unit': 'square_metre'}</data>
+</node>
+<node id="dcpr:33-9:ordinary-access-road-width">
+  <data key="d0">Fact</data>
+  <data key="d15">Ordinary Access Road Width</data>
+  <data key="d24">concept:access-road-width</data>
+  <data key="d16">QUANTITY</data>
+  <data key="d25">{'value': '18', 'unit': 'metre'}</data>
+</node>
+<node id="dcpr:scheme:33-10">
+  <data key="d0">Scheme</data>
+  <data key="d1">33(10)</data>
+  <data key="d2">Slum Rehabilitation Scheme under 33(10)</data>
+  <data key="d3">MODELED_EXECUTABLE</data>
+</node>
+<node id="ref:33-10-dep-52">
+  <data key="d0">Reference</data>
+  <data key="d26">depends on Regulation 52</data>
+  <data key="d27">regulation:52</data>
+  <data key="d28">dcpr:regulation:52</data>
+  <data key="d29">DEPENDS_ON</data>
+</node>
+<node id="dcpr:scheme:33-11">
+  <data key="d0">Scheme</data>
+  <data key="d1">33(11)</data>
+  <data key="d2">Housing for Dishoused under 33(11)</data>
+  <data key="d3">MODELED_EXECUTABLE</data>
+</node>
+<node id="dcpr:scheme:33-7">
+  <data key="d0">Scheme</data>
+  <data key="d1">33(7)</data>
+  <data key="d2">Redevelopment of Cess Buildings under 33(7)</data>
+  <data key="d3">MODELED_EXECUTABLE</data>
+</node>
+<node id="dcpr:33-7:area-check">
+  <data key="d0">Condition</data>
+  <data key="d4">APPLICABILITY</data>
+  <data key="d5"></data>
+  <data key="d6">{'op': 'GTE', 'args': [{'kind': 'INPUT', 'id': 'gross_cluster_area'}, {'kind': 'FACT', 'id': 'dcpr:33-7:min-area'}]}</data>
+</node>
+<node id="dcpr:33-7:applicable-fsi">
+  <data key="d0">Formula</data>
+  <data key="d7">RATIO</data>
+  <data key="d8"></data>
+  <data key="d6">{'op': 'MAX', 'args': [{'kind': 'LITERAL', 'value': '3.0'}]}</data>
+  <data key="d9">[]</data>
+  <data key="d10">applicable_fsi</data>
+</node>
+<node id="ref:33-7-dep-52">
+  <data key="d0">Reference</data>
+  <data key="d26">depends on Regulation 52</data>
+  <data key="d27">regulation:52</data>
+  <data key="d28">dcpr:regulation:52</data>
+  <data key="d29">DEPENDS_ON</data>
+</node>
+<node id="dcpr:33-7:min-area">
+  <data key="d0">Fact</data>
+  <data key="d15"></data>
+  <data key="d24">concept:gross-cluster-area</data>
+  <data key="d16"></data>
+  <data key="d25">1000</data>
+</node>
+<node id="dcpr:scheme:58">
+  <data key="d0">Scheme</data>
+  <data key="d1">58</data>
+  <data key="d2">Development of Mill Lands under Regulation 58</data>
+  <data key="d3">MODELED_EXECUTABLE</data>
+</node>
+<node id="basic_ratio"/>
+<node id="incentive_bua"/>
+<node id="rehabilitation_fsi"/>
+<node id="incentive_fsi"/>
+<node id="applicable_fsi"/>
+<node id="maximum_fsi_counted_bua"/>
+<node id="HAS_CONDITION"/>
+<node id="USES_FORMULA"/>
+<node id="HAS_TABLE"/>
+<node id="HAS_INPUT"/>
+<node id="HAS_OUTPUT"/>
+<node id="RELATED_TO"/>
+<node id="DEPENDS_ON"/>
+<node id="REFERENCES"/>
+<edge source="dcpr:scheme:33-9" target="HAS_CONDITION">
+  <data key="d30">HAS_CONDITION</data>
+</edge>
+<edge source="dcpr:scheme:33-9" target="USES_FORMULA">
+  <data key="d30">USES_FORMULA</data>
+</edge>
+<edge source="dcpr:scheme:33-9" target="HAS_TABLE">
+  <data key="d30">HAS_TABLE</data>
+</edge>
+<edge source="dcpr:scheme:33-9" target="HAS_INPUT">
+  <data key="d30">HAS_INPUT</data>
+</edge>
+<edge source="dcpr:scheme:33-9" target="HAS_OUTPUT">
+  <data key="d30">HAS_OUTPUT</data>
+</edge>
+<edge source="dcpr:scheme:33-9" target="RELATED_TO">
+  <data key="d30">RELATED_TO</data>
+</edge>
+<edge source="dcpr:33-9:cluster-area-eligibility" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:road-access-eligibility" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:basic-ratio" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:incentive-bua" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:rehabilitation-fsi" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:incentive-fsi" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:applicable-fsi" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:maximum-fsi-counted-bua" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:33-9:balance-bua" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="output:applicable_fsi" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="output:maximum_fsi_counted_bua" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="dcpr:scheme:33-10" target="REFERENCES">
+  <data key="d30">REFERENCES</data>
+</edge>
+<edge source="ref:33-10-dep-52" target="REFERENCES">
+  <data key="d30">REFERENCES</data>
+</edge>
+<edge source="dcpr:scheme:33-7" target="HAS_CONDITION">
+  <data key="d30">HAS_CONDITION</data>
+</edge>
+<edge source="dcpr:scheme:33-7" target="USES_FORMULA">
+  <data key="d30">USES_FORMULA</data>
+</edge>
+<edge source="dcpr:scheme:33-7" target="HAS_INPUT">
+  <data key="d30">HAS_INPUT</data>
+</edge>
+<edge source="dcpr:scheme:33-7" target="HAS_OUTPUT">
+  <data key="d30">HAS_OUTPUT</data>
+</edge>
+<edge source="dcpr:scheme:33-7" target="REFERENCES">
+  <data key="d30">REFERENCES</data>
+</edge>
+<edge source="dcpr:scheme:33-7" target="RELATED_TO">
+  <data key="d30">RELATED_TO</data>
+</edge>
+<edge source="dcpr:33-7:area-check" target="DEPENDS_ON">
+  <data key="d30">DEPENDS_ON</data>
+</edge>
+<edge source="ref:33-7-dep-52" target="REFERENCES">
+  <data key="d30">REFERENCES</data>
+</edge>
+</graph></graphml>

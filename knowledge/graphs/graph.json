@@ -1,0 +1,1404 @@
+{
+  "metadata": {
+    "graph_schema_version": "1.0",
+    "knowledge_model_version": "1.0",
+    "generated_at": "2026-06-21T05:47:46.745439Z",
+    "generated_timestamp": "2026-06-21T05:47:46.745479Z",
+    "source_hash": "ce8b6aff46d6c0e7d77998e8fb529667bbda70205cb23ab8444d65219f81b91a",
+    "source_document_hash": "ce8b6aff46d6c0e7d77998e8fb529667bbda70205cb23ab8444d65219f81b91a"
+  },
+  "nodes": [
+    {
+      "id": "dcpr:regulation:52",
+      "label": "Regulation",
+      "citation": "52",
+      "title": "Transit Oriented Development (TOD) and Special Provisions",
+      "modeling_status": "STUB"
+    },
+    {
+      "id": "dcpr:scheme:replace-me",
+      "label": "Scheme",
+      "citation": null,
+      "title": null,
+      "modeling_status": "MODELED_EXECUTABLE"
+    },
+    {
+      "id": "dcpr:scheme:33-9",
+      "label": "Scheme",
+      "citation": "33(9)",
+      "title": "Reconstruction or redevelopment of Cluster(s) of Buildings under Cluster Development Scheme",
+      "modeling_status": "MODELED_EXECUTABLE"
+    },
+    {
+      "id": "dcpr:33-9:cluster-area-eligibility",
+      "label": "Condition",
+      "phase": "APPLICABILITY",
+      "message": "Gross cluster area must be at least the suburban threshold (6,000 sq. m) for suburban projects.",
+      "expression": {
+        "op": "GTE",
+        "args": [
+          {
+            "kind": "INPUT",
+            "id": "gross_cluster_area"
+          },
+          {
+            "kind": "FACT",
+            "id": "dcpr:33-9:suburbs-minimum-cluster-area"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dcpr:33-9:road-access-eligibility",
+      "label": "Condition",
+      "phase": "APPLICABILITY",
+      "message": "Access road width must be at least 18 metres.",
+      "expression": {
+        "op": "GTE",
+        "args": [
+          {
+            "kind": "INPUT",
+            "id": "access_road_width"
+          },
+          {
+            "kind": "FACT",
+            "id": "dcpr:33-9:ordinary-access-road-width"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dcpr:33-9:basic-ratio",
+      "label": "Formula",
+      "formula_type": "RATIO",
+      "raw_expression": "weighted_land_rate / construction_rate",
+      "expression": {
+        "op": "DIVIDE",
+        "args": [
+          {
+            "kind": "INPUT",
+            "id": "weighted_land_rate"
+          },
+          {
+            "kind": "INPUT",
+            "id": "construction_rate"
+          }
+        ]
+      },
+      "variable_bindings": [
+        {
+          "variable": "weighted_land_rate",
+          "source_kind": "INPUT",
+          "source_id": "weighted_land_rate",
+          "value_type": "DECIMAL"
+        },
+        {
+          "variable": "construction_rate",
+          "source_kind": "INPUT",
+          "source_id": "construction_rate",
+          "value_type": "DECIMAL"
+        }
+      ],
+      "output_id": "basic_ratio"
+    },
+    {
+      "id": "dcpr:33-9:incentive-bua",
+      "label": "Formula",
+      "formula_type": "ARITHMETIC",
+      "raw_expression": "certified_admissible_rehabilitation_bua * incentive_rate",
+      "expression": {
+        "op": "MULTIPLY",
+        "args": [
+          {
+            "kind": "INPUT",
+            "id": "certified_admissible_rehabilitation_bua"
+          },
+          {
+            "op": "LOOKUP",
+            "args": [
+              {
+                "kind": "FACT",
+                "id": "dcpr:33-9:table-b:incentive-rate"
+              },
+              {
+                "kind": "DERIVED",
+                "id": "basic_ratio"
+              },
+              {
+                "kind": "INPUT",
+                "id": "gross_cluster_area"
+              }
+            ]
+          }
+        ]
+      },
+      "variable_bindings": [
+        {
+          "variable": "certified_admissible_rehabilitation_bua",
+          "source_kind": "INPUT",
+          "source_id": "certified_admissible_rehabilitation_bua",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        },
+        {
+          "variable": "basic_ratio",
+          "source_kind": "DERIVED",
+          "source_id": "basic_ratio",
+          "value_type": "DECIMAL"
+        },
+        {
+          "variable": "gross_cluster_area",
+          "source_kind": "INPUT",
+          "source_id": "gross_cluster_area",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        }
+      ],
+      "output_id": "incentive_bua"
+    },
+    {
+      "id": "dcpr:33-9:rehabilitation-fsi",
+      "label": "Formula",
+      "formula_type": "RATIO",
+      "raw_expression": "certified_admissible_rehabilitation_bua / fsi_base_area",
+      "expression": {
+        "op": "DIVIDE",
+        "args": [
+          {
+            "kind": "INPUT",
+            "id": "certified_admissible_rehabilitation_bua"
+          },
+          {
+            "kind": "INPUT",
+            "id": "fsi_base_area"
+          }
+        ]
+      },
+      "variable_bindings": [
+        {
+          "variable": "certified_admissible_rehabilitation_bua",
+          "source_kind": "INPUT",
+          "source_id": "certified_admissible_rehabilitation_bua",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        },
+        {
+          "variable": "fsi_base_area",
+          "source_kind": "INPUT",
+          "source_id": "fsi_base_area",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        }
+      ],
+      "output_id": "rehabilitation_fsi"
+    },
+    {
+      "id": "dcpr:33-9:incentive-fsi",
+      "label": "Formula",
+      "formula_type": "RATIO",
+      "raw_expression": "incentive_bua / fsi_base_area",
+      "expression": {
+        "op": "DIVIDE",
+        "args": [
+          {
+            "kind": "DERIVED",
+            "id": "incentive_bua"
+          },
+          {
+            "kind": "INPUT",
+            "id": "fsi_base_area"
+          }
+        ]
+      },
+      "variable_bindings": [
+        {
+          "variable": "incentive_bua",
+          "source_kind": "DERIVED",
+          "source_id": "incentive_bua",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        },
+        {
+          "variable": "fsi_base_area",
+          "source_kind": "INPUT",
+          "source_id": "fsi_base_area",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        }
+      ],
+      "output_id": "incentive_fsi"
+    },
+    {
+      "id": "dcpr:33-9:applicable-fsi",
+      "label": "Formula",
+      "formula_type": "RATIO",
+      "raw_expression": "max(4.00, rehabilitation_fsi + incentive_fsi)",
+      "expression": {
+        "op": "MAX",
+        "args": [
+          {
+            "kind": "FACT",
+            "id": "dcpr:33-9:base-fsi-floor"
+          },
+          {
+            "op": "ADD",
+            "args": [
+              {
+                "kind": "DERIVED",
+                "id": "rehabilitation_fsi"
+              },
+              {
+                "kind": "DERIVED",
+                "id": "incentive_fsi"
+              }
+            ]
+          }
+        ]
+      },
+      "variable_bindings": [
+        {
+          "variable": "rehabilitation_fsi",
+          "source_kind": "DERIVED",
+          "source_id": "rehabilitation_fsi",
+          "value_type": "DECIMAL"
+        },
+        {
+          "variable": "incentive_fsi",
+          "source_kind": "DERIVED",
+          "source_id": "incentive_fsi",
+          "value_type": "DECIMAL"
+        },
+        {
+          "variable": "base_fsi_floor",
+          "source_kind": "FACT",
+          "source_id": "dcpr:33-9:base-fsi-floor",
+          "value_type": "DECIMAL"
+        }
+      ],
+      "output_id": "applicable_fsi"
+    },
+    {
+      "id": "dcpr:33-9:maximum-fsi-counted-bua",
+      "label": "Formula",
+      "formula_type": "ARITHMETIC",
+      "raw_expression": "applicable_fsi * fsi_base_area",
+      "expression": {
+        "op": "MULTIPLY",
+        "args": [
+          {
+            "kind": "DERIVED",
+            "id": "applicable_fsi"
+          },
+          {
+            "kind": "INPUT",
+            "id": "fsi_base_area"
+          }
+        ]
+      },
+      "variable_bindings": [
+        {
+          "variable": "applicable_fsi",
+          "source_kind": "DERIVED",
+          "source_id": "applicable_fsi",
+          "value_type": "DECIMAL"
+        },
+        {
+          "variable": "fsi_base_area",
+          "source_kind": "INPUT",
+          "source_id": "fsi_base_area",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        }
+      ],
+      "output_id": "maximum_fsi_counted_bua"
+    },
+    {
+      "id": "dcpr:33-9:balance-bua",
+      "label": "Formula",
+      "formula_type": "ALLOCATION",
+      "raw_expression": "maximum_fsi_counted_bua - (certified_admissible_rehabilitation_bua + incentive_bua)",
+      "expression": {
+        "op": "SUBTRACT",
+        "args": [
+          {
+            "kind": "DERIVED",
+            "id": "maximum_fsi_counted_bua"
+          },
+          {
+            "op": "ADD",
+            "args": [
+              {
+                "kind": "INPUT",
+                "id": "certified_admissible_rehabilitation_bua"
+              },
+              {
+                "kind": "DERIVED",
+                "id": "incentive_bua"
+              }
+            ]
+          }
+        ]
+      },
+      "variable_bindings": [
+        {
+          "variable": "maximum_fsi_counted_bua",
+          "source_kind": "DERIVED",
+          "source_id": "maximum_fsi_counted_bua",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        },
+        {
+          "variable": "certified_admissible_rehabilitation_bua",
+          "source_kind": "INPUT",
+          "source_id": "certified_admissible_rehabilitation_bua",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        },
+        {
+          "variable": "incentive_bua",
+          "source_kind": "DERIVED",
+          "source_id": "incentive_bua",
+          "value_type": "QUANTITY",
+          "unit": "square_metre"
+        }
+      ],
+      "output_id": "balance_bua"
+    },
+    {
+      "id": "dcpr:33-9:table-b:incentive-rate",
+      "label": "Table",
+      "title": "Table B: Incentive FSI Rate Table",
+      "table_type": "RATE_MATRIX",
+      "dimensions": [
+        {
+          "id": "basic_ratio",
+          "concept_type_id": "concept:basic-ratio",
+          "members": [
+            {
+              "id": "member:basic_ratio:gt6",
+              "label": "Basic Ratio > 6.00",
+              "lower_bound": "6.00",
+              "lower_inclusive": false,
+              "upper_bound": null,
+              "upper_inclusive": null,
+              "unit": "ratio"
+            },
+            {
+              "id": "member:basic_ratio:gt4_lte6",
+              "label": "Basic Ratio > 4.00 and <= 6.00",
+              "lower_bound": "4.00",
+              "lower_inclusive": false,
+              "upper_bound": "6.00",
+              "upper_inclusive": true,
+              "unit": "ratio"
+            },
+            {
+              "id": "member:basic_ratio:gt2_lte4",
+              "label": "Basic Ratio > 2.00 and <= 4.00",
+              "lower_bound": "2.00",
+              "lower_inclusive": false,
+              "upper_bound": "4.00",
+              "upper_inclusive": true,
+              "unit": "ratio"
+            },
+            {
+              "id": "member:basic_ratio:lte2",
+              "label": "Basic Ratio <= 2.00",
+              "lower_bound": null,
+              "lower_inclusive": null,
+              "upper_bound": "2.00",
+              "upper_inclusive": true,
+              "unit": "ratio"
+            }
+          ]
+        },
+        {
+          "id": "cluster_area",
+          "concept_type_id": "concept:gross-cluster-area",
+          "members": [
+            {
+              "id": "member:cluster_area:4k_10k",
+              "label": "Gross Cluster Area 4,000 to 10,000 sq. m",
+              "lower_bound": "4000",
+              "lower_inclusive": true,
+              "upper_bound": "10000",
+              "upper_inclusive": true,
+              "unit": "square_metre"
+            },
+            {
+              "id": "member:cluster_area:10k_50k",
+              "label": "Gross Cluster Area 10,000 to 50,000 sq. m",
+              "lower_bound": "10000",
+              "lower_inclusive": false,
+              "upper_bound": "50000",
+              "upper_inclusive": true,
+              "unit": "square_metre"
+            },
+            {
+              "id": "member:cluster_area:50k_100k",
+              "label": "Gross Cluster Area 50,000 to 100,000 sq. m",
+              "lower_bound": "50000",
+              "lower_inclusive": false,
+              "upper_bound": "100000",
+              "upper_inclusive": true,
+              "unit": "square_metre"
+            },
+            {
+              "id": "member:cluster_area:gt100k",
+              "label": "Gross Cluster Area > 100,000 sq. m",
+              "lower_bound": "100000",
+              "lower_inclusive": false,
+              "upper_bound": null,
+              "upper_inclusive": null,
+              "unit": "square_metre"
+            }
+          ]
+        }
+      ],
+      "cells": [
+        {
+          "id": "cell:table_b:r0c0",
+          "row": 0,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "55",
+          "normalized_value": 55,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt6",
+            "member:cluster_area:4k_10k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r0c1",
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "60",
+          "normalized_value": 60,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt6",
+            "member:cluster_area:10k_50k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r0c2",
+          "row": 0,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "65",
+          "normalized_value": 65,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt6",
+            "member:cluster_area:50k_100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r0c3",
+          "row": 0,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "70",
+          "normalized_value": 70,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt6",
+            "member:cluster_area:gt100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r1c0",
+          "row": 1,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "65",
+          "normalized_value": 65,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt4_lte6",
+            "member:cluster_area:4k_10k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r1c1",
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "70",
+          "normalized_value": 70,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt4_lte6",
+            "member:cluster_area:10k_50k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r1c2",
+          "row": 1,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "75",
+          "normalized_value": 75,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt4_lte6",
+            "member:cluster_area:50k_100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r1c3",
+          "row": 1,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "80",
+          "normalized_value": 80,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt4_lte6",
+            "member:cluster_area:gt100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r2c0",
+          "row": 2,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "75",
+          "normalized_value": 75,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt2_lte4",
+            "member:cluster_area:4k_10k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r2c1",
+          "row": 2,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "80",
+          "normalized_value": 80,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt2_lte4",
+            "member:cluster_area:10k_50k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r2c2",
+          "row": 2,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "85",
+          "normalized_value": 85,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt2_lte4",
+            "member:cluster_area:50k_100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r2c3",
+          "row": 2,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "90",
+          "normalized_value": 90,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:gt2_lte4",
+            "member:cluster_area:gt100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r3c0",
+          "row": 3,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "85",
+          "normalized_value": 85,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:lte2",
+            "member:cluster_area:4k_10k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r3c1",
+          "row": 3,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "90",
+          "normalized_value": 90,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:lte2",
+            "member:cluster_area:10k_50k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r3c2",
+          "row": 3,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "95",
+          "normalized_value": 95,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:lte2",
+            "member:cluster_area:50k_100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        },
+        {
+          "id": "cell:table_b:r3c3",
+          "row": 3,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "raw_text": "100",
+          "normalized_value": 100,
+          "value_type": "PERCENTAGE",
+          "unit": "percentage",
+          "dimension_member_ids": [
+            "member:basic_ratio:lte2",
+            "member:cluster_area:gt100k"
+          ],
+          "source_span_ids": [
+            "span:33-9:page-197"
+          ],
+          "confidence": {
+            "overall": 1.0,
+            "scoring_method": "deterministic-table-parser/v1",
+            "review_status": "VERIFIED"
+          }
+        }
+      ],
+      "output_concept_type_id": "concept:incentive-bua"
+    },
+    {
+      "id": "input:gross_cluster_area",
+      "label": "InputParameter",
+      "name": "gross_cluster_area",
+      "value_type": "QUANTITY",
+      "unit": "square_metre",
+      "required": true,
+      "resolution_source": "USER_INPUT",
+      "constraints": [
+        {
+          "expression": {
+            "op": "GT",
+            "args": [
+              {
+                "kind": "INPUT",
+                "id": "gross_cluster_area"
+              },
+              {
+                "kind": "LITERAL",
+                "value": "0"
+              }
+            ]
+          },
+          "message": "Gross cluster area must be positive."
+        }
+      ]
+    },
+    {
+      "id": "input:access_road_width",
+      "label": "InputParameter",
+      "name": "access_road_width",
+      "value_type": "QUANTITY",
+      "unit": "metre",
+      "required": true,
+      "resolution_source": "USER_INPUT",
+      "constraints": [
+        {
+          "expression": {
+            "op": "GT",
+            "args": [
+              {
+                "kind": "INPUT",
+                "id": "access_road_width"
+              },
+              {
+                "kind": "LITERAL",
+                "value": "0"
+              }
+            ]
+          },
+          "message": "Access road width must be positive."
+        }
+      ]
+    },
+    {
+      "id": "input:certified_admissible_rehabilitation_bua",
+      "label": "InputParameter",
+      "name": "certified_admissible_rehabilitation_bua",
+      "value_type": "QUANTITY",
+      "unit": "square_metre",
+      "required": true,
+      "resolution_source": "USER_INPUT",
+      "constraints": [
+        {
+          "expression": {
+            "op": "GT",
+            "args": [
+              {
+                "kind": "INPUT",
+                "id": "certified_admissible_rehabilitation_bua"
+              },
+              {
+                "kind": "LITERAL",
+                "value": "0"
+              }
+            ]
+          },
+          "message": "Certified rehab BUA must be positive."
+        }
+      ]
+    },
+    {
+      "id": "input:weighted_land_rate",
+      "label": "InputParameter",
+      "name": "weighted_land_rate",
+      "value_type": "DECIMAL",
+      "unit": "",
+      "required": true,
+      "resolution_source": "USER_INPUT",
+      "constraints": []
+    },
+    {
+      "id": "input:construction_rate",
+      "label": "InputParameter",
+      "name": "construction_rate",
+      "value_type": "DECIMAL",
+      "unit": "",
+      "required": true,
+      "resolution_source": "USER_INPUT",
+      "constraints": []
+    },
+    {
+      "id": "input:fsi_base_area",
+      "label": "InputParameter",
+      "name": "fsi_base_area",
+      "value_type": "QUANTITY",
+      "unit": "square_metre",
+      "required": true,
+      "resolution_source": "DERIVED",
+      "constraints": []
+    },
+    {
+      "id": "output:applicable_fsi",
+      "label": "OutputParameter",
+      "name": "applicable_fsi",
+      "value_type": "DECIMAL",
+      "producer_policy_ids": [
+        "dcpr:33-9:applicable-fsi"
+      ],
+      "nullable_statuses": [
+        "INDETERMINATE",
+        "CONFLICT"
+      ],
+      "validation_constraints": []
+    },
+    {
+      "id": "output:maximum_fsi_counted_bua",
+      "label": "OutputParameter",
+      "name": "maximum_fsi_counted_bua",
+      "value_type": "QUANTITY",
+      "producer_policy_ids": [
+        "dcpr:33-9:maximum-fsi-counted-bua"
+      ],
+      "nullable_statuses": [
+        "INDETERMINATE",
+        "CONFLICT"
+      ],
+      "validation_constraints": []
+    },
+    {
+      "id": "dcpr:33-9:base-fsi-floor",
+      "label": "Fact",
+      "name": "Base FSI Floor",
+      "concept_type_id": "concept:applicable-fsi",
+      "value_type": "DECIMAL",
+      "value": "4.00"
+    },
+    {
+      "id": "dcpr:33-9:island-city-minimum-cluster-area",
+      "label": "Fact",
+      "name": "Island City Minimum Cluster Area",
+      "concept_type_id": "concept:gross-cluster-area",
+      "value_type": "QUANTITY",
+      "value": {
+        "value": "4000",
+        "unit": "square_metre"
+      }
+    },
+    {
+      "id": "dcpr:33-9:suburbs-minimum-cluster-area",
+      "label": "Fact",
+      "name": "Suburbs Minimum Cluster Area",
+      "concept_type_id": "concept:gross-cluster-area",
+      "value_type": "QUANTITY",
+      "value": {
+        "value": "6000",
+        "unit": "square_metre"
+      }
+    },
+    {
+      "id": "dcpr:33-9:ordinary-access-road-width",
+      "label": "Fact",
+      "name": "Ordinary Access Road Width",
+      "concept_type_id": "concept:access-road-width",
+      "value_type": "QUANTITY",
+      "value": {
+        "value": "18",
+        "unit": "metre"
+      }
+    },
+    {
+      "id": "dcpr:scheme:33-10",
+      "label": "Scheme",
+      "citation": "33(10)",
+      "title": "Slum Rehabilitation Scheme under 33(10)",
+      "modeling_status": "MODELED_EXECUTABLE"
+    },
+    {
+      "id": "ref:33-10-dep-52",
+      "label": "Reference",
+      "mention_text": "depends on Regulation 52",
+      "normalized_target_citation": "regulation:52",
+      "target_entity_id": "dcpr:regulation:52",
+      "reference_type": "DEPENDS_ON"
+    },
+    {
+      "id": "dcpr:scheme:33-11",
+      "label": "Scheme",
+      "citation": "33(11)",
+      "title": "Housing for Dishoused under 33(11)",
+      "modeling_status": "MODELED_EXECUTABLE"
+    },
+    {
+      "id": "dcpr:scheme:33-7",
+      "label": "Scheme",
+      "citation": "33(7)",
+      "title": "Redevelopment of Cess Buildings under 33(7)",
+      "modeling_status": "MODELED_EXECUTABLE"
+    },
+    {
+      "id": "dcpr:33-7:area-check",
+      "label": "Condition",
+      "phase": "APPLICABILITY",
+      "message": "",
+      "expression": {
+        "op": "GTE",
+        "args": [
+          {
+            "kind": "INPUT",
+            "id": "gross_cluster_area"
+          },
+          {
+            "kind": "FACT",
+            "id": "dcpr:33-7:min-area"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dcpr:33-7:applicable-fsi",
+      "label": "Formula",
+      "formula_type": "RATIO",
+      "raw_expression": "",
+      "expression": {
+        "op": "MAX",
+        "args": [
+          {
+            "kind": "LITERAL",
+            "value": "3.0"
+          }
+        ]
+      },
+      "variable_bindings": [],
+      "output_id": "applicable_fsi"
+    },
+    {
+      "id": "ref:33-7-dep-52",
+      "label": "Reference",
+      "mention_text": "depends on Regulation 52",
+      "normalized_target_citation": "regulation:52",
+      "target_entity_id": "dcpr:regulation:52",
+      "reference_type": "DEPENDS_ON"
+    },
+    {
+      "id": "dcpr:33-7:min-area",
+      "label": "Fact",
+      "name": "",
+      "concept_type_id": "concept:gross-cluster-area",
+      "value_type": "",
+      "value": "1000"
+    },
+    {
+      "id": "dcpr:scheme:58",
+      "label": "Scheme",
+      "citation": "58",
+      "title": "Development of Mill Lands under Regulation 58",
+      "modeling_status": "MODELED_EXECUTABLE"
+    },
+    {
+      "id": "basic_ratio"
+    },
+    {
+      "id": "incentive_bua"
+    },
+    {
+      "id": "rehabilitation_fsi"
+    },
+    {
+      "id": "incentive_fsi"
+    },
+    {
+      "id": "applicable_fsi"
+    },
+    {
+      "id": "maximum_fsi_counted_bua"
+    }
+  ],
+  "links": [
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:cluster-area-eligibility",
+      "type": "HAS_CONDITION"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:road-access-eligibility",
+      "type": "HAS_CONDITION"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:basic-ratio",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:incentive-bua",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:rehabilitation-fsi",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:incentive-fsi",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:applicable-fsi",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:maximum-fsi-counted-bua",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:balance-bua",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:table-b:incentive-rate",
+      "type": "HAS_TABLE"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "input:gross_cluster_area",
+      "type": "HAS_INPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "input:access_road_width",
+      "type": "HAS_INPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "input:certified_admissible_rehabilitation_bua",
+      "type": "HAS_INPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "input:weighted_land_rate",
+      "type": "HAS_INPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "input:construction_rate",
+      "type": "HAS_INPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "input:fsi_base_area",
+      "type": "HAS_INPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "output:applicable_fsi",
+      "type": "HAS_OUTPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "output:maximum_fsi_counted_bua",
+      "type": "HAS_OUTPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:base-fsi-floor",
+      "type": "RELATED_TO"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:island-city-minimum-cluster-area",
+      "type": "RELATED_TO"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:suburbs-minimum-cluster-area",
+      "type": "RELATED_TO"
+    },
+    {
+      "source": "dcpr:scheme:33-9",
+      "target": "dcpr:33-9:ordinary-access-road-width",
+      "type": "RELATED_TO"
+    },
+    {
+      "source": "dcpr:33-9:cluster-area-eligibility",
+      "target": "input:gross_cluster_area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:cluster-area-eligibility",
+      "target": "dcpr:33-9:suburbs-minimum-cluster-area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:road-access-eligibility",
+      "target": "input:access_road_width",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:road-access-eligibility",
+      "target": "dcpr:33-9:ordinary-access-road-width",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:basic-ratio",
+      "target": "input:weighted_land_rate",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:basic-ratio",
+      "target": "input:construction_rate",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:incentive-bua",
+      "target": "input:certified_admissible_rehabilitation_bua",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:incentive-bua",
+      "target": "basic_ratio",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:incentive-bua",
+      "target": "input:gross_cluster_area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:incentive-bua",
+      "target": "dcpr:33-9:table-b:incentive-rate",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:rehabilitation-fsi",
+      "target": "input:certified_admissible_rehabilitation_bua",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:rehabilitation-fsi",
+      "target": "input:fsi_base_area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:incentive-fsi",
+      "target": "incentive_bua",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:incentive-fsi",
+      "target": "input:fsi_base_area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:applicable-fsi",
+      "target": "rehabilitation_fsi",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:applicable-fsi",
+      "target": "incentive_fsi",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:applicable-fsi",
+      "target": "dcpr:33-9:base-fsi-floor",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:maximum-fsi-counted-bua",
+      "target": "applicable_fsi",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:maximum-fsi-counted-bua",
+      "target": "input:fsi_base_area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:balance-bua",
+      "target": "maximum_fsi_counted_bua",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:balance-bua",
+      "target": "input:certified_admissible_rehabilitation_bua",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-9:balance-bua",
+      "target": "incentive_bua",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "output:applicable_fsi",
+      "target": "dcpr:33-9:applicable-fsi",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "output:maximum_fsi_counted_bua",
+      "target": "dcpr:33-9:maximum-fsi-counted-bua",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:scheme:33-10",
+      "target": "ref:33-10-dep-52",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "ref:33-10-dep-52",
+      "target": "dcpr:regulation:52",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "dcpr:scheme:33-7",
+      "target": "dcpr:33-7:area-check",
+      "type": "HAS_CONDITION"
+    },
+    {
+      "source": "dcpr:scheme:33-7",
+      "target": "dcpr:33-7:applicable-fsi",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "dcpr:scheme:33-7",
+      "target": "input:gross_cluster_area",
+      "type": "HAS_INPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-7",
+      "target": "output:applicable_fsi",
+      "type": "HAS_OUTPUT"
+    },
+    {
+      "source": "dcpr:scheme:33-7",
+      "target": "ref:33-7-dep-52",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "dcpr:scheme:33-7",
+      "target": "dcpr:33-7:min-area",
+      "type": "RELATED_TO"
+    },
+    {
+      "source": "dcpr:33-7:area-check",
+      "target": "input:gross_cluster_area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "dcpr:33-7:area-check",
+      "target": "dcpr:33-7:min-area",
+      "type": "DEPENDS_ON"
+    },
+    {
+      "source": "ref:33-7-dep-52",
+      "target": "dcpr:regulation:52",
+      "type": "REFERENCES"
+    }
+  ]
+}

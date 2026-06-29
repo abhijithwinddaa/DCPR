@@ -1,0 +1,70 @@
+# Template only. This is the common envelope for every DCPR scheme/regulation
+# capable of deterministic evaluation. It contains no scheme-specific fields.
+
+schema_version: dcpr-knowledge-model/v1
+
+package:
+  package_id: dcpr:package:replace-me
+  status: DRAFT
+  instrument_id: dcpr:instrument:replace-me
+  effective_period:
+    from: null
+    to: null
+  source_document_version_ids: []
+
+entity:
+  id: dcpr:scheme:replace-me
+  type: SCHEME
+  citation: null
+  title: null
+  aliases: []
+  source_span_ids: []
+
+imports:
+  definitions: []
+  concepts: []
+  shared_policies: []
+  regulations: []
+  appendices: []
+
+definitions: []
+
+facts: []
+
+references: []
+
+conditions:
+  applicability: []
+  eligibility: []
+  constraints: []
+
+exceptions: []
+
+formulae: []
+
+rate_tables: []
+
+area_treatments: []
+
+precedence_policies: []
+
+input_contract:
+  id: dcpr:input-contract:replace-me
+  fields: []
+
+output_contract:
+  id: dcpr:output-contract:replace-me
+  fields: []
+
+interpretations: []
+
+amendments: []
+
+coverage: []
+
+golden_scenarios: []
+
+approvals:
+  regulatory_reviewer: null
+  calculation_reviewer: null
+  approved_at: null

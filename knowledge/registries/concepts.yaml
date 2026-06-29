@@ -1,0 +1,55 @@
+# DCPR Canonical Concept Registry
+# Maps domain-specific regulatory terms to typed, validated concepts.
+
+concepts:
+  - id: concept:gross-cluster-area
+    label: Gross Cluster Area
+    value_type: QUANTITY
+    unit: square_metre
+    description: Total geographic area of the cluster boundary.
+
+  - id: concept:fsi-base-area
+    label: FSI Base Area
+    value_type: QUANTITY
+    unit: square_metre
+    description: The net plot area used as the denominator for FSI calculations after legal exclusions.
+
+  - id: concept:certified-admissible-rehabilitation-bua
+    label: Certified Admissible Rehabilitation BUA
+    value_type: QUANTITY
+    unit: square_metre
+    description: The total built-up area certified by MHADA/MCGM for rehabilitation of eligible occupants.
+
+  - id: concept:incentive-bua
+    label: Incentive BUA
+    value_type: QUANTITY
+    unit: square_metre
+    description: Built-up area allowed as incentive based on the rehabilitation area.
+
+  - id: concept:balance-bua
+    label: Balance BUA
+    value_type: QUANTITY
+    unit: square_metre
+    description: The remaining BUA after subtracting rehabilitation and incentive BUA from the maximum FSI BUA.
+
+  - id: concept:applicable-fsi
+    label: Applicable FSI
+    value_type: DECIMAL
+    description: The final Floor Space Index multiplier allowed for the scheme.
+
+  - id: concept:maximum-fsi-counted-bua
+    label: Maximum FSI-Counted BUA
+    value_type: QUANTITY
+    unit: square_metre
+    description: The maximum permissible built-up area counted towards FSI.
+
+  - id: concept:basic-ratio
+    label: Basic Ratio (LR/RC)
+    value_type: DECIMAL
+    description: The ratio of land rate to construction rate.
+
+  - id: concept:access-road-width
+    label: Access Road Width
+    value_type: QUANTITY
+    unit: metre
+    description: Width of the access road leading to the cluster site.

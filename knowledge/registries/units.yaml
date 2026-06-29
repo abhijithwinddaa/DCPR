@@ -1,0 +1,36 @@
+# DCPR Units Registry
+# Allowed units and dimensions used in regulatory equations.
+
+units:
+  - id: square_metre
+    dimension: AREA
+    symbol: m²
+    aliases:
+      - sq. m
+      - sq.m
+      - sq_metre
+
+  - id: metre
+    dimension: LENGTH
+    symbol: m
+    aliases:
+      - meter
+      - meters
+      - m.
+
+  - id: ratio
+    dimension: DIMENSIONLESS
+    symbol: ratio
+
+  - id: percentage
+    dimension: DIMENSIONLESS
+    symbol: %
+    aliases:
+      - percent
+
+  - id: currency_inr
+    dimension: CURRENCY
+    symbol: ₹
+    aliases:
+      - INR
+      - rupees

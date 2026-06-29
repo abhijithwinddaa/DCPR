@@ -1,0 +1,20 @@
+[2m11:55:48 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[2m11:55:48 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[2m11:55:48 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m11:55:48 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m11:55:48 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m11:55:48 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m11:55:51 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[2m11:55:51 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+[2m11:55:51 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m11:55:51 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m11:55:51 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m11:55:51 am[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[2m12:08:09 pm[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /documents[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m12:08:09 pm[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /documents[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)

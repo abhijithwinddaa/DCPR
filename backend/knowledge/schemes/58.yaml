@@ -1,0 +1,20 @@
+schema_version: dcpr-knowledge-model/v1
+package_metadata:
+  package_id: dcpr:package:58
+  status: DRAFT
+  instrument_id: dcpr:instrument:2034
+entities:
+- id: dcpr:scheme:58
+  type: SCHEME
+  citation: '58'
+  normalized_citation: regulation:58
+  title: Development of Mill Lands under Regulation 58
+  semantic_links:
+    reference_ids: []
+facts: []
+formulae: []
+tables: []
+conditions: []
+inputs: []
+outputs: []
+references: []

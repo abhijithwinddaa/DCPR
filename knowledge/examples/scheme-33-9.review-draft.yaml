@@ -1,0 +1,436 @@
+# REVIEW DRAFT — NOT LEGAL ADVICE OR AN AUTHORITATIVE CURRENT COMPILATION.
+#
+# This file demonstrates the Scheme 33(9) regulatory content first proposed in
+# docs/architecture-review-v2.md. Before implementation, it must be structurally
+# migrated to the generic corpus envelope in
+# docs/corpus-scale-architecture-v3.md. It pins one inspected
+# government-hosted compilation but records source conflicts that must be
+# resolved before the calculation release can be approved.
+
+schema_version: dcpr-knowledge-model/v1
+
+knowledge_release:
+  id: dcpr2034:33-9:review-draft-2026-06-20
+  title: Scheme 33(9) Cluster Development Scheme
+  status: REVIEW_DRAFT
+  jurisdiction: Greater Mumbai
+  regulation_family: DCPR 2034
+  target_outputs:
+    - applicable_fsi
+    - maximum_fsi_counted_bua
+    - fsi_contribution_ledger
+  blocking_findings:
+    - finding:33-9:source-version-conflict
+    - finding:33-9:fsi-area-basis-review
+
+sources:
+  - document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+    title: Development Control and Promotion Regulation 2034
+    authority_host: Maharashtra Directorate of Town Planning
+    url: https://dtp.maharashtra.gov.in/wp-content/uploads/2025/01/MUMBAI-DCPR.pdf
+    declared_effective_from: 2018-11-13
+    declared_compilation_cutoff: 2018-12-07
+    retrieved_at: 2026-06-20
+    sha256: 5c6f66ebe414c17922d7b874346208eebfdc93c979355aaca952f600ac4601a0
+    legal_currency: UNVERIFIED
+
+  - document_version_id: dcpr2034:mcgm:comparison-copy
+    title: DCPR 2034 and Notification
+    authority_host: Municipal Corporation of Greater Mumbai
+    url: https://www.mcgm.gov.in/irj/go/km/docs/documents/EODB/Construction%20Permit/Related%20Circulars/DCPR-%202034%20and%20Notification.pdf
+    retrieved_at: 2026-06-20
+    legal_currency: UNVERIFIED
+    role: CONFLICT_COMPARISON
+
+source_spans:
+  - id: span:33-9:opening
+    document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+    printed_page: 171
+    pdf_page: 188
+    provision: "33(9) opening paragraph"
+    decisive_fields_reviewed: false
+
+  - id: span:33-9:definition-access
+    document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+    printed_page: 172
+    pdf_page: 189
+    provision: "33(9) clause 1.1"
+    decisive_fields_reviewed: false
+
+  - id: span:33-9:rehab
+    document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+    printed_page: 177
+    pdf_page: 194
+    provision: "33(9) clause 5"
+    decisive_fields_reviewed: false
+
+  - id: span:33-9:total-fsi
+    document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+    printed_page: 178
+    pdf_page: 195
+    provision: "33(9) clause 6(a)"
+    decisive_fields_reviewed: false
+
+  - id: span:33-9:table-b
+    document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+    printed_page: 178
+    pdf_page: 195
+    provision: "33(9) clause 6(b), Table B"
+    decisive_fields_reviewed: false
+
+  - id: span:33-9:table-c
+    document_version_id: dcpr2034:compilation:2018-12-07:dtp-copy
+    printed_page: 179
+    pdf_page: 196
+    provision: "33(9) clause 6(c), Table C"
+    decisive_fields_reviewed: false
+
+conflicts:
+  - id: finding:33-9:source-version-conflict
+    severity: BLOCKER
+    status: OPEN
+    description: >
+      Government-hosted copies inspected during architecture review contain
+      different values for suburban minimum cluster area, overall consent, and
+      minimum slum rehabilitation carpet area.
+    required_resolution: >
+      Identify the legally applicable sanction notification and complete
+      amendment chain for the demo as-of date.
+
+  - id: finding:33-9:fsi-area-basis-review
+    severity: BLOCKER
+    status: OPEN
+    description: >
+      Clause 6(a) requires a reviewed interpretation of the phrase governing
+      FSI on gross plot area while excluding reservations, existing amenities,
+      road setback, and existing Municipal roads, and including specified BUA.
+    required_resolution: >
+      Approve an explicit AreaBasisPolicy and reservation/road BUA treatment.
+
+concepts:
+  - id: concept:gross-cluster-area
+    type: PlotArea
+    unit: square_metre
+
+  - id: concept:fsi-base-area
+    type: AreaBasis
+    unit: square_metre
+
+  - id: concept:certified-admissible-rehabilitation-bua
+    type: RehabilitationComponent
+    unit: square_metre
+    input_policy: REQUIRED_FOR_DEMO
+    note: >
+      The demo accepts certified rehab BUA and its component breakdown. It does
+      not invent a carpet-area-to-BUA conversion.
+
+  - id: concept:incentive-fsi
+    type: IncentiveFSI
+
+  - id: concept:fungible-compensatory-area
+    type: FungibleCompensatoryArea
+    fsi_treatment: EXCLUSIVE_OF_SCHEME_FSI
+
+  - id: concept:tdr
+    type: TransferableDevelopmentRight
+    fsi_treatment: GENERATES_TDR_OFFSITE
+
+facts:
+  - id: dcpr:33-9:base-fsi-floor
+    type: FloorSpaceIndexThreshold
+    value: "4.00"
+    source_span_ids:
+      - span:33-9:opening
+      - span:33-9:total-fsi
+    review_status: PENDING
+
+  - id: dcpr:33-9:island-city-minimum-cluster-area
+    type: PlotAreaThreshold
+    value: "4000"
+    unit: square_metre
+    source_span_ids:
+      - span:33-9:definition-access
+    review_status: PENDING
+
+  - id: dcpr:33-9:suburbs-minimum-cluster-area
+    type: PlotAreaThreshold
+    candidate_value: "6000"
+    unit: square_metre
+    source_span_ids:
+      - span:33-9:definition-access
+    review_status: SOURCE_CONFLICT
+
+  - id: dcpr:33-9:ordinary-access-road-width
+    type: RoadWidthThreshold
+    value: "18"
+    unit: metre
+    source_span_ids:
+      - span:33-9:definition-access
+    review_status: PENDING
+
+scheme:
+  id: dcpr:scheme:33-9
+  type: ClusterDevelopmentScheme
+  regulation_number: "33(9)"
+  name: Reconstruction or redevelopment of Cluster(s) of Buildings under CDS
+  source_span_ids:
+    - span:33-9:opening
+
+  required_inputs:
+    - as_of_date
+    - location_category
+    - gross_cluster_area
+    - reservation_area
+    - existing_amenity_area
+    - road_setback_area
+    - existing_municipal_road_area
+    - access_road_width
+    - certified_admissible_rehabilitation_bua
+    - weighted_land_rate
+    - construction_rate
+    - asr_year
+    - loi_year
+
+  applicability_policies:
+    - id: dcpr:33-9:cluster-area-eligibility
+      type: ApplicabilityPolicy
+      status: PENDING_SOURCE_CONFLICT_RESOLUTION
+      source_span_ids:
+        - span:33-9:definition-access
+
+    - id: dcpr:33-9:road-access-eligibility
+      type: RoadAccessPolicy
+      ordinary_minimum_width_fact: dcpr:33-9:ordinary-access-road-width
+      exceptions_require_authority_approval: true
+      source_span_ids:
+        - span:33-9:definition-access
+
+  area_basis_policy:
+    id: dcpr:33-9:fsi-area-basis
+    type: AreaBasisPolicy
+    status: PENDING_REVIEW
+    candidate_expression:
+      subtract:
+        - input: gross_cluster_area
+        - add:
+            - input: reservation_area
+            - input: existing_amenity_area
+            - input: road_setback_area
+            - input: existing_municipal_road_area
+    output: fsi_base_area
+    source_span_ids:
+      - span:33-9:total-fsi
+
+  bua_component_types:
+    - id: component:rehabilitation
+      type: RehabilitationComponent
+      fsi_treatment: COUNTED_IN_FSI
+
+    - id: component:incentive
+      type: IncentiveFSI
+      fsi_treatment: COUNTED_IN_FSI
+
+    - id: component:balance-promoter
+      type: SaleComponent
+      beneficiary: PROMOTER_DEVELOPER
+      fsi_treatment: COUNTED_IN_FSI
+
+    - id: component:balance-mhada
+      type: RehabilitationOrPublicHousingComponent
+      beneficiary: MHADA
+      fsi_treatment: COUNTED_IN_FSI
+
+    - id: component:fungible-rehabilitation
+      type: FungibleCompensatoryArea
+      component_restriction: REHABILITATION
+      fsi_treatment: EXCLUSIVE_OF_SCHEME_FSI
+
+    - id: component:unconsumed-incentive-tdr
+      type: TransferableDevelopmentRight
+      fsi_treatment: GENERATES_TDR_OFFSITE
+
+rate_tables:
+  - id: dcpr:33-9:table-b:incentive-rate
+    type: IncentiveFSIRateTable
+    result_unit: percent_of_admissible_rehabilitation_bua
+    source_span_ids:
+      - span:33-9:table-b
+    dimensions:
+      basic_ratio:
+        - { band: "greater_than_6", lower_exclusive: "6.00" }
+        - { band: "greater_than_4_up_to_6", lower_exclusive: "4.00", upper_inclusive: "6.00" }
+        - { band: "greater_than_2_up_to_4", lower_exclusive: "2.00", upper_inclusive: "4.00" }
+        - { band: "up_to_2", upper_inclusive: "2.00" }
+      cluster_area:
+        - { band: "0_4ha_up_to_1ha", lower_inclusive: "4000", upper_inclusive: "10000", unit: square_metre }
+        - { band: "more_than_1ha_up_to_5ha", lower_exclusive: "10000", upper_inclusive: "50000", unit: square_metre }
+        - { band: "more_than_5ha_up_to_10ha", lower_exclusive: "50000", upper_inclusive: "100000", unit: square_metre }
+        - { band: "more_than_10ha", lower_exclusive: "100000", unit: square_metre }
+    values:
+      greater_than_6:
+        0_4ha_up_to_1ha: "55"
+        more_than_1ha_up_to_5ha: "60"
+        more_than_5ha_up_to_10ha: "65"
+        more_than_10ha: "70"
+      greater_than_4_up_to_6:
+        0_4ha_up_to_1ha: "65"
+        more_than_1ha_up_to_5ha: "70"
+        more_than_5ha_up_to_10ha: "75"
+        more_than_10ha: "80"
+      greater_than_2_up_to_4:
+        0_4ha_up_to_1ha: "75"
+        more_than_1ha_up_to_5ha: "80"
+        more_than_5ha_up_to_10ha: "85"
+        more_than_10ha: "90"
+      up_to_2:
+        0_4ha_up_to_1ha: "85"
+        more_than_1ha_up_to_5ha: "90"
+        more_than_5ha_up_to_10ha: "95"
+        more_than_10ha: "100"
+    review_status: PENDING
+
+  - id: dcpr:33-9:table-c:balance-sharing
+    type: BalanceFSIAllocationTable
+    source_span_ids:
+      - span:33-9:table-c
+    values:
+      greater_than_6:
+        promoter_developer_percent: "30"
+        mhada_percent: "70"
+      greater_than_4_up_to_6:
+        promoter_developer_percent: "35"
+        mhada_percent: "65"
+      greater_than_2_up_to_4:
+        promoter_developer_percent: "40"
+        mhada_percent: "60"
+      up_to_2:
+        promoter_developer_percent: "45"
+        mhada_percent: "55"
+    review_status: PENDING
+
+formulas:
+  - id: dcpr:33-9:basic-ratio
+    type: Formula
+    expression:
+      divide:
+        - input: weighted_land_rate
+        - input: construction_rate
+    output: basic_ratio
+    precision_policy: NO_INTERMEDIATE_ROUNDING
+    source_span_ids:
+      - span:33-9:table-b
+
+  - id: dcpr:33-9:incentive-bua
+    type: Formula
+    expression:
+      multiply:
+        - input: certified_admissible_rehabilitation_bua
+        - lookup_percent:
+            table_id: dcpr:33-9:table-b:incentive-rate
+            by:
+              basic_ratio: basic_ratio
+              cluster_area: gross_cluster_area
+    output: incentive_bua
+    source_span_ids:
+      - span:33-9:table-b
+
+  - id: dcpr:33-9:rehabilitation-fsi
+    type: Formula
+    expression:
+      divide:
+        - input: certified_admissible_rehabilitation_bua
+        - input: fsi_base_area
+    output: rehabilitation_fsi
+
+  - id: dcpr:33-9:incentive-fsi
+    type: Formula
+    expression:
+      divide:
+        - input: incentive_bua
+        - input: fsi_base_area
+    output: incentive_fsi
+
+  - id: dcpr:33-9:applicable-fsi
+    type: Formula
+    expression:
+      max:
+        - fact: dcpr:33-9:base-fsi-floor
+        - add:
+            - input: rehabilitation_fsi
+            - input: incentive_fsi
+    output: applicable_fsi
+    source_span_ids:
+      - span:33-9:total-fsi
+
+  - id: dcpr:33-9:maximum-fsi-counted-bua
+    type: Formula
+    expression:
+      multiply:
+        - input: applicable_fsi
+        - input: fsi_base_area
+    output: maximum_fsi_counted_bua
+    source_span_ids:
+      - span:33-9:total-fsi
+
+  - id: dcpr:33-9:balance-bua
+    type: Formula
+    applies_when:
+      less_than:
+        - add:
+            - input: rehabilitation_fsi
+            - input: incentive_fsi
+        - fact: dcpr:33-9:base-fsi-floor
+    expression:
+      subtract:
+        - input: maximum_fsi_counted_bua
+        - add:
+            - input: certified_admissible_rehabilitation_bua
+            - input: incentive_bua
+    output: balance_bua
+    source_span_ids:
+      - span:33-9:table-c
+
+output_contract:
+  applicable_fsi:
+    type: decimal
+    nullable_when:
+      - INDETERMINATE
+      - SOURCE_CONFLICT
+
+  maximum_fsi_counted_bua:
+    type: quantity
+    unit: square_metre
+    nullable_when:
+      - AREA_BASIS_UNAPPROVED
+      - INDETERMINATE
+
+  fsi_contribution_ledger:
+    type: list
+    required_fields:
+      - component_id
+      - bua
+      - fsi
+      - fsi_treatment
+      - beneficiary
+      - source_span_ids
+
+coverage:
+  - provision: "33(9) opening and clause 6 core FSI calculation"
+    state: MODELED_EXECUTABLE
+    approval: PENDING
+
+  - provision: "33(9) Tables B and C"
+    state: MODELED_EXECUTABLE
+    approval: PENDING
+
+  - provision: "33(9) rehabilitation entitlement details"
+    state: MODELED_NON_EXECUTABLE
+    note: Certified admissible rehabilitation BUA is an input for the demo.
+
+  - provision: "33(9) reservation, amenity, heritage, TDR, transit and phasing clauses"
+    state: PENDING_REVIEW
+
+approvals:
+  regulatory_reviewer: null
+  calculation_reviewer: null
+  approved_at: null

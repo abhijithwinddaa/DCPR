@@ -1,0 +1,28 @@
+schema_version: dcpr-knowledge-model/v1
+package_metadata:
+  package_id: dcpr:package:33-10
+  status: DRAFT
+  instrument_id: dcpr:instrument:2034
+entities:
+- id: dcpr:scheme:33-10
+  type: SCHEME
+  citation: 33(10)
+  normalized_citation: regulation:33:subregulation:10
+  title: Slum Rehabilitation Scheme under 33(10)
+  semantic_links:
+    reference_ids:
+    - ref:33-10-dep-52
+facts: []
+formulae: []
+tables: []
+conditions: []
+inputs: []
+outputs: []
+references:
+- id: ref:33-10-dep-52
+  from_entity_id: dcpr:scheme:33-10
+  mention_text: depends on Regulation 52
+  normalized_target_citation: regulation:52
+  target_entity_id: dcpr:regulation:52
+  reference_type: DEPENDS_ON
+  resolution_status: RESOLVED
