@@ -79,7 +79,7 @@ def on_startup():
     def _warmup_ollama():
         # Check if Ollama service is reachable, start if offline
         try:
-            urllib.request.urlopen("http://localhost:11434/api/tags", timeout=2)
+            urllib.request.urlopen("http://127.0.0.1:11434/api/tags", timeout=2)
             print("[Startup] Ollama service verified active on port 11434.")
         except Exception:
             print("[Startup] Ollama offline. Auto-launching 'ollama serve' process...")
