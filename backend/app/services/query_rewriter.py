@@ -87,7 +87,7 @@ Return ONLY a raw JSON object matching:
         }
 
         try:
-            async with httpx.AsyncClient(timeout=45.0) as client:
+            async with httpx.AsyncClient(timeout=float(settings.OLLAMA_TIMEOUT)) as client:
                 res = await client.post(settings.OLLAMA_URL, json=payload)
                 if res.status_code == 200:
                     body = res.json()
