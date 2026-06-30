@@ -7,12 +7,12 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/documents': 'http://localhost:8000',
-      '/calculate': 'http://localhost:8000',
-      '/ask': 'http://localhost:8000',
-      '/ask-document': 'http://localhost:8000',
-      '/rag': 'http://localhost:8000',
-      '/graph': 'http://localhost:8000',
+      '/documents': 'http://127.0.0.1:8000',
+      '/calculate': 'http://127.0.0.1:8000',
+      '/ask': 'http://127.0.0.1:8000',
+      '/ask-document': 'http://127.0.0.1:8000',
+      '/rag': 'http://127.0.0.1:8000',
+      '/graph': 'http://127.0.0.1:8000',
     }
   },
 })
