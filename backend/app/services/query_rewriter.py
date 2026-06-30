@@ -45,8 +45,9 @@ class ProductionQueryRewriterService:
     async def rewrite_query_async(cls, raw_query: str, history_context: str = "") -> RewrittenQueryPayload:
         clean_q = raw_query.strip().lower()
 
-        # 1. Quick-Win Lookup (0ms)
-        for key, mapped_term in cls.STATIC_LEGAL_MAP.items():
+        # 1. Quick-Win Lookup (0ms) - Match longer phrases first
+        for key in sorted(cls.STATIC_LEGAL_MAP.keys(), key=len, reverse=True):
+            mapped_term = cls.STATIC_LEGAL_MAP[key]
             if key in clean_q:
                 normalized = re.sub(re.escape(key), mapped_term, raw_query, flags=re.IGNORECASE)
                 return RewrittenQueryPayload(
@@ -97,7 +98,9 @@ Return ONLY a raw JSON object matching:
                         cls._ttl_cache[clean_q] = (result, now)
                         return result
         except Exception as e:
-            print(f"[CircuitBreaker] Query rewriter error: {e}")
+            import traceback
+            print(f"[CircuitBreaker] Query rewriter error ({type(e).__name__}): {e}")
+            traceback.print_exc()
             cls._circuit_open = True
             cls._last_failure_time = now
 
